@@ -1,0 +1,123 @@
+{ config, pkgs, ... }:
+{
+  home.username    = "kadam-x";
+  home.homeDirectory = "/home/kadam-x";
+  home.stateVersion  = "25.11";
+
+  programs.zsh = {
+    enable = true;
+    autosuggestion.enable    = true;
+    syntaxHighlighting.enable = true;
+
+    plugins = [
+      {
+        name = "fzf-tab";
+        src  = pkgs.zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
+      }
+    ];
+
+    history = {
+      ignoreDups  = true;
+      ignoreSpace = true;
+      share       = true;
+    };
+
+    shellAliases = {
+      l  = "eza -lh --icons=auto";
+      ld = "eza -lhD --icons=auto";
+      ll = "eza -lha --icons=auto --sort=name --group-directories-first";
+      ls = "eza -1 --icons=auto";
+      lt = "eza --icons=auto --tree";
+    };
+
+    initContent = ''
+      HELPDIR="/usr/share/zsh/help"
+
+      zstyle ':completion:*' menu no
+      zstyle ':completion:*:default' list-colors "''${(s.:.)LS_COLORS}" 'ma=48;5;4;fg=15'
+      zstyle ':completion:*:descriptions' format '[%d]'
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+      zstyle ':fzf-tab:*' switch-group '<' '>'
+
+      if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
+        export KITTY_SHELL_INTEGRATION="no-rc"
+        autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
+        kitty-integration
+        unfunction kitty-integration
+      fi
+
+      _z_tab() {
+        if [[ "$BUFFER" == "z" ]] || [[ "$BUFFER" == z\ * ]]; then
+          local query="''${BUFFER#z }"
+          BUFFER=""
+          CURSOR=0
+          zle -R
+          zi --query "$query"
+          zle reset-prompt
+          return
+        fi
+        if (( ''${+widgets[fzf-tab-complete]} )); then
+          zle fzf-tab-complete
+        else
+          zle expand-or-complete
+        fi
+      }
+      zle -N _z_tab
+      bindkey '\t' _z_tab
+
+      export EDITOR=nvim
+      export VISUAL=nvim
+      export SUDO_EDITOR=nvim
+
+      export BUN_INSTALL="$HOME/.bun"
+      export PATH="$BUN_INSTALL/bin:$PATH"
+      [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+      [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+    '';
+  };
+
+  programs.fzf.enable      = true;
+  programs.starship.enable = true;
+  programs.zoxide = {
+    enable  = true;
+    options = [ "--cmd cd" ];
+  };
+
+  home.packages = with pkgs; [
+    rofi
+    neovim
+    yadm
+    qutebrowser
+    kitty
+    wl-clipboard
+    slurp
+    grim
+    yazi
+    workstyle
+    btop
+    ripgrep
+    ncdu
+    pulsemixer
+    brave
+    librewolf
+    cmake
+    dbeaver-bin
+    vlc
+    gimp
+    telegram-desktop
+    obsidian
+    lutgen
+    jq
+    nodejs_24
+    bun
+    mpv
+    opencode
+    nwg-look
+    unzip
+    swaybg
+    uv
+    eza
+  ];
+}
