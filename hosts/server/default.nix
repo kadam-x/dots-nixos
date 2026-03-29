@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ./disk-config.nix ];
+  imports = [ ./disk-config.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
