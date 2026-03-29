@@ -1,11 +1,7 @@
 { lib, pkgs, ... }:
 {
   imports = [
-    ./lsp.nix
-    ./treesitter.nix
-    ./completion.nix
-    ./ui.nix
-    ./tools.nix
+    ./plugins/default.nix
   ];
 
   programs.nvf = {
