@@ -8,6 +8,8 @@
     ./modules/workstyle.nix
     ./modules/tmux.nix
     ./modules/nvim/default.nix
+    ./modules/sway.nix
+    ./modules/rofi.nix
   ];
 
   home.username = "kadam-x";
