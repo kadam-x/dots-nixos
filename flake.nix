@@ -1,6 +1,4 @@
 {
-  description = "kadam-x nixos config";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -13,11 +11,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -26,12 +19,11 @@
       nixpkgs,
       home-manager,
       nvf,
-      disko,
       ...
     }:
     let
       mkSystem =
-        host: extraModules:
+        host:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -48,15 +40,14 @@
                 ];
               };
             }
-          ]
-          ++ extraModules;
+          ];
         };
     in
     {
       nixosConfigurations = {
-        main-pc = mkSystem "main-pc" [ ];
-        laptop = mkSystem "laptop" [ ];
-        server = mkSystem "server" [ disko.nixosModules.disko ];
+        main-pc = mkSystem "main-pc";
+        laptop = mkSystem "laptop";
+        server = mkSystem "server";
       };
     };
 }

@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./disk-config.nix ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -54,6 +54,11 @@
 
   programs.zsh.enable = true;
   programs.ssh.startAgent = true;
+
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+  };
 
   virtualisation.docker.enable = true;
 
