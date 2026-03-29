@@ -1,5 +1,14 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    ./modules/kitty.nix
+    ./modules/starship.nix
+    ./modules/waybar.nix
+    ./modules/workstyle.nix
+    ./modules/nvim/default.nix
+  ];
+
+
   home.username    = "kadam-x";
   home.homeDirectory = "/home/kadam-x";
   home.stateVersion  = "25.11";
@@ -87,7 +96,6 @@
 
   home.packages = with pkgs; [
     rofi
-    neovim
     yadm
     qutebrowser
     kitty

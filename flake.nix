@@ -6,11 +6,15 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, nvf, ... }:
   let
-    # Helper to reduce repetition when adding machines
     mkSystem = host: nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
@@ -19,7 +23,13 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.kadam-x = import ./home/default.nix;
+          home-manager.backupFileExtension = "bak";
+          home-manager.users.kadam-x = {
+            imports = [
+              nvf.homeManagerModules.default
+              (import ./home/default.nix)
+            ];
+          };
         }
       ];
     };
