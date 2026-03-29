@@ -7,8 +7,8 @@
     ./modules/nvim/default.nix
     ./modules/tmux.nix
     ./modules/sway.nix
-    ./modules/waybar.nix
-    ./modules/rofi.nix
+    ./modules/waybar-laptop.nix
+    ./modules/rofi-laptop.nix
     ./modules/theme.nix
     ./modules/qutebrowser.nix
   ];
@@ -50,5 +50,6 @@
     uv
     eza
     sioyek
+    nmtui
   ];
 }

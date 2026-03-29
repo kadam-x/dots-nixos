@@ -115,6 +115,12 @@
         }
         {
           criteria = {
+            app_id = "nmtui";
+          };
+          command = "floating enable, resize set 600 400, move position center";
+        }
+        {
+          criteria = {
             app_id = "kitty-notes";
           };
           command = "floating enable, resize set 1000 800, move position center";
