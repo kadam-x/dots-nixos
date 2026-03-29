@@ -2,12 +2,12 @@
 {
   imports = [
     ./modules/zsh.nix
-    ./modules/kitty.nix
     ./modules/starship.nix
+    ./modules/kitty.nix
     ./modules/waybar.nix
     ./modules/workstyle.nix
-    ./modules/tmux.nix
     ./modules/nvim/default.nix
+    ./modules/tmux.nix
     ./modules/sway.nix
     ./modules/rofi.nix
     ./modules/theme.nix
@@ -19,6 +19,8 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
+    wget
+    git
     rofi
     qutebrowser
     kitty
@@ -45,10 +47,10 @@
     bun
     mpv
     opencode
-    unzip
     swaybg
     uv
-    eza
     sioyek
+    eza
+    unzip
   ];
 }

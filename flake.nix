@@ -1,4 +1,6 @@
 {
+  description = "kadam-x nixos config";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -13,32 +15,41 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nvf, ... }:
-  let
-    mkSystem = host: nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = [
-        ./hosts/${host}/default.nix
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = true;
-          home-manager.useUserPackages = true;
-          home-manager.backupFileExtension = "bak";
-          home-manager.users.kadam-x = {
-            imports = [
-              nvf.homeManagerModules.default
-              (import ./home/default.nix)
-            ];
-          };
-        }
-      ];
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nvf,
+      ...
+    }:
+    let
+      mkSystem =
+        host:
+        nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/${host}/default.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "bak";
+              home-manager.users.kadam-x = {
+                imports = [
+                  nvf.homeManagerModules.default
+                  ./home/${host}.nix
+                ];
+              };
+            }
+          ];
+        };
+    in
+    {
+      nixosConfigurations = {
+        main-pc = mkSystem "main-pc";
+        laptop = mkSystem "laptop";
+        server = mkSystem "server";
+      };
     };
-  in
-  {
-    nixosConfigurations = {
-      main-pc = mkSystem "main-pc";
-      laptop  = mkSystem "laptop";
-      server  = mkSystem "server";
-    };
-  };
 }
