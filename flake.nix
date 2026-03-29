@@ -13,6 +13,11 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -21,11 +26,12 @@
       nixpkgs,
       home-manager,
       nvf,
+      disko,
       ...
     }:
     let
       mkSystem =
-        host:
+        host: extraModules:
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
@@ -42,14 +48,15 @@
                 ];
               };
             }
-          ];
+          ]
+          ++ extraModules;
         };
     in
     {
       nixosConfigurations = {
-        main-pc = mkSystem "main-pc";
-        laptop = mkSystem "laptop";
-        server = mkSystem "server";
+        main-pc = mkSystem "main-pc" [ ];
+        laptop = mkSystem "laptop" [ ];
+        server = mkSystem "server" [ disko.nixosModules.disko ];
       };
     };
 }
