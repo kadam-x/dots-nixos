@@ -10,6 +10,8 @@
     ./modules/nvim/default.nix
     ./modules/sway.nix
     ./modules/rofi.nix
+    ./modules/theme.nix
+    ./modules/qutebrowser.nix
   ];
 
   home.username = "kadam-x";
@@ -43,10 +45,10 @@
     bun
     mpv
     opencode
-    nwg-look
     unzip
     swaybg
     uv
     eza
+    sioyek
   ];
 }

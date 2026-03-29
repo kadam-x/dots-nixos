@@ -10,7 +10,7 @@
 
       defaultWorkspace = "workspace number 1";
 
-      bars = [ ]; # waybar handles this
+      bars = [ ];
 
       gaps = {
         inner = 5;
@@ -138,6 +138,12 @@
           mod = "Mod4";
         in
         {
+          # Volume
+          "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+          "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+          "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+          "${mod}+equal" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+          "${mod}+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
           # Apps
           "${mod}+Return" = "exec kitty";
           "${mod}+b" = "exec qutebrowser";
@@ -160,7 +166,7 @@
           "${mod}+BackSpace" = "reload";
           "${mod}+q" = "kill";
           "${mod}+v" = "floating toggle";
-          "Ctrl+Escape" = "exec killall waybar || waybar";
+          "Ctrl+Escape" = "exec pkill -x waybar || waybar";
 
           # Focus
           "${mod}+h" = "focus left";
@@ -202,26 +208,6 @@
       startup = [
         {
           command = "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";
-          always = true;
-        }
-        {
-          command = "gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic";
-          always = true;
-        }
-        {
-          command = "gsettings set org.gnome.desktop.interface icon-theme retrosmart";
-          always = true;
-        }
-        {
-          command = "gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark";
-          always = true;
-        }
-        {
-          command = "gsettings set org.gnome.desktop.interface color-scheme prefer-dark";
-          always = true;
-        }
-        {
-          command = "gsettings set org.gnome.desktop.interface cursor-size 28";
           always = true;
         }
         {
