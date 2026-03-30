@@ -123,7 +123,7 @@
 
       window#waybar {
         background: rgba(0, 0, 0, 0.7);
-        color: #727169;
+        color: #9b8d7f;
       }
 
       tooltip {
@@ -133,7 +133,7 @@
 
       #clock, #tray, #cpu, #memory, #battery,
       #network, #disk, #pulseaudio {
-        color: #727169;
+        color: #9b8d7f;
         margin: 2px 2px 0px 0px;
         padding: 2px 8px;
       }
@@ -145,7 +145,7 @@
       #network.disconnected { color: #c34043; }
 
       #custom-oslogo {
-        color: #727169;
+        color: #9b8d7f;
         margin-right: 6px;
         margin-left: 2px;
         padding-left: 2px;
@@ -153,8 +153,8 @@
       }
 
       #workspaces button.empty   { color: #54546d; background-color: transparent; }
-      #workspaces button         { color: #727169; background-color: transparent; margin: 0 2px; padding: 0 2px; }
-      #workspaces button.focused { background-color: #727169; color: #181616; margin: 0 2px; padding: 0 2px; }
+      #workspaces button         { color: #9b8d7f; background-color: transparent; margin: 0 2px; padding: 0 2px; }
+      #workspaces button.focused { background-color: #9b8d7f; color: #181616; margin: 0 2px; padding: 0 2px; }
       #workspaces button.visible { background-color: transparent; color: white; opacity: 0.8; margin: 0 2px; padding: 0 2px; }
       #workspaces button.urgent  { background-color: #c34043; color: #181616; margin: 0 2px; padding: 0 2px; }
     '';

@@ -99,7 +99,7 @@
 
       window#waybar {
         background: rgba(0, 0, 0, 0.7);
-        color: #727169;
+        color: #9b8d7f;
       }
 
       tooltip {
@@ -109,15 +109,15 @@
 
       #clock, #tray, #cpu, #memory, #battery,
       #network, #disk, #pulseaudio {
-        color: #727169;
+        color: #9b8d7f;
         margin: 2px 2px 0px 0px;
         padding: 2px 8px;
       }
 
       #workspaces button.empty   { color: #54546d; background-color: transparent; }
-      #workspaces button         { color: #727169; background-color: transparent; margin: 0 2px; padding: 0 2px; }
-      #workspaces button.focused { background-color: #727169; color: #181616; margin: 0 2px; padding: 0 2px; }
-      #workspaces button.visible { background-color: #727169; color: #121212; margin: 0 2px; padding: 0 2px; }
+      #workspaces button         { color: #9b8d7f; background-color: transparent; margin: 0 2px; padding: 0 2px; }
+      #workspaces button.focused { background-color: #9b8d7f; color: #181616; margin: 0 2px; padding: 0 2px; }
+      #workspaces button.visible { background-color: #9b8d7f; color: #121212; margin: 0 2px; padding: 0 2px; }
       #workspaces button.urgent  { background-color: #c34043; color: #181616; margin: 0 2px; padding: 0 2px; }
     '';
   };

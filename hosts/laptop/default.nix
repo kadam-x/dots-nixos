@@ -2,6 +2,12 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  environment.loginShellInit = ''
+    if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+      exec sway
+    fi
+  '';
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 3;
@@ -40,7 +46,7 @@
   };
   services.resolved = {
     enable = true;
-    dnssec = "false";
+    settings.Resolve.DNSSEC = "false";
   };
 
   security.rtkit.enable = true;

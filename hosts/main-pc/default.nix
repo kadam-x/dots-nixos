@@ -2,6 +2,12 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
+  environment.loginShellInit = ''
+    if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+      exec sway
+    fi
+  '';
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
@@ -36,7 +42,7 @@
 
   services.resolved = {
     enable = true;
-    dnssec = "false";
+    settings.Resolve.DNSSEC = "false";
   };
 
   networking.enableIPv6 = false;

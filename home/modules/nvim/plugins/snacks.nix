@@ -45,7 +45,7 @@
                 vim.keymap.set("n", "<leader>fd", function() Snacks.picker.diagnostics() end,       { desc = "Diagnostics" })
                 vim.keymap.set("n", "<leader>fn", function() Snacks.picker.files({ cwd = "/etc/nixos/home/modules/nvim" }) end, { desc = "Neovim Config Files" })
                 vim.keymap.set("n", "<leader>td", function() Snacks.picker.grep({ search = "TODO|PERF|HACK|NOTE|FIX|FIXME", live = false }) end, { desc = "TODO list" })
-                vim.keymap.set("n", "<leader>x",  function() Snacks.bufdelete() end,               { desc = "Delete Buffer" })
+                vim.keymap.set("n", "X",  function() Snacks.bufdelete() end,               { desc = "Delete Buffer" })
       '';
     };
   };
