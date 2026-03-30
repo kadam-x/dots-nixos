@@ -11,7 +11,7 @@
       content.autoplay = false;
       content.notifications.enabled = false;
       content.geolocation = false;
-      content.javascript.clipboard = "none";
+      content.javascript.clipboard = "access";
       scrolling.smooth = true;
       zoom.default = "100%";
       statusbar.show = "in-mode";

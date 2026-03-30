@@ -225,7 +225,6 @@
           always = true;
         }
         { command = "/usr/lib/polkit-kde-authentication-agent-1"; }
-        { command = "waybar"; }
         { command = "dunst"; }
         { command = "swww-daemon"; }
         { command = "wl-paste --type text --watch cliphist store"; }

@@ -12,6 +12,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.configurationLimit = 3;
 
+  services.displayManager.ly.enable = true;
+
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
   networking.enableIPv6 = false;

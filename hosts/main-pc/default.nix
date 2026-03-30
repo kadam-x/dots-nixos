@@ -13,6 +13,8 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.loader.systemd-boot.configurationLimit = 3;
 
+  services.displayManager.ly.enable = true;
+
   networking.hostName = "main-pc";
   networking.networkmanager.enable = true;
   nix.gc = {

@@ -1,7 +1,25 @@
 { lib, pkgs, ... }:
 {
   imports = [
-    ./plugins/default.nix
+    ./plugins/barbar.nix
+    ./plugins/base16-bmg-colorscheme.nix
+    ./plugins/blink.nix
+    ./plugins/flash.nix
+    ./plugins/guess-indent.nix
+    ./plugins/lualine.nix
+    ./plugins/mini-icons.nix
+    ./plugins/mini-pairs.nix
+    ./plugins/mini-surround.nix
+    ./plugins/number-toggle.nix
+    ./plugins/nvim-dap.nix
+    ./plugins/nvim-web-devicons.nix
+    ./plugins/treesitter.nix
+    ./plugins/snacks.nix
+    ./plugins/lsp.nix
+    ./plugins/tmux-navigator.nix
+    ./plugins/which-key.nix
+    ./plugins/yazi.nix
+
   ];
 
   programs.nvf = {
@@ -10,6 +28,7 @@
     settings.vim = {
       luaConfigPre = ''
         -- OPTIONS
+        vim.diagnostic.config({ signs = false })
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
         vim.opt.showmode = false
@@ -17,6 +36,8 @@
         vim.opt.laststatus = 3
         vim.g.neovide_refresh_rate = 60
         vim.opt.termguicolors = true
+        vim.api.nvim_set_hl(0, "Normal", { bg = "#000000" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#000000" })
         vim.opt.nu = true
         vim.opt.relativenumber = true
         vim.opt.tabstop = 4
@@ -41,6 +62,7 @@
         vim.o.foldmethod = "manual"
         vim.o.foldlevel = 99
         vim.o.foldcolumn = "0"
+        vim.opt.clipboard = "unnamedplus"
         vim.g.clipboard = {
           name = "wl-clipboard",
           copy  = { ["+"] = "wl-copy", ["*"] = "wl-copy" },
