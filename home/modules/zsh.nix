@@ -27,6 +27,10 @@
       lt = "eza --icons=auto --tree";
     };
 
+    sessionVariables = {
+      QT_QPA_PLATFORM = "wayland";
+    };
+
     initContent = ''
       HELPDIR="/usr/share/zsh/help"
 

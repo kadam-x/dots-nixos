@@ -89,5 +89,11 @@
     noto-fonts-color-emoji
   ];
 
+  environment.systemPackages = with pkgs; [
+    docker
+    wl-clipboard
+    cliphist
+  ];
+
   system.stateVersion = "25.11";
 }

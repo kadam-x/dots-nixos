@@ -6,7 +6,6 @@
     ./blink.nix
     ./flash.nix
     ./guess-indent.nix
-    ./lsp.nix
     ./lualine.nix
     ./mini-icons.nix
     ./mini-pairs.nix
@@ -14,9 +13,10 @@
     ./number-toggle.nix
     ./nvim-dap.nix
     ./nvim-web-devicons.nix
-    ./snacks.nix
-    ./tmux-navigator.nix
     ./treesitter.nix
+    ./snacks.nix
+    ./lsp.nix
+    ./tmux-navigator.nix
     ./which-key.nix
     ./yazi.nix
   ];

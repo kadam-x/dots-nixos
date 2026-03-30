@@ -105,6 +105,8 @@
 
   environment.systemPackages = with pkgs; [
     docker
+    wl-clipboard
+    cliphist
   ];
 
   system.stateVersion = "25.11";

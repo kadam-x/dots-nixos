@@ -81,7 +81,7 @@
         };
 
         clock = {
-          format = "{:%a %d %b  %H:%M:%S}";
+          format = "{:%a %d %b :: %H:%M:%S}";
           interval = 1;
         };
       }

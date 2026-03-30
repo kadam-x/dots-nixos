@@ -23,7 +23,6 @@
     rofi
     qutebrowser
     kitty
-    wl-clipboard
     slurp
     grim
     yazi

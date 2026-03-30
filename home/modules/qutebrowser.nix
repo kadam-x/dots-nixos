@@ -171,6 +171,7 @@
       c.content.headers.custom = {"Accept-Language": "en-US,en;q=0.9"}
       c.statusbar.padding = {"top": 4, "bottom": 4, "left": 6, "right": 6}
       c.tabs.padding = {"top": 5, "bottom": 5, "left": 10, "right": 10}
+      c.qt.environ = {"QT_QPA_PLATFORM": "wayland"}
       c.url.searchengines = {
           "DEFAULT": "https://www.google.com/search?q={}",
           "!g":      "https://www.google.com/search?q={}",

@@ -15,6 +15,7 @@
         vim.opt.showmode = false
         vim.opt.showtabline = 2
         vim.opt.laststatus = 3
+        vim.g.neovide_refresh_rate = 60
         vim.opt.termguicolors = true
         vim.opt.nu = true
         vim.opt.relativenumber = true
@@ -35,12 +36,17 @@
         vim.opt.splitright = true
         vim.opt.splitbelow = true
         vim.opt.updatetime = 50
-        vim.opt.clipboard:append("unnamedplus")
         vim.opt.mouse = "a"
         vim.o.foldenable = true
         vim.o.foldmethod = "manual"
         vim.o.foldlevel = 99
         vim.o.foldcolumn = "0"
+        vim.g.clipboard = {
+          name = "wl-clipboard",
+          copy  = { ["+"] = "wl-copy", ["*"] = "wl-copy" },
+          paste = { ["+"] = "wl-paste", ["*"] = "wl-paste" },
+          cache_enabled = 1,
+        }
 
         local orig_util_open_floating_preview = vim.lsp.util.open_floating_preview
         function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)

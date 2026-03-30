@@ -24,7 +24,6 @@
     rofi
     qutebrowser
     kitty
-    wl-clipboard
     slurp
     grim
     yazi
@@ -34,7 +33,6 @@
     ncdu
     pulsemixer
     brave
-    librewolf
     cmake
     dbeaver-bin
     vlc
