@@ -11,6 +11,10 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -19,6 +23,7 @@
       nixpkgs,
       home-manager,
       nvf,
+      stylix,
       ...
     }:
     let
@@ -29,6 +34,7 @@
           modules = [
             ./hosts/${host}/default.nix
             home-manager.nixosModules.home-manager
+            stylix.nixosModules.stylix
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -36,6 +42,7 @@
               home-manager.users.kadam-x = {
                 imports = [
                   nvf.homeManagerModules.default
+                  stylix.homeManagerModules.stylix
                   ./home/${host}.nix
                 ];
               };

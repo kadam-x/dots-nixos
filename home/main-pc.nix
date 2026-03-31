@@ -10,7 +10,7 @@
     ./modules/tmux.nix
     ./modules/sway.nix
     ./modules/rofi.nix
-    ./modules/theme.nix
+    ./modules/stylix.nix
     ./modules/qutebrowser.nix
   ];
 

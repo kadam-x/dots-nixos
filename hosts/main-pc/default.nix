@@ -82,17 +82,9 @@
   programs.dconf.enable = true;
   programs.zsh.enable = true; # must be here since it's the login shell
 
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
   programs.ssh.startAgent = true;
 
   environment.sessionVariables = {
-    GTK_THEME = "Adwaita:dark";
-    XCURSOR_THEME = "Bibata-Modern-Classic";
-    XCURSOR_SIZE = "24";
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
   };

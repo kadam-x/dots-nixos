@@ -9,7 +9,7 @@
     ./modules/sway.nix
     ./modules/waybar-laptop.nix
     ./modules/rofi-laptop.nix
-    ./modules/theme.nix
+    ./modules/stylix.nix
     ./modules/qutebrowser.nix
   ];
 
