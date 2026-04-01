@@ -46,6 +46,7 @@
     mpv
     opencode
     swaybg
+    swayimg
     uv
     sioyek
     eza

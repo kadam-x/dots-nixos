@@ -46,9 +46,9 @@
     opencode
     unzip
     swaybg
+    swayimg
     uv
     eza
     sioyek
-    nmtui
   ];
 }
