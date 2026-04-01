@@ -210,7 +210,9 @@
           "btop")       kitty --class btop btop & ;;
           "ncdu")       kitty --class ncdu ncdu / & ;;
           "pulsemixer") kitty --class wiremix pulsemixer & ;;
-          "wifi")       kitty --class nmtui -e nmtui & ;;
+          "wifi")       kitty --class impala -e nmtui & ;;
+          "bluetooth")       kitty --class bluetui -e bluetui & ;;
+
         esac      
       '';
     };

@@ -50,5 +50,7 @@
     uv
     eza
     sioyek
+    bluetui
+    impala
   ];
 }

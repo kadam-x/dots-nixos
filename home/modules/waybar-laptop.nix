@@ -101,11 +101,11 @@
           format-disconnected = "󰖪";
           format-ethernet = "eth";
           tooltip = false;
-          on-click = "kitty --class nmtui -e nmtui";
+          on-click = "kitty --class impala -e impala";
         };
 
         clock = {
-          format = "{:%a %d %b  %H:%M:%S}";
+          format = "{:%a %d %b :: %H:%M:%S}";
           interval = 1;
         };
       }
