@@ -16,6 +16,7 @@
       listen_on = "unix:/tmp/mykitty";
       background_opacity = "0.95";
       cursor_shape = "beam";
+      cursor_beam_thickness = "7";
       cursor_blink_interval = 0;
 
       background = "#000000";
