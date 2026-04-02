@@ -11,6 +11,8 @@
     ./modules/rofi-laptop.nix
     ./modules/stylix.nix
     ./modules/qutebrowser.nix
+    ./modules/workstyle.nix
+    ./modules/yazi.nix
   ];
 
   home.username = "kadam-x";

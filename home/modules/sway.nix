@@ -2,16 +2,12 @@
 {
   wayland.windowManager.sway = {
     enable = true;
-
     config = {
       modifier = "Mod4";
       terminal = "kitty";
       menu = "rofi -show drun -theme-str 'window {width: 25%;}'";
-
       defaultWorkspace = "workspace number 1";
-
       bars = [ ];
-
       gaps = {
         inner = 5;
         outer = 10;
@@ -48,7 +44,6 @@
           childBorder = "#f7768e";
         };
       };
-
       input = {
         "type:keyboard" = {
           xkb_layout = "us,hu";
@@ -62,14 +57,12 @@
           tap = "enabled";
         };
       };
-
       output = {
         "DP-1" = {
           resolution = "2560x1440@240Hz";
           position = "0,0";
         };
       };
-
       window.commands = [
         {
           criteria = {
@@ -127,6 +120,18 @@
         }
         {
           criteria = {
+            app_id = "impala";
+          };
+          command = "floating enable, resize set 800 500, move position center";
+        }
+        {
+          criteria = {
+            app_id = "bluetui";
+          };
+          command = "floating enable, resize set 800 500, move position center";
+        }
+        {
+          criteria = {
             app_id = "vlc";
           };
           command = "focus";
@@ -138,7 +143,6 @@
           command = "focus";
         }
       ];
-
       keybindings =
         let
           mod = "Mod4";
@@ -156,36 +160,30 @@
           "${mod}+e" = "exec kitty --class yazi -e yazi";
           "${mod}+a" = "exec rofi -show drun -theme-str 'window {width: 25%;}'";
           "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
-
           # Scripts
           "${mod}+Escape" = "exec bash ~/.config/rofi/scripts/power-menu";
           "${mod}+n" = "exec bash ~/.config/rofi/scripts/note";
           "${mod}+p" = "exec bash ~/.config/rofi/scripts/project-picker";
           "${mod}+m" = "exec bash ~/.config/rofi/scripts/system";
           "${mod}+r" = "exec bash ~/.config/sway/cycle-resize.sh";
-
           # Screenshot
           "${mod}+Shift+s" =
             "exec sh -c 'grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'";
-
           # Sway
           "${mod}+BackSpace" = "reload";
           "${mod}+q" = "kill";
           "${mod}+v" = "floating toggle";
           "Ctrl+Escape" = "exec pkill -x waybar || waybar";
-
           # Focus
           "${mod}+h" = "focus left";
           "${mod}+j" = "focus down";
           "${mod}+k" = "focus up";
           "${mod}+l" = "focus right";
-
           # Move
           "${mod}+Ctrl+h" = "move left";
           "${mod}+Ctrl+j" = "move down";
           "${mod}+Ctrl+k" = "move up";
           "${mod}+Ctrl+l" = "move right";
-
           # Workspaces
           "${mod}+1" = "workspace number 1";
           "${mod}+2" = "workspace number 2";
@@ -197,7 +195,6 @@
           "${mod}+8" = "workspace number 8";
           "${mod}+9" = "workspace number 9";
           "${mod}+0" = "workspace number 10";
-
           # Move to workspace
           "${mod}+Ctrl+1" = "move container to workspace number 1";
           "${mod}+Ctrl+2" = "move container to workspace number 2";
@@ -210,7 +207,6 @@
           "${mod}+Ctrl+9" = "move container to workspace number 9";
           "${mod}+Ctrl+0" = "move container to workspace number 10";
         };
-
       startup = [
         {
           command = "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";
@@ -232,14 +228,12 @@
         { command = "qbittorrent --no-splash"; }
       ];
     };
-
     extraConfig = ''
       floating_modifier Mod4 normal
       default_border pixel 2
       default_floating_border pixel 2
     '';
   };
-
   # Drop the helper scripts
   xdg.configFile."sway/cycle-resize.sh" = {
     executable = true;
@@ -257,7 +251,6 @@
       fi
     '';
   };
-
   xdg.configFile."sway/random_wall.sh" = {
     executable = true;
     text = ''

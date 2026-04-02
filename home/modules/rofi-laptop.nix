@@ -55,7 +55,6 @@
           text-color: inherit;
       }
     '';
-
     "rofi/config.rasi".text = ''
       configuration {
           modi:                 ["drun", "window", "run"];
@@ -83,22 +82,18 @@
       }
       @theme "base16-bmg.rasi"
     '';
-
     "rofi/scripts/note" = {
       executable = true;
       text = ''
         #!/usr/bin/env bash
         VAULT_DIR="$HOME/notes"
         mkdir -p "$VAULT_DIR"
-
         options="open dir
         create note
         fzf
         ripgrep"
-
         choice=$(echo -e "$options" | rofi -dmenu -i -p "" -theme-str 'window {width: 10%;} listview {lines: 4; columns: 1;} element selected {background-color: #2a2a38; text-color: #c5c9c5;} inputbar {enabled: false;}')
         choice_clean=$(echo "$choice" | xargs)
-
         case "$choice_clean" in
           "fzf")
             kitty --class kitty-notes -e bash -c "
@@ -152,15 +147,12 @@
         esac
       '';
     };
-
     "rofi/scripts/project-picker" = {
       executable = true;
       text = ''
         #!/usr/bin/env bash
         PROJECTS_DIR="$HOME/projects"
-
         function sanitize() { echo "$1" | tr ' ./' '___'; }
-
         function create_session() {
           local session_name="$1"
           local project_path="$2"
@@ -176,23 +168,18 @@
           tmux send-keys -t "$session_name:lazygit" "lazygit" Enter
           tmux select-window -t "$session_name:editor"
         }
-
         active_sessions=$(tmux list-sessions -F "#S ●" 2>/dev/null)
         all_projects=$(find "$PROJECTS_DIR" -maxdepth 1 -mindepth 1 -type d ! -name "archive" -printf "%f\n")
         combined_list=$(echo -e "''${active_sessions}\n''${all_projects}")
-
         selected_raw=$(echo "$combined_list" | rofi -dmenu -i -p "Project")
         [ -z "$selected_raw" ] && exit 0
-
         selected=$(echo "$selected_raw" | sed 's/ ●//')
         session_name=$(sanitize "$selected")
         project_path="$PROJECTS_DIR/$selected"
-
         if ! tmux has-session -t "$session_name" 2>/dev/null; then
           [ ! -d "$project_path" ] && project_path="$HOME"
           create_session "$session_name" "$project_path"
         fi
-
         if [ -n "$TMUX" ]; then
           tmux switch-client -t "$session_name"
         else
@@ -200,20 +187,18 @@
         fi
       '';
     };
-
     "rofi/scripts/system" = {
       executable = true;
       text = ''
         #!/usr/bin/env bash
-        choice=$(printf "btop\nncdu\npulsemixer\nwifi" | rofi -dmenu -p "" -theme-str 'window {width: 10%;} listview {lines: 4; columns: 1;} inputbar {enabled: false;}')
+        choice=$(printf "btop\nncdu\npulsemixer\nwifi\nbluetooth" | rofi -dmenu -p "" -theme-str 'window {width: 10%;} listview {lines: 5; columns: 1;} inputbar {enabled: false;}')
         case "$choice" in
-          "btop")       kitty --class btop btop & ;;
-          "ncdu")       kitty --class ncdu ncdu / & ;;
-          "pulsemixer") kitty --class wiremix pulsemixer & ;;
-          "wifi")       kitty --class impala -e nmtui & ;;
-          "bluetooth")       kitty --class bluetui -e bluetui & ;;
-
-        esac      
+          "btop")       kitty --class btop -e btop & ;;
+          "ncdu")       kitty --class ncdu -e ncdu / & ;;
+          "pulsemixer") kitty --class wiremix -e pulsemixer & ;;
+          "wifi")       kitty --class impala -e impala & ;;
+          "bluetooth")  kitty --class bluetui -e bluetui & ;;
+        esac
       '';
     };
   };

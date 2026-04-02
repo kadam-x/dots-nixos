@@ -12,6 +12,7 @@
     ./modules/rofi.nix
     ./modules/stylix.nix
     ./modules/qutebrowser.nix
+    ./modules/yazi.nix
   ];
 
   home.username = "kadam-x";

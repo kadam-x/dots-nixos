@@ -1,5 +1,6 @@
 { pkgs, ... }:
 {
+  gtk.gtk4.theme = null;
   stylix = {
     enable = true;
     autoEnable = false;

@@ -42,7 +42,7 @@
               home-manager.users.kadam-x = {
                 imports = [
                   nvf.homeManagerModules.default
-                  stylix.homeManagerModules.stylix
+                  stylix.homeModules.stylix
                   ./home/${host}.nix
                 ];
               };
