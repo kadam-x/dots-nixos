@@ -60,12 +60,15 @@
     enable32Bit = true;
   };
 
+  virtualisation.docker.enable = true;
+
   users.users.kadam-x = {
     isNormalUser = true;
     description = "kadam";
     extraGroups = [
       "networkmanager"
       "wheel"
+      "docker"
     ];
     shell = pkgs.zsh;
   };
@@ -80,8 +83,7 @@
   programs.sway.enable = true;
   programs.waybar.enable = true;
   programs.dconf.enable = true;
-  programs.zsh.enable = true; # must be here since it's the login shell
-
+  programs.zsh.enable = true;
   programs.ssh.startAgent = true;
 
   environment.sessionVariables = {
@@ -98,7 +100,6 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    docker
     wl-clipboard
     cliphist
   ];
