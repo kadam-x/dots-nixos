@@ -60,16 +60,16 @@
         untracked = "";
         modified = "[!$count](bold yellow)";
         staged = "[+$count](bold green)";
-        renamed = "[»$count](bold gray)";
-        deleted = "[✘$count](bold red)";
-        ahead = "[⇡$count](bold fg)";
-        behind = "[⇣$count](bold fg)";
-        diverged = "[⇕⇡$ahead_count⇣$behind_count](bold fg)";
+        renamed = "[󰄾$count](bold gray)";
+        deleted = "[$count](bold red)";
+        ahead = "[󰄿$count](bold fg)";
+        behind = "[󰄼$count](bold fg)";
+        diverged = "[󱓊$ahead_count󱓋$behind_count](bold fg)";
       };
 
       hostname = {
         ssh_only = true;
-        format = "🌐 [$hostname]($style) ";
+        format = "󰖟[$hostname]($style) ";
         style = "bold fg";
       };
 
