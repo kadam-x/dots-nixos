@@ -9,7 +9,7 @@
     "nvim" = ""
     "gthumb" = ""
     ".pdf" = ""
-    "kitty-notes" = ""
+    "foot-notes" = ""
     "yazi" = "󰇥"
     "tmux" = ""
     "obsidian" = " "
@@ -54,5 +54,5 @@
     fallback_icon = ""
     deduplicate_icons = false
     separator = ": "
-'';
+  '';
 }

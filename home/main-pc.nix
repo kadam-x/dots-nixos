@@ -3,7 +3,6 @@
   imports = [
     ./modules/zsh.nix
     ./modules/starship.nix
-    ./modules/kitty.nix
     ./modules/waybar.nix
     ./modules/workstyle.nix
     ./modules/nvim/default.nix
@@ -13,6 +12,7 @@
     ./modules/stylix.nix
     ./modules/qutebrowser.nix
     ./modules/yazi.nix
+    ./modules/foot.nix
   ];
 
   home.username = "kadam-x";
@@ -24,7 +24,6 @@
     git
     rofi
     qutebrowser
-    kitty
     slurp
     grim
     yazi

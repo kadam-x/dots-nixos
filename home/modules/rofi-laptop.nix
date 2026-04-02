@@ -61,7 +61,7 @@
           icon-theme:           "retrosmart";
           show-icons:           true;
           font:                 "Iosevka Term";
-          terminal:             "kitty";
+          terminal:             "foot";
           drun-display-format:  "{icon} {name}";
           location:             0;
           disable-history:      false;
@@ -96,7 +96,7 @@
         choice_clean=$(echo "$choice" | xargs)
         case "$choice_clean" in
           "fzf")
-            kitty --class kitty-notes -e bash -c "
+            foot --app-id foot-notes -e bash -c "
               cd '$VAULT_DIR' && \
               selected=\$(find . -type f -name '*.md' | \
                 fzf --preview 'bat --theme base16 --style=numbers --color=always {}' \
@@ -106,7 +106,7 @@
             " &
             ;;
           "ripgrep")
-            kitty --class kitty-notes -e bash -c '
+            foot --app-id foot-notes -e bash -c '
               cd "'"$VAULT_DIR"'" && \
               selected=$(fzf --disabled --ansi \
                 --prompt "Search Content > " \
@@ -121,7 +121,7 @@
             ' &
             ;;
           "open dir")
-            kitty --class kitty-notes -e bash -c "cd '$VAULT_DIR' && yazi" &
+            foot --app-id foot-notes -e bash -c "cd '$VAULT_DIR' && yazi" &
             ;;
           "create note")
             note_name=$(rofi -dmenu -p "Note name (blank for timestamp)" -theme-str 'window {width: 25%;} listview {enabled: false;}')
@@ -142,7 +142,7 @@
               echo "## Overview" >> "$note_file"
               echo "" >> "$note_file"
             fi
-            kitty --class kitty-notes -e nvim "$note_file" &
+            foot --app-id foot-notes -e nvim "$note_file" &
             ;;
         esac
       '';
@@ -170,7 +170,7 @@
         }
         active_sessions=$(tmux list-sessions -F "#S ●" 2>/dev/null)
         all_projects=$(find "$PROJECTS_DIR" -maxdepth 1 -mindepth 1 -type d ! -name "archive" -printf "%f\n")
-        combined_list=$(echo -e "''${active_sessions}\n''${all_projects}")
+        combined_list=$(echo -e "${active_sessions}\n${all_projects}")
         selected_raw=$(echo "$combined_list" | rofi -dmenu -i -p "Project")
         [ -z "$selected_raw" ] && exit 0
         selected=$(echo "$selected_raw" | sed 's/ ●//')
@@ -183,7 +183,7 @@
         if [ -n "$TMUX" ]; then
           tmux switch-client -t "$session_name"
         else
-          kitty --detach tmux attach-session -t "$session_name"
+          foot -e tmux attach-session -t "$session_name" &
         fi
       '';
     };
@@ -193,11 +193,11 @@
         #!/usr/bin/env bash
         choice=$(printf "btop\nncdu\npulsemixer\nwifi\nbluetooth" | rofi -dmenu -p "" -theme-str 'window {width: 10%;} listview {lines: 5; columns: 1;} inputbar {enabled: false;}')
         case "$choice" in
-          "btop")       kitty --class btop -e btop & ;;
-          "ncdu")       kitty --class ncdu -e ncdu / & ;;
-          "pulsemixer") kitty --class wiremix -e pulsemixer & ;;
-          "wifi")       kitty --class impala -e impala & ;;
-          "bluetooth")  kitty --class bluetui -e bluetui & ;;
+          "btop")       foot --app-id btop -e btop & ;;
+          "ncdu")       foot --app-id ncdu -e ncdu / & ;;
+          "pulsemixer") foot --app-id wiremix -e pulsemixer & ;;
+          "wifi")       foot --app-id impala -e impala & ;;
+          "bluetooth")  foot --app-id bluetui -e bluetui & ;;
         esac
       '';
     };

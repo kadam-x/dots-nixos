@@ -101,7 +101,6 @@
           format-disconnected = "󰖪";
           format-ethernet = "eth";
           tooltip = false;
-          on-click = "kitty --class impala -e impala";
         };
 
         clock = {

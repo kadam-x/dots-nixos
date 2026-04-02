@@ -3,7 +3,6 @@
   imports = [
     ./modules/zsh.nix
     ./modules/starship.nix
-    ./modules/kitty.nix
     ./modules/nvim/default.nix
     ./modules/tmux.nix
     ./modules/sway.nix
@@ -24,7 +23,6 @@
     git
     rofi
     qutebrowser
-    kitty
     slurp
     grim
     yazi

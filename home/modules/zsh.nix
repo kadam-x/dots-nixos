@@ -34,12 +34,6 @@
       zstyle ':completion:*:descriptions' format '[%d]'
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
       zstyle ':fzf-tab:*' switch-group '<' '>'
-      if [[ -n "$KITTY_INSTALLATION_DIR" ]]; then
-        export KITTY_SHELL_INTEGRATION="no-rc no-cursor"
-        autoload -Uz -- "$KITTY_INSTALLATION_DIR"/shell-integration/zsh/kitty-integration
-        kitty-integration
-        unfunction kitty-integration
-      fi
       _z_tab() {
         if [[ "$BUFFER" == "z" ]] || [[ "$BUFFER" == z\ * ]]; then
           local query="''${BUFFER#z }"

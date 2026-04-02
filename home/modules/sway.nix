@@ -4,7 +4,7 @@
     enable = true;
     config = {
       modifier = "Mod4";
-      terminal = "kitty";
+      terminal = "foot";
       menu = "rofi -show drun -theme-str 'window {width: 25%;}'";
       defaultWorkspace = "workspace number 1";
       bars = [ ];
@@ -114,7 +114,7 @@
         }
         {
           criteria = {
-            app_id = "kitty-notes";
+            app_id = "notes";
           };
           command = "floating enable, resize set 1000 800, move position center";
         }
@@ -155,9 +155,9 @@
           "${mod}+equal" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
           "${mod}+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
           # Apps
-          "${mod}+Return" = "exec kitty";
+          "${mod}+Return" = "exec foot";
           "${mod}+b" = "exec qutebrowser";
-          "${mod}+e" = "exec kitty --class yazi -e yazi";
+          "${mod}+e" = "exec foot --app-id yazi -e yazi";
           "${mod}+a" = "exec rofi -show drun -theme-str 'window {width: 25%;}'";
           "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
           # Scripts
