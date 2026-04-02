@@ -24,7 +24,8 @@
                         { icon = " ", key = "f", desc = "Find File",    action = function() Snacks.picker.files() end },
                         { icon = " ", key = "r", desc = "Recent Files", action = function() Snacks.picker.recent() end },
                         { icon = " ", key = "g", desc = "Live Grep",    action = function() Snacks.picker.grep() end },
-                        { icon = " ", key = "c", desc = "Config Files", action = function() Snacks.picker.files({ cwd = "/etc/nixos" }) end },
+                        { icon = " ", key = "c", desc = "Config Files", action =
+                        function() Snacks.picker.files({ cwd = "/etc/nixos/home/modules/nvim" }) end },
                         { icon = " ", key = "q", desc = "Quit",         action = ":qa" },
                       },
                     },

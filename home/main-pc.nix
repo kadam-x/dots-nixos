@@ -52,5 +52,6 @@
     sioyek
     eza
     unzip
+    lazygit
   ];
 }

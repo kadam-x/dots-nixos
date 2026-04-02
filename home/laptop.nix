@@ -54,5 +54,6 @@
     sioyek
     bluetui
     impala
+    lazygit
   ];
 }
