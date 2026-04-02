@@ -15,7 +15,7 @@
       allow_remote_control = "yes";
       listen_on = "unix:/tmp/mykitty";
       background_opacity = "0.95";
-      cursor_shape = "block";
+      cursor_shape = "beam";
       cursor_blink_interval = 0;
 
       background = "#000000";

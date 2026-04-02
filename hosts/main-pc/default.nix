@@ -13,6 +13,9 @@
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.loader.systemd-boot.configurationLimit = 3;
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   services.displayManager.ly.enable = true;
 
   networking.hostName = "main-pc";

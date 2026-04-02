@@ -25,6 +25,7 @@
       ll = "eza -lha --icons=auto --sort=name --group-directories-first";
       ls = "eza -1 --icons=auto";
       lt = "eza --icons=auto --tree";
+      pyflake = "cp etc/nixos/templates/pyflake/flake.nix . && echo 'use flake' > .envrc && direnv allow";
     };
 
     sessionVariables = {
@@ -73,6 +74,7 @@
       export PATH="$BUN_INSTALL/bin:$PATH"
       [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
       [ -f "$HOME/.local/bin/env" ] && . "$HOME/.local/bin/env"
+      eval "$(direnv hook zsh)"
     '';
   };
 

@@ -14,6 +14,9 @@
 
   services.displayManager.ly.enable = true;
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
   networking.enableIPv6 = false;
