@@ -8,8 +8,8 @@
         require("barbar").setup({
             icons = {
               filetype = {
-                custom_colors = true,
-		},
+                enabled = false,
+            },
           },
         })
         vim.keymap.set("n", "K",   "<Cmd>BufferNext<CR>",     { silent = true })
