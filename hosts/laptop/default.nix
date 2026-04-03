@@ -20,6 +20,11 @@
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
   networking.enableIPv6 = false;
+  networking.wireless.iwd.enable = true;
+  networking.networkmanager.wifi.backend = "iwd";
+
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
 
   nix.gc = {
     automatic = true;

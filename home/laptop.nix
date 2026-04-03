@@ -12,6 +12,7 @@
     ./modules/qutebrowser.nix
     ./modules/workstyle.nix
     ./modules/yazi.nix
+    ./modules/foot.nix
   ];
 
   home.username = "kadam-x";
