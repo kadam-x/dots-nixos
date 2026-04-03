@@ -170,7 +170,7 @@
         }
         active_sessions=$(tmux list-sessions -F "#S ●" 2>/dev/null)
         all_projects=$(find "$PROJECTS_DIR" -maxdepth 1 -mindepth 1 -type d ! -name "archive" -printf "%f\n")
-        combined_list=$(echo -e "${active_sessions}\n${all_projects}")
+        combined_list=$(echo -e "''${active_sessions}\n''${all_projects}")
         selected_raw=$(echo "$combined_list" | rofi -dmenu -i -p "Project")
         [ -z "$selected_raw" ] && exit 0
         selected=$(echo "$selected_raw" | sed 's/ ●//')
