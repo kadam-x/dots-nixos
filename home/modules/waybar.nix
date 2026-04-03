@@ -15,7 +15,7 @@
         };
 
         "modules-left" = [ "sway/workspaces" ];
-        "modules-center" = [ "sway/window" ];
+        "modules-center" = [ ];
         "modules-right" = [
           "tray"
           "disk"
