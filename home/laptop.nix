@@ -45,7 +45,6 @@
     mpv
     opencode
     unzip
-    swaybg
     swayimg
     uv
     eza
@@ -53,5 +52,6 @@
     bluetui
     impala
     lazygit
+    swww
   ];
 }

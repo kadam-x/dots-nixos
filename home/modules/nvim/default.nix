@@ -19,7 +19,6 @@
     ./plugins/tmux-navigator.nix
     ./plugins/which-key.nix
     ./plugins/yazi.nix
-
   ];
 
   programs.nvf = {

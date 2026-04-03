@@ -45,12 +45,12 @@
     bun
     mpv
     opencode
-    swaybg
     swayimg
     uv
     sioyek
     eza
     unzip
     lazygit
+    swww
   ];
 }

@@ -52,6 +52,7 @@
         vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#888888", bg = "#222222" })
         vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#888888", bg = "#222222" })
         vim.api.nvim_set_hl(0, "LineNr",      { fg = "#d6d2c8" })
+
       '';
     };
   };

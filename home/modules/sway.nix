@@ -170,7 +170,6 @@
           "${mod}+Shift+s" =
             "exec sh -c 'grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'";
           # Sway
-          "${mod}+BackSpace" = "reload";
           "${mod}+q" = "kill";
           "${mod}+v" = "floating toggle";
           "Ctrl+Escape" = "exec pkill -x waybar || waybar";
@@ -257,7 +256,7 @@
       #!/usr/bin/env sh
       WALLDIR="$HOME/Pictures/wallpapers/"
       WALLPAPER="$(find "$WALLDIR" -type f | shuf -n 1)"
-      exec swaybg -m fill -i "$WALLPAPER"
+      swww img -m fill -i "$WALLPAPER"
     '';
   };
 }
