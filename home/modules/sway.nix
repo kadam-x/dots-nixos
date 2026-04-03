@@ -172,7 +172,6 @@
           # Sway
           "${mod}+q" = "kill";
           "${mod}+v" = "floating toggle";
-          "Ctrl+Escape" = "exec pkill -x waybar || waybar";
           # Focus
           "${mod}+h" = "focus left";
           "${mod}+j" = "focus down";
