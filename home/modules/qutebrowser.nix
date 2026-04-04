@@ -2,9 +2,7 @@
 {
   programs.qutebrowser = {
     enable = true;
-
     loadAutoconfig = false;
-
     settings = {
       auto_save.session = true;
       session.lazy_restore = true;
@@ -15,14 +13,12 @@
       scrolling.smooth = true;
       zoom.default = "100%";
       statusbar.show = "in-mode";
-
       content.cookies.accept = "no-3rdparty";
       content.webrtc_ip_handling_policy = "default-public-interface-only";
       content.canvas_reading = true;
       content.headers.do_not_track = false;
       content.headers.referer = "same-domain";
       completion.height = "25%";
-
       content.blocking.enabled = true;
       content.blocking.method = "both";
       content.blocking.adblock.lists = [
@@ -36,16 +32,13 @@
       content.blocking.hosts.lists = [
         "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
       ];
-
       url.default_page = "https://www.google.com";
       url.start_pages = [ "https://www.google.com" ];
-
       tabs.show = "multiple";
       tabs.last_close = "close";
       tabs.mousewheel_switching = false;
       tabs.new_position.unrelated = "next";
       tabs.title.format = "{audio}{current_title}";
-
       statusbar.widgets = [
         "keypress"
         "url"
@@ -55,7 +48,6 @@
         "progress"
       ];
       window.title_format = "{perc}{current_title}";
-
       fonts.default_family = "monospace";
       fonts.default_size = "13pt";
       fonts.completion.entry = "13pt monospace";
@@ -64,109 +56,107 @@
       fonts.tabs.selected = "13pt monospace";
       fonts.tabs.unselected = "13pt monospace";
       fonts.hints = "bold 13pt monospace";
-
       colors.webpage.darkmode.enabled = true;
       colors.webpage.darkmode.policy.images = "smart";
       colors.webpage.preferred_color_scheme = "dark";
       colors.webpage.bg = "#000000";
-
-      colors.tabs.bar.bg = "#121212";
-      colors.tabs.selected.odd.bg = "#9b8d7f";
+      # tabs
+      colors.tabs.bar.bg = "#111111";
+      colors.tabs.selected.odd.bg = "#c8c8c8";
       colors.tabs.selected.odd.fg = "#000000";
-      colors.tabs.selected.even.bg = "#9b8d7f";
+      colors.tabs.selected.even.bg = "#c8c8c8";
       colors.tabs.selected.even.fg = "#000000";
-      colors.tabs.odd.bg = "#121212";
-      colors.tabs.odd.fg = "#999999";
-      colors.tabs.even.bg = "#121212";
-      colors.tabs.even.fg = "#999999";
-      colors.tabs.pinned.selected.odd.bg = "#8c7f70";
+      colors.tabs.odd.bg = "#111111";
+      colors.tabs.odd.fg = "#888888";
+      colors.tabs.even.bg = "#111111";
+      colors.tabs.even.fg = "#888888";
+      colors.tabs.pinned.selected.odd.bg = "#aaaaaa";
       colors.tabs.pinned.selected.odd.fg = "#000000";
-      colors.tabs.pinned.selected.even.bg = "#8c7f70";
+      colors.tabs.pinned.selected.even.bg = "#aaaaaa";
       colors.tabs.pinned.selected.even.fg = "#000000";
-      colors.tabs.pinned.odd.bg = "#121212";
+      colors.tabs.pinned.odd.bg = "#111111";
       colors.tabs.pinned.odd.fg = "#444444";
-      colors.tabs.pinned.even.bg = "#121212";
+      colors.tabs.pinned.even.bg = "#111111";
       colors.tabs.pinned.even.fg = "#444444";
-      colors.tabs.indicator.start = "#5f8787";
-      colors.tabs.indicator.stop = "#9b8d7f";
+      colors.tabs.indicator.start = "#888888";
+      colors.tabs.indicator.stop = "#c8c8c8";
       colors.tabs.indicator.error = "#912222";
-
+      # completion
       colors.completion.fg = "#c1c1c1";
       colors.completion.odd.bg = "#000000";
-      colors.completion.even.bg = "#121212";
-      colors.completion.category.fg = "#9b8d7f";
+      colors.completion.even.bg = "#111111";
+      colors.completion.category.fg = "#c8c8c8";
       colors.completion.category.bg = "#000000";
       colors.completion.category.border.top = "#000000";
-      colors.completion.category.border.bottom = "#333333";
+      colors.completion.category.border.bottom = "#2a2a2a";
       colors.completion.item.selected.fg = "#000000";
-      colors.completion.item.selected.bg = "#9b8d7f";
-      colors.completion.item.selected.border.top = "#9b8d7f";
-      colors.completion.item.selected.border.bottom = "#9b8d7f";
+      colors.completion.item.selected.bg = "#c8c8c8";
+      colors.completion.item.selected.border.top = "#c8c8c8";
+      colors.completion.item.selected.border.bottom = "#c8c8c8";
       colors.completion.item.selected.match.fg = "#000000";
-      colors.completion.match.fg = "#9b8d7f";
+      colors.completion.match.fg = "#ffffff";
       colors.completion.scrollbar.fg = "#444444";
       colors.completion.scrollbar.bg = "#000000";
-
+      # statusbar
       colors.statusbar.normal.bg = "#000000";
-      colors.statusbar.normal.fg = "#999999";
+      colors.statusbar.normal.fg = "#888888";
       colors.statusbar.insert.bg = "#000000";
-      colors.statusbar.insert.fg = "#9b8d7f";
+      colors.statusbar.insert.fg = "#c8c8c8";
       colors.statusbar.passthrough.bg = "#000000";
-      colors.statusbar.passthrough.fg = "#5f8787";
+      colors.statusbar.passthrough.fg = "#aaaaaa";
       colors.statusbar.command.bg = "#000000";
       colors.statusbar.command.fg = "#c1c1c1";
       colors.statusbar.caret.bg = "#000000";
-      colors.statusbar.caret.fg = "#9b8d7f";
-      colors.statusbar.caret.selection.bg = "#222222";
-      colors.statusbar.caret.selection.fg = "#9b8d7f";
-      colors.statusbar.progress.bg = "#9b8d7f";
+      colors.statusbar.caret.fg = "#c8c8c8";
+      colors.statusbar.caret.selection.bg = "#1a1a1a";
+      colors.statusbar.caret.selection.fg = "#c8c8c8";
+      colors.statusbar.progress.bg = "#c8c8c8";
       colors.statusbar.url.fg = "#c1c1c1";
-      colors.statusbar.url.success.http.fg = "#999999";
+      colors.statusbar.url.success.http.fg = "#888888";
       colors.statusbar.url.success.https.fg = "#c1c1c1";
       colors.statusbar.url.error.fg = "#912222";
-      colors.statusbar.url.warn.fg = "#8c7f70";
-      colors.statusbar.url.hover.fg = "#5f8787";
-
-      colors.hints.bg = "#9b8d7f";
+      colors.statusbar.url.warn.fg = "#888888";
+      colors.statusbar.url.hover.fg = "#aaaaaa";
+      # hints
+      colors.hints.bg = "#c8c8c8";
       colors.hints.fg = "#000000";
-      colors.hints.match.fg = "#222222";
+      colors.hints.match.fg = "#333333";
       hints.border = "1px solid #000000";
       hints.radius = 2;
       hints.mode = "letter";
       hints.chars = "asdfghjklqwertyuiopzxcvbnm";
-
+      # downloads
       colors.downloads.bar.bg = "#000000";
-      colors.downloads.start.bg = "#222222";
+      colors.downloads.start.bg = "#1a1a1a";
       colors.downloads.start.fg = "#c1c1c1";
-      colors.downloads.stop.bg = "#9b8d7f";
+      colors.downloads.stop.bg = "#c8c8c8";
       colors.downloads.stop.fg = "#000000";
       colors.downloads.error.bg = "#912222";
       colors.downloads.error.fg = "#c1c1c1";
-
+      # messages
       colors.messages.error.bg = "#912222";
       colors.messages.error.fg = "#c1c1c1";
       colors.messages.error.border = "#912222";
-      colors.messages.warning.bg = "#8c7f70";
-      colors.messages.warning.fg = "#000000";
-      colors.messages.warning.border = "#8c7f70";
-      colors.messages.info.bg = "#121212";
+      colors.messages.warning.bg = "#555555";
+      colors.messages.warning.fg = "#ffffff";
+      colors.messages.warning.border = "#555555";
+      colors.messages.info.bg = "#111111";
       colors.messages.info.fg = "#c1c1c1";
-      colors.messages.info.border = "#333333";
-
-      colors.prompts.bg = "#121212";
+      colors.messages.info.border = "#2a2a2a";
+      # prompts
+      colors.prompts.bg = "#111111";
       colors.prompts.fg = "#c1c1c1";
-      colors.prompts.border = "1px solid #333333";
-      colors.prompts.selected.bg = "#9b8d7f";
+      colors.prompts.border = "1px solid #2a2a2a";
+      colors.prompts.selected.bg = "#c8c8c8";
       colors.prompts.selected.fg = "#000000";
-
-      colors.contextmenu.menu.bg = "#121212";
+      # context menu
+      colors.contextmenu.menu.bg = "#111111";
       colors.contextmenu.menu.fg = "#c1c1c1";
-      colors.contextmenu.selected.bg = "#9b8d7f";
+      colors.contextmenu.selected.bg = "#c8c8c8";
       colors.contextmenu.selected.fg = "#000000";
-      colors.contextmenu.disabled.bg = "#121212";
+      colors.contextmenu.disabled.bg = "#111111";
       colors.contextmenu.disabled.fg = "#444444";
     };
-
     extraConfig = ''
       c.content.headers.custom = {"Accept-Language": "en-US,en;q=0.9"}
       c.statusbar.padding = {"top": 4, "bottom": 4, "left": 6, "right": 6}
@@ -184,7 +174,6 @@
       config.set("colors.webpage.darkmode.enabled", False, "https://www.youtube.com/*")
       config.set("colors.webpage.darkmode.enabled", False, "https://music.youtube.com/*")
     '';
-
     keyBindings = {
       normal = {
         "J" = "tab-prev";

@@ -4,11 +4,11 @@
     "rofi/base16-bmg.rasi".text = ''
       * {
           bg:               #111111;
-          bg-selected:      #181616;
-          fg:               #c5c9c5;
-          accent:           #7e9cd8;
-          border-strong:    #9c8d7e;
-          border-subtle:    #727169;
+          bg-selected:      #1a1a1a;
+          fg:               #c8c8c8;
+          accent:           #c8c8c8;
+          border-strong:    #888888;
+          border-subtle:    #444444;
           background-color: transparent;
           text-color:       @fg;
           font:             "Iosevka Term";
@@ -40,7 +40,7 @@
       }
       listview {
           lines:        15;
-          columns:      2;
+          columns:      1;
           fixed-height: false;
       }
       element {

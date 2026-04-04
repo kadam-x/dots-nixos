@@ -8,7 +8,6 @@
     ./modules/sway-laptop.nix
     ./modules/waybar-laptop.nix
     ./modules/rofi-laptop.nix
-    ./modules/stylix.nix
     ./modules/qutebrowser.nix
     ./modules/workstyle.nix
     ./modules/yazi.nix

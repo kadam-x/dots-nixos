@@ -2,17 +2,18 @@
 {
   imports = [
     ./modules/zsh.nix
-    ./modules/starship.nix
+    ./modules/starship-tokyoporn.nix
+    # ./modules/starship-base16bmg.nix
     ./modules/waybar.nix
     ./modules/workstyle.nix
     ./modules/nvim/default.nix
     ./modules/tmux.nix
     ./modules/sway.nix
     ./modules/rofi.nix
-    ./modules/stylix.nix
     ./modules/qutebrowser.nix
     ./modules/yazi.nix
-    ./modules/foot.nix
+    ./modules/foot-tokyoporn.nix
+    # ./modules/foot-base16bmg.nix
   ];
 
   home.username = "kadam-x";
