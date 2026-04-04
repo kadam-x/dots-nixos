@@ -6,13 +6,15 @@
     ./modules/nvim/default.nix
     ./modules/tmux.nix
     ./modules/sway-laptop.nix
-    ./modules/waybar-laptop.nix
-    ./modules/rofi-laptop.nix
     ./modules/qutebrowser.nix
     ./modules/workstyle.nix
     ./modules/yazi.nix
     ./modules/foot.nix
   ];
+  programs.noctalia-shell = {
+    enable = true;
+    settings = ./modules/noctalia-settings-laptop.json;
+  };
 
   home.username = "kadam-x";
   home.homeDirectory = "/home/kadam-x";
@@ -48,10 +50,7 @@
     swayimg
     uv
     eza
-    sioyek
-    bluetui
-    impala
     lazygit
-    swww
+    swayidle
   ];
 }

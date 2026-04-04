@@ -84,7 +84,6 @@
   ];
 
   programs.sway.enable = true;
-  programs.waybar.enable = true;
   programs.dconf.enable = true;
   programs.zsh.enable = true;
   programs.ssh.startAgent = true;

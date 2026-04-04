@@ -158,13 +158,12 @@
           "${mod}+Return" = "exec foot";
           "${mod}+b" = "exec qutebrowser";
           "${mod}+e" = "exec foot --app-id yazi -e yazi";
-          "${mod}+a" = "exec rofi -show drun -theme-str 'window {width: 25%;}'";
+          "${mod}+a" = "exec noctalia-shell ipc call launcher toggle";
+          "Ctrl+Escape" = "exec noctalia-shell ipc call sessionMenu toggle";
           "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
           # Scripts
-          "${mod}+Escape" = "exec bash ~/.config/rofi/scripts/power-menu";
           "${mod}+n" = "exec bash ~/.config/rofi/scripts/note";
           "${mod}+p" = "exec bash ~/.config/rofi/scripts/project-picker";
-          "${mod}+m" = "exec bash ~/.config/rofi/scripts/system";
           "${mod}+r" = "exec bash ~/.config/sway/cycle-resize.sh";
           # Screenshot
           "${mod}+Shift+s" =
@@ -211,8 +210,7 @@
           always = true;
         }
         {
-          command = "~/.config/sway/random_wall.sh";
-          always = true;
+          command = "noctalia-shell";
         }
         {
           command = "workstyle &> /tmp/workstyle.log";
@@ -220,7 +218,6 @@
         }
         { command = "/usr/lib/polkit-kde-authentication-agent-1"; }
         { command = "dunst"; }
-        { command = "swww-daemon"; }
         { command = "wl-paste --type text --watch cliphist store"; }
         { command = "wl-paste --type image --watch cliphist store"; }
         { command = "qbittorrent --no-splash"; }
@@ -232,7 +229,6 @@
       default_floating_border pixel 2
     '';
   };
-  # Drop the helper scripts
   xdg.configFile."sway/cycle-resize.sh" = {
     executable = true;
     text = ''
@@ -247,15 +243,6 @@
       else
           swaymsg resize set width 33 ppt
       fi
-    '';
-  };
-  xdg.configFile."sway/random_wall.sh" = {
-    executable = true;
-    text = ''
-      #!/usr/bin/env sh
-      WALLDIR="$HOME/Pictures/wallpapers/"
-      WALLPAPER="$(find "$WALLDIR" -type f | shuf -n 1)"
-      swww img -m fill -i "$WALLPAPER"
     '';
   };
 }

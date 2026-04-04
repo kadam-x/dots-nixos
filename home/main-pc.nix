@@ -4,17 +4,20 @@
     ./modules/zsh.nix
     ./modules/starship-tokyoporn.nix
     # ./modules/starship-base16bmg.nix
-    ./modules/waybar.nix
     ./modules/workstyle.nix
     ./modules/nvim/default.nix
     ./modules/tmux.nix
     ./modules/sway.nix
-    ./modules/rofi.nix
     ./modules/qutebrowser.nix
     ./modules/yazi.nix
     ./modules/foot-tokyoporn.nix
     # ./modules/foot-base16bmg.nix
   ];
+
+  programs.noctalia-shell = {
+    enable = true;
+    settings = ./modules/noctalia-settings.json;
+  };
 
   home.username = "kadam-x";
   home.homeDirectory = "/home/kadam-x";
@@ -23,7 +26,6 @@
   home.packages = with pkgs; [
     wget
     git
-    rofi
     qutebrowser
     slurp
     grim
@@ -48,10 +50,9 @@
     opencode
     swayimg
     uv
-    sioyek
     eza
     unzip
     lazygit
-    swww
+    swayidle
   ];
 }

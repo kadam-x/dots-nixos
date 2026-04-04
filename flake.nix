@@ -1,18 +1,23 @@
 {
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
+  };
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
     nvf = {
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix = {
-      url = "github:danth/stylix";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -23,7 +28,7 @@
       nixpkgs,
       home-manager,
       nvf,
-      stylix,
+      noctalia,
       ...
     }:
     let
@@ -34,7 +39,6 @@
           modules = [
             ./hosts/${host}/default.nix
             home-manager.nixosModules.home-manager
-            stylix.nixosModules.stylix
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
@@ -42,7 +46,7 @@
               home-manager.users.kadam-x = {
                 imports = [
                   nvf.homeManagerModules.default
-                  stylix.homeModules.stylix
+                  noctalia.homeModules.default
                   ./home/${host}.nix
                 ];
               };

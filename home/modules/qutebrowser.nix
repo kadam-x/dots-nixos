@@ -27,7 +27,6 @@
         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt"
         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt"
         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt"
-        "https://secure.fanboy.com.au/fanboy-annoyance.txt"
       ];
       content.blocking.hosts.lists = [
         "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"

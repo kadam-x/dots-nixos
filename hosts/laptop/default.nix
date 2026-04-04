@@ -23,7 +23,8 @@
   networking.networkmanager.wifi.backend = "iwd";
 
   hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  services.upower.enable = true;
+  services.power-profiles-daemon.enable = true;
 
   nix.gc = {
     automatic = true;
@@ -80,7 +81,6 @@
   nixpkgs.config.allowUnfree = true;
 
   programs.sway.enable = true;
-  programs.waybar.enable = true;
   programs.dconf.enable = true;
   programs.zsh.enable = true;
   programs.ssh.startAgent = true;
