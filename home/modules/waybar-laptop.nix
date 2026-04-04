@@ -7,7 +7,7 @@
         reload_style_on_change = true;
         layer = "top";
         "custom/separator" = {
-          format = "::";
+          format = "|";
           interval = "once";
           tooltip = false;
         };
@@ -130,6 +130,10 @@
         padding-left: 2px;
         padding-right: 10px;
       }
+      #custom-separator {
+              color: #9b8d7f;
+              opacity: 0.3;
+            }
       #workspaces button.empty   { color: #54546d; background-color: transparent; }
       #workspaces button         { color: #9b8d7f; background-color: transparent; margin: 0 2px; padding: 0 2px; }
       #workspaces button.focused { background-color: #9b8d7f; color: #181616; margin: 0 2px; padding: 0 2px; }

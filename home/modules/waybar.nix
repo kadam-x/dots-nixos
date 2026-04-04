@@ -9,7 +9,7 @@
         layer = "top";
 
         "custom/separator" = {
-          format = "::";
+          format = "|";
           interval = "once";
           tooltip = false;
         };
@@ -81,7 +81,7 @@
         };
 
         clock = {
-          format = "{:%a %d %b :: %H:%M:%S}";
+          format = "{:%a %d %b  %H:%M:%S}";
           interval = 1;
         };
       }
@@ -113,7 +113,10 @@
         margin: 2px 2px 0px 0px;
         padding: 2px 8px;
       }
-
+      #custom-separator {
+              color: #9b8d7f;
+              opacity: 0.3;
+            }
       #workspaces button.empty   { color: #54546d; background-color: transparent; }
       #workspaces button         { color: #9b8d7f; background-color: transparent; margin: 0 2px; padding: 0 2px; }
       #workspaces button.focused { background-color: #9b8d7f; color: #181616; margin: 0 2px; padding: 0 2px; }
