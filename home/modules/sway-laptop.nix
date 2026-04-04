@@ -80,7 +80,7 @@
           criteria = {
             app_id = "yazi";
           };
-          command = "floating enable, resize set 1000 800, move position center";
+          command = "floating enable, resize set 1200 1000, move position center";
         }
         {
           criteria = {
