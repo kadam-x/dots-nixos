@@ -2,12 +2,6 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  environment.loginShellInit = ''
-    if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-      exec sway
-    fi
-  '';
-
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
     enable = true;
