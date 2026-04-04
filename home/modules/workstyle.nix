@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   xdg.configFile."workstyle/config.toml".text = ''
+    "foot" = ""
     "github" = ""
     "rust" = ""
     "google" = ""
