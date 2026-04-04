@@ -5,7 +5,7 @@
     ./modules/starship.nix
     ./modules/nvim/default.nix
     ./modules/tmux.nix
-    ./modules/sway.nix
+    ./modules/sway-laptop.nix
     ./modules/waybar-laptop.nix
     ./modules/rofi-laptop.nix
     ./modules/stylix.nix
