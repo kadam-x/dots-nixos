@@ -80,6 +80,9 @@
         -- Line numbers
         vim.api.nvim_set_hl(0, "LineNrAbove", { fg = "#232e3b", bg = "#141b22" })
         vim.api.nvim_set_hl(0, "LineNrBelow", { fg = "#232e3b", bg = "#141b22" })
+        vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalNC", { bg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { bg = "NONE" })
       '';
     };
   };

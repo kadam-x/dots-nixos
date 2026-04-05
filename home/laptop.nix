@@ -5,15 +5,20 @@
     ./modules/starship.nix
     ./modules/nvim/default.nix
     ./modules/tmux.nix
-    ./modules/sway-laptop.nix
+    ./modules/niri-laptop.nix
     ./modules/qutebrowser.nix
-    ./modules/workstyle.nix
     ./modules/yazi.nix
     ./modules/foot.nix
   ];
   programs.noctalia-shell = {
     enable = true;
     settings = ./modules/noctalia-settings-laptop.json;
+  };
+  home.pointerCursor = {
+    package = pkgs.phinger-cursors;
+    name = "phinger-cursors-light";
+    size = 24;
+    gtk.enable = true;
   };
 
   home.username = "kadam-x";
@@ -25,10 +30,7 @@
     git
     rofi
     qutebrowser
-    slurp
-    grim
     yazi
-    workstyle
     btop
     ripgrep
     ncdu

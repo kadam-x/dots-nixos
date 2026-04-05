@@ -32,9 +32,9 @@
 
     outputs."DP-1" = {
       mode = {
-        width = 2560;
-        height = 1440;
-        refresh = 240.0;
+        width = 1920;
+        height = 1080;
+        refresh = 60.0;
       };
       position = {
         x = 0;

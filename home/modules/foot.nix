@@ -1,4 +1,3 @@
-{ ... }:
 {
   programs.foot = {
     enable = true;
@@ -9,7 +8,7 @@
         pad = "6x6";
       };
       colors-dark = {
-        alpha = "0.95";
+        alpha = "0.75";
         background = "0D1116";
         foreground = "ffffff";
         selection-background = "987afb";

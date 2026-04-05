@@ -13,7 +13,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.loader.systemd-boot.configurationLimit = 3;
-  programs.niri.enable = true;
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
 

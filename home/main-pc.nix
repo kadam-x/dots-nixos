@@ -2,19 +2,23 @@
 {
   imports = [
     ./modules/zsh.nix
-    ./modules/starship-tokyoporn.nix
-    # ./modules/starship-base16bmg.nix
+    ./modules/starship.nix
     ./modules/nvim/default.nix
     ./modules/tmux.nix
     ./modules/niri.nix
     ./modules/qutebrowser.nix
     ./modules/yazi.nix
-    ./modules/foot-tokyoporn.nix
-    # ./modules/foot-base16bmg.nix
+    ./modules/foot.nix
   ];
   programs.noctalia-shell = {
     enable = true;
     settings = ./modules/noctalia-settings.json;
+  };
+  home.pointerCursor = {
+    package = pkgs.phinger-cursors;
+    name = "phinger-cursors-light";
+    size = 24;
+    gtk.enable = true;
   };
 
   home.username = "kadam-x";
@@ -25,10 +29,7 @@
     wget
     git
     qutebrowser
-    slurp
-    grim
     yazi
-    workstyle
     btop
     ripgrep
     ncdu
