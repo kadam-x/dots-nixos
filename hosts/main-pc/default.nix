@@ -1,18 +1,19 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../cachix.nix
+  ];
 
-  environment.loginShellInit = ''
-    if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-      exec sway
-    fi
-  '';
-
+  nix.settings.trusted-users = [
+    "root"
+    "kadam-x"
+  ];
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.loader.systemd-boot.configurationLimit = 3;
-
+  programs.niri.enable = true;
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
 
@@ -87,7 +88,7 @@
   programs.dconf.enable = true;
   programs.zsh.enable = true;
   programs.ssh.startAgent = true;
-
+  services.gnome.gcr-ssh-agent.enable = false;
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
@@ -95,6 +96,7 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka
+    nerd-fonts.jetbrains-mono
     iosevka
     font-awesome
     noto-fonts

@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
-
+  imports = [
+    ./hardware-configuration.nix
+    ../../cachix.nix
+  ];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub = {
     enable = true;
@@ -10,7 +12,10 @@
     useOSProber = true;
     default = "2";
   };
-
+  nix.settings.trusted-users = [
+    "root"
+    "kadam-x"
+  ];
   services.displayManager.ly.enable = true;
 
   programs.direnv.enable = true;
@@ -93,6 +98,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka
     iosevka
+    nerd-fonts.jetbrains-mono
     font-awesome
     noto-fonts
     noto-fonts-color-emoji

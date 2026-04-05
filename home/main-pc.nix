@@ -4,16 +4,14 @@
     ./modules/zsh.nix
     ./modules/starship-tokyoporn.nix
     # ./modules/starship-base16bmg.nix
-    ./modules/workstyle.nix
     ./modules/nvim/default.nix
     ./modules/tmux.nix
-    ./modules/sway.nix
+    ./modules/niri.nix
     ./modules/qutebrowser.nix
     ./modules/yazi.nix
     ./modules/foot-tokyoporn.nix
     # ./modules/foot-base16bmg.nix
   ];
-
   programs.noctalia-shell = {
     enable = true;
     settings = ./modules/noctalia-settings.json;

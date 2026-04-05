@@ -162,8 +162,7 @@
           "Ctrl+Escape" = "exec noctalia-shell ipc call sessionMenu toggle";
           "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
           # Scripts
-          "${mod}+n" = "exec bash ~/.config/rofi/scripts/note";
-          "${mod}+p" = "exec bash ~/.config/rofi/scripts/project-picker";
+          "${mod}+n" = ''exec obsidian "obsidian://new?vault=notes&name=$(date +%Y-%m-%d-%H%M)"'';
           "${mod}+r" = "exec bash ~/.config/sway/cycle-resize.sh";
           # Screenshot
           "${mod}+Shift+s" =
