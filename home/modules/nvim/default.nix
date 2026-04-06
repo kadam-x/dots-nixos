@@ -4,13 +4,11 @@
 
   imports = [
     ./plugins/barbar.nix
-    # ./plugins/base16-bmg-colorscheme.nix
-    ./plugins/tokyoporn-colorscheme.nix
-    ./plugins/lualine-tokyoporn.nix
+    ./plugins/base16-bmg-colorscheme.nix
     ./plugins/blink.nix
     ./plugins/flash.nix
     ./plugins/guess-indent.nix
-    # ./plugins/lualine.nix
+    ./plugins/lualine.nix
     ./plugins/mini-icons.nix
     ./plugins/mini-pairs.nix
     ./plugins/mini-surround.nix
@@ -60,7 +58,6 @@
         vim.opt.inccommand = "split"
         vim.opt.background = "dark"
         vim.opt.scrolloff = 8
-        vim.opt.signcolumn = "no"
         vim.opt.splitright = true
         vim.opt.splitbelow = true
         vim.opt.updatetime = 50
@@ -194,6 +191,8 @@
       '';
 
       luaConfigPost = ''
+        vim.opt.signcolumn = "no"
+        vim.diagnostic.config({ signs = false, virtual_text = true })
 
       '';
     };

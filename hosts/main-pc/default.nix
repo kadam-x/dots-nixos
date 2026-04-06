@@ -1,23 +1,18 @@
 { config, pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
-
   environment.loginShellInit = ''
     if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
       exec sway
     fi
   '';
-
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
   boot.loader.systemd-boot.configurationLimit = 3;
-
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
-
   services.displayManager.ly.enable = true;
-
   networking.hostName = "main-pc";
   networking.networkmanager.enable = true;
   nix.gc = {
@@ -25,7 +20,6 @@
     dates = "weekly";
     options = "--delete-older-than 3d";
   };
-
   time.timeZone = "Europe/Budapest";
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
@@ -44,12 +38,10 @@
     layout = "us";
     variant = "";
   };
-
   services.resolved = {
     enable = true;
     settings.Resolve.DNSSEC = "false";
   };
-
   networking.enableIPv6 = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -57,14 +49,11 @@
     alsa.enable = true;
     pulse.enable = true;
   };
-
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
-
   virtualisation.docker.enable = true;
-
   users.users.kadam-x = {
     isNormalUser = true;
     description = "kadam";
@@ -75,25 +64,20 @@
     ];
     shell = pkgs.zsh;
   };
-
   nixpkgs.config.allowUnfree = true;
-
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
-
   programs.sway.enable = true;
   programs.waybar.enable = true;
   programs.dconf.enable = true;
   programs.zsh.enable = true;
   programs.ssh.startAgent = true;
-
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
   };
-
   fonts.packages = with pkgs; [
     nerd-fonts.iosevka
     iosevka
@@ -101,11 +85,9 @@
     noto-fonts
     noto-fonts-color-emoji
   ];
-
   environment.systemPackages = with pkgs; [
     wl-clipboard
     cliphist
   ];
-
   system.stateVersion = "25.11";
 }

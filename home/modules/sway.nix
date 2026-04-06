@@ -253,7 +253,7 @@
     executable = true;
     text = ''
       #!/usr/bin/env sh
-      WALLDIR="$HOME/Pictures/wallpapers/"
+      WALLDIR="$HOME/Pictures/wallpapers-Base16BMG/"
       WALLPAPER="$(find "$WALLDIR" -type f | shuf -n 1)"
       swww img -m fill -i "$WALLPAPER"
     '';
