@@ -47,5 +47,6 @@
     hyprpicker
     wiremix
     qbittorrent
+    obs-studio
   ];
 }

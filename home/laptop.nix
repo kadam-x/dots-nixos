@@ -49,5 +49,6 @@
     bluetui
     impala
     lazygit
+    wifitui
   ];
 }
