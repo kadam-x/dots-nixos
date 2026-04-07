@@ -2,6 +2,7 @@
 {
   wayland.windowManager.sway = {
     enable = true;
+    checkConfig = false;
     config = {
       modifier = "Mod4";
       terminal = "foot";
@@ -61,6 +62,7 @@
         "DP-1" = {
           resolution = "2560x1440@240Hz";
           position = "0,0";
+          bg = "~/Pictures/wallpapers-Base16BMG/monochrome-wave.jpg fill";
         };
       };
       window.commands = [
@@ -210,14 +212,6 @@
           command = "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";
           always = true;
         }
-        {
-          command = "~/.config/sway/random_wall.sh";
-          always = true;
-        }
-        {
-          command = "workstyle &> /tmp/workstyle.log";
-          always = true;
-        }
         { command = "/usr/lib/polkit-kde-authentication-agent-1"; }
         { command = "dunst"; }
         { command = "swww-daemon"; }
@@ -230,32 +224,6 @@
       floating_modifier Mod4 normal
       default_border pixel 2
       default_floating_border pixel 2
-    '';
-  };
-  # Drop the helper scripts
-  xdg.configFile."sway/cycle-resize.sh" = {
-    executable = true;
-    text = ''
-      #!/bin/bash
-      current=$(swaymsg -t get_tree | jq '.. | objects | select(.focused==true) | .rect.width')
-      total=$(swaymsg -t get_outputs | jq '.[0].rect.width')
-      pct=$((current * 100 / total))
-      if [ "$pct" -lt 40 ]; then
-          swaymsg resize set width 50 ppt
-      elif [ "$pct" -lt 60 ]; then
-          swaymsg resize set width 66 ppt
-      else
-          swaymsg resize set width 33 ppt
-      fi
-    '';
-  };
-  xdg.configFile."sway/random_wall.sh" = {
-    executable = true;
-    text = ''
-      #!/usr/bin/env sh
-      WALLDIR="$HOME/Pictures/wallpapers-Base16BMG/"
-      WALLPAPER="$(find "$WALLDIR" -type f | shuf -n 1)"
-      swww img -m fill -i "$WALLPAPER"
     '';
   };
 }
