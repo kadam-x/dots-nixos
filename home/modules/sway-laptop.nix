@@ -62,7 +62,7 @@
         "eDP-1" = {
           resolution = "1920x1080@60Hz";
           position = "0,0";
-          bg = "~/Pictures/wallpapers-Base16BMG/monochrome-wave.jpg fill";
+          bg = "~/Pictures/Wallpapers/base16-bmg/monochrome-wave.jpg fill";
         };
       };
       window.commands = [

@@ -62,7 +62,7 @@
         "DP-1" = {
           resolution = "2560x1440@240Hz";
           position = "0,0";
-          bg = "~/Pictures/wallpapers-Base16BMG/monochrome-wave.jpg fill";
+          bg = "~/Pictures/Wallpapers/base16-bmg/monochrome-wave.jpg fill";
         };
       };
       window.commands = [
