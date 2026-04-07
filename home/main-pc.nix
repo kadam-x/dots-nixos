@@ -3,7 +3,6 @@
   imports = [
     ./modules/zsh.nix
     ./modules/starship.nix
-    ./modules/waybar.nix
     ./modules/nvim/default.nix
     ./modules/tmux.nix
     ./modules/sway.nix
@@ -35,16 +34,17 @@
     telegram-desktop
     obsidian
     lutgen
-    jq
     nodejs_24
     bun
     mpv
     opencode
     swayimg
     uv
-    sioyek
     eza
     unzip
     lazygit
+    hyprpicker
+    wiremix
+    qbittorrent
   ];
 }

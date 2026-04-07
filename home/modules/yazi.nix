@@ -108,10 +108,6 @@
     "yazi/theme.toml".text = ''
       "$schema" = "https://yazi-rs.github.io/schemas/theme.json"
 
-      [flavor]
-      dark  = "base16"
-      light = "base16"
-
       [indicator]
       padding = { open = "▐", close = "▌" }
     '';

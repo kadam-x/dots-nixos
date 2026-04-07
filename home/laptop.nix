@@ -6,10 +6,8 @@
     ./modules/nvim/default.nix
     ./modules/tmux.nix
     ./modules/sway-laptop.nix
-    ./modules/waybar-laptop.nix
-    ./modules/rofi-laptop.nix
+    ./modules/rofi.nix
     ./modules/qutebrowser.nix
-    ./modules/workstyle.nix
     ./modules/yazi.nix
     ./modules/foot.nix
   ];
@@ -39,7 +37,6 @@
     telegram-desktop
     obsidian
     lutgen
-    jq
     nodejs_24
     bun
     mpv
@@ -48,10 +45,8 @@
     swayimg
     uv
     eza
-    sioyek
     bluetui
     impala
     lazygit
-    swww
   ];
 }

@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ ... }:
 
 {
 
@@ -13,7 +13,6 @@
     ./plugins/mini-pairs.nix
     ./plugins/mini-surround.nix
     ./plugins/number-toggle.nix
-    # ./plugins/nvim-dap.nix
     ./plugins/nvim-web-devicons.nix
     ./plugins/treesitter.nix
     ./plugins/snacks.nix

@@ -187,7 +187,21 @@
         fi
       '';
     };
-    "rofi/scripts/system" = {
+    "rofi/scripts/system-laptop" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+        choice=$(printf "btop\nncdu\npulsemixer\nwifi\nbluetooth" | rofi -dmenu -p "" -theme-str 'window {width: 10%;} listview {lines: 5; columns: 1;} inputbar {enabled: false;}')
+        case "$choice" in
+          "btop")       foot --app-id btop -e btop & ;;
+          "ncdu")       foot --app-id ncdu -e ncdu / & ;;
+          "pulsemixer") foot --app-id wiremix -e pulsemixer & ;;
+          "wifi")       foot --app-id impala -e impala & ;;
+          "bluetooth")  foot --app-id bluetui -e bluetui & ;;
+        esac
+      '';
+    };
+    "rofi/scripts/system-pc" = {
       executable = true;
       text = ''
         #!/usr/bin/env bash

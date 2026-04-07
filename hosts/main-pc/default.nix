@@ -1,11 +1,11 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
-  environment.loginShellInit = ''
-    if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-      exec sway
-    fi
-  '';
+  # environment.loginShellInit = ''
+  #   if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+  #     exec sway
+  #   fi
+  # '';
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
@@ -70,7 +70,6 @@
     "flakes"
   ];
   programs.sway.enable = true;
-  programs.waybar.enable = true;
   programs.dconf.enable = true;
   programs.zsh.enable = true;
   programs.ssh.startAgent = true;

@@ -1,4 +1,23 @@
 { pkgs, ... }:
+let
+  statusScript = pkgs.writeShellScript "sway-status" ''
+    while true; do
+      CPU=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t} else printf "%d", (u-u1)/(t-t1)*100}' \
+        <(grep 'cpu ' /proc/stat) <(sleep 0.5; grep 'cpu ' /proc/stat))
+      RAM=$(free | awk '/Mem:/ {printf "%d", $3/$2*100}')
+      DISK=$(df / | awk 'NR==2 {gsub(/%/,""); printf "%d", $5}')
+      MUTED=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -c MUTED || echo 0)
+      if [ "$MUTED" -gt 0 ]; then
+        VOL="vol muted"
+      else
+        VOL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf "vol %d%%", $2*100}')
+      fi
+      DATE=$(date +'%a %d %b %H:%M')
+      echo "cpu ''${CPU}% :: ram ''${RAM}% :: disk ''${DISK}% :: ''${VOL} :: ''${DATE}"
+      sleep 1
+    done
+  '';
+in
 {
   wayland.windowManager.sway = {
     enable = true;
@@ -8,39 +27,74 @@
       terminal = "foot";
       menu = "rofi -show drun -theme-str 'window {width: 25%;}'";
       defaultWorkspace = "workspace number 1";
-      bars = [ ];
+      bars = [
+        {
+          position = "top";
+          trayOutput = "*";
+          statusCommand = "${statusScript}";
+          colors = {
+            background = "#121212";
+            statusline = "#beaa97";
+            separator = "#9b8d7f";
+            focusedWorkspace = {
+              border = "#beaa97";
+              background = "#beaa97";
+              text = "#121212";
+            };
+            activeWorkspace = {
+              border = "#888888";
+              background = "#888888";
+              text = "#121212";
+            };
+            inactiveWorkspace = {
+              border = "#121212";
+              background = "#121212";
+              text = "#555555";
+            };
+            urgentWorkspace = {
+              border = "#f7768e";
+              background = "#f7768e";
+              text = "#121212";
+            };
+          };
+          fonts = {
+            names = [ "Iosevka Nerd Font" ];
+            size = 13.0;
+          };
+        }
+      ];
       gaps = {
         inner = 5;
-        outer = 10;
+        outer = 15;
         smartGaps = false;
         smartBorders = "on";
       };
       colors = {
         focused = {
-          border = "#999999";
-          background = "#24283b";
-          text = "#c0caf5";
-          indicator = "#999999";
-          childBorder = "#999999";
+          border = "#beaa97";
+          background = "#121212";
+          text = "#beaa97";
+          indicator = "#beaa97";
+          childBorder = "#beaa97";
         };
         focusedInactive = {
-          border = "#414868";
-          background = "#24283b";
-          text = "#787c99";
-          indicator = "#414868";
-          childBorder = "#414868";
+          border = "#9b8d7f";
+          background = "#121212";
+          text = "#555555";
+          indicator = "#9b8d7f";
+          childBorder = "#9b8d7f";
         };
         unfocused = {
-          border = "#24283b";
-          background = "#24283b";
-          text = "#787c99";
-          indicator = "#24283b";
-          childBorder = "#24283b";
+          border = "#121212";
+          background = "#121212";
+          text = "#555555";
+          indicator = "#121212";
+          childBorder = "#121212";
         };
         urgent = {
           border = "#f7768e";
-          background = "#24283b";
-          text = "#ffffff";
+          background = "#121212";
+          text = "#beaa97";
           indicator = "#f7768e";
           childBorder = "#f7768e";
         };
@@ -66,12 +120,6 @@
         };
       };
       window.commands = [
-        {
-          criteria = {
-            app_id = "jome";
-          };
-          command = "floating enable, resize set 600 400, move position center";
-        }
         {
           criteria = {
             app_id = "wiremix";
@@ -162,12 +210,11 @@
           "${mod}+e" = "exec foot --app-id yazi -e yazi";
           "${mod}+a" = "exec rofi -show drun -theme-str 'window {width: 25%;}'";
           "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
+          "${mod}+u" = "exec hyprpicker -a";
           # Scripts
-          "${mod}+Escape" = "exec bash ~/.config/rofi/scripts/power-menu";
           "${mod}+n" = "exec bash ~/.config/rofi/scripts/note";
           "${mod}+p" = "exec bash ~/.config/rofi/scripts/project-picker";
-          "${mod}+m" = "exec bash ~/.config/rofi/scripts/system";
-          "${mod}+r" = "exec bash ~/.config/sway/cycle-resize.sh";
+          "${mod}+m" = "exec bash ~/.config/rofi/scripts/system-pc";
           # Screenshot
           "${mod}+Shift+s" =
             "exec sh -c 'grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'";
@@ -175,15 +222,15 @@
           "${mod}+q" = "kill";
           "${mod}+v" = "floating toggle";
           # Focus
-          "${mod}+h" = "focus left";
-          "${mod}+j" = "focus down";
-          "${mod}+k" = "focus up";
-          "${mod}+l" = "focus right";
+          "${mod}+j" = "focus left";
+          "${mod}+k" = "focus right";
+          # Resize
+          "${mod}+h" = "exec swaymsg resize shrink right 50px || swaymsg resize grow left 50px";
+          "${mod}+l" = "exec swaymsg resize grow right 50px || swaymsg resize shrink left 50px";
           # Move
-          "${mod}+Ctrl+h" = "move left";
-          "${mod}+Ctrl+j" = "move down";
-          "${mod}+Ctrl+k" = "move up";
-          "${mod}+Ctrl+l" = "move right";
+          # Move
+          "${mod}+Ctrl+j" = "move left";
+          "${mod}+Ctrl+k" = "move right";
           # Workspaces
           "${mod}+1" = "workspace number 1";
           "${mod}+2" = "workspace number 2";
