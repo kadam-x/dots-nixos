@@ -6,6 +6,7 @@
     ./modules/nvim/default.nix
     ./modules/tmux.nix
     ./modules/sway-laptop.nix
+    ./modules/waybar-laptop.nix
     ./modules/rofi.nix
     ./modules/qutebrowser.nix
     ./modules/yazi.nix

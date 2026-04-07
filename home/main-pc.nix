@@ -5,7 +5,8 @@
     ./modules/starship.nix
     ./modules/nvim/default.nix
     ./modules/tmux.nix
-    ./modules/sway.nix
+    ./modules/sway-pc.nix
+    ./modules/waybar-pc.nix
     ./modules/rofi.nix
     ./modules/qutebrowser.nix
     ./modules/yazi.nix

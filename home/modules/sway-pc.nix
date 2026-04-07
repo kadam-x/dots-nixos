@@ -1,23 +1,4 @@
-{ pkgs, ... }:
-let
-  statusScript = pkgs.writeShellScript "sway-status" ''
-    while true; do
-      CPU=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t} else printf "%d", (u-u1)/(t-t1)*100}' \
-        <(grep 'cpu ' /proc/stat) <(sleep 0.5; grep 'cpu ' /proc/stat))
-      RAM=$(free | awk '/Mem:/ {printf "%d", $3/$2*100}')
-      DISK=$(df / | awk 'NR==2 {gsub(/%/,""); printf "%d", $5}')
-      MUTED=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -c MUTED || echo 0)
-      if [ "$MUTED" -gt 0 ]; then
-        VOL="vol muted"
-      else
-        VOL=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{printf "vol %d%%", $2*100}')
-      fi
-      DATE=$(date +'%a %d %b %H:%M')
-      echo "cpu ''${CPU}% :: ram ''${RAM}% :: disk ''${DISK}% :: ''${VOL} :: ''${DATE}"
-      sleep 1
-    done
-  '';
-in
+{ ... }:
 {
   wayland.windowManager.sway = {
     enable = true;
@@ -27,42 +8,7 @@ in
       terminal = "foot";
       menu = "rofi -show drun -theme-str 'window {width: 25%;}'";
       defaultWorkspace = "workspace number 1";
-      bars = [
-        {
-          position = "top";
-          trayOutput = "*";
-          statusCommand = "${statusScript}";
-          colors = {
-            background = "#121212";
-            statusline = "#beaa97";
-            separator = "#9b8d7f";
-            focusedWorkspace = {
-              border = "#beaa97";
-              background = "#beaa97";
-              text = "#121212";
-            };
-            activeWorkspace = {
-              border = "#888888";
-              background = "#888888";
-              text = "#121212";
-            };
-            inactiveWorkspace = {
-              border = "#121212";
-              background = "#121212";
-              text = "#555555";
-            };
-            urgentWorkspace = {
-              border = "#f7768e";
-              background = "#f7768e";
-              text = "#121212";
-            };
-          };
-          fonts = {
-            names = [ "Iosevka Nerd Font" ];
-            size = 13.0;
-          };
-        }
-      ];
+      bars = [ ];
       gaps = {
         inner = 5;
         outer = 15;
@@ -259,9 +205,9 @@ in
           command = "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";
           always = true;
         }
+        { command = "waybar"; }
         { command = "/usr/lib/polkit-kde-authentication-agent-1"; }
         { command = "dunst"; }
-        { command = "swww-daemon"; }
         { command = "wl-paste --type text --watch cliphist store"; }
         { command = "wl-paste --type image --watch cliphist store"; }
         { command = "qbittorrent --no-splash"; }

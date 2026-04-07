@@ -1,11 +1,7 @@
 { pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
-  # environment.loginShellInit = ''
-  #   if [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-  #     exec sway
-  #   fi
-  # '';
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.initrd.kernelModules = [ "amdgpu" ];
