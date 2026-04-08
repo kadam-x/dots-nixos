@@ -2,15 +2,18 @@
 {
   imports = [
     ./modules/zsh.nix
-    ./modules/starship.nix
+    # ./modules/starship/starship-dreamy.nix
+    ./modules/starship/starship-base16bmg.nix
     ./modules/nvim/default.nix
     ./modules/tmux.nix
     ./modules/sway-pc.nix
-    ./modules/waybar-pc.nix
-    ./modules/rofi.nix
+    # ./modules/waybar/waybar-pc-dreamy.nix
+    ./modules/waybar/waybar-pc-base16bmg.nix
+    ./modules/tofi.nix
     ./modules/qutebrowser.nix
     ./modules/yazi.nix
-    ./modules/foot.nix
+    # ./modules/foot/foot-dreamy.nix
+    ./modules/foot/foot-base16bmg.nix
   ];
   home.username = "kadam-x";
   home.homeDirectory = "/home/kadam-x";
@@ -18,7 +21,7 @@
   home.packages = with pkgs; [
     wget
     git
-    rofi
+    tofi
     qutebrowser
     slurp
     grim

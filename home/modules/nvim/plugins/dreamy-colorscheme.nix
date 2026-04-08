@@ -14,9 +14,9 @@
           base0F = "#9ad900",
         })
         -- UI Base
-        vim.api.nvim_set_hl(0, "Normal",      { fg = "#ffffff", bg = "#0D1116" })
-        vim.api.nvim_set_hl(0, "NormalNC",    { fg = "#b7bfce", bg = "#141b22" })
-        vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#ffffff", bg = "#141b22" })
+        vim.api.nvim_set_hl(0, "Normal",      { fg = "#ffffff", bg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalNC",    { fg = "#b7bfce", bg = "NONE" })
+        vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#ffffff", bg = "NONE" })
         vim.api.nvim_set_hl(0, "CursorLine",  { bg = "#232e3b" })
         vim.api.nvim_set_hl(0, "Visual",      { bg = "#3d2a5e" })
         vim.api.nvim_set_hl(0, "Search",      { bg = "#3d2a5e", fg = "#ffffff" })

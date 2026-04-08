@@ -6,7 +6,6 @@
     config = {
       modifier = "Mod4";
       terminal = "foot";
-      menu = "rofi -show drun -theme-str 'window {width: 25%;}'";
       defaultWorkspace = "workspace number 1";
       bars = [ ];
       gaps = {
@@ -154,13 +153,13 @@
           "${mod}+Return" = "exec foot";
           "${mod}+b" = "exec qutebrowser";
           "${mod}+e" = "exec foot --app-id yazi -e yazi";
-          "${mod}+a" = "exec rofi -show drun -theme-str 'window {width: 25%;}'";
-          "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
+          "${mod}+d" = "exec tofi-drun";
           "${mod}+u" = "exec hyprpicker -a";
           # Scripts
-          "${mod}+n" = "exec bash ~/.config/rofi/scripts/note";
-          "${mod}+p" = "exec bash ~/.config/rofi/scripts/project-picker";
-          "${mod}+m" = "exec bash ~/.config/rofi/scripts/system-laptop";
+          "${mod}+p" = "exec bash ~/.config/tofi/scripts/project-picker";
+          "${mod}+m" = "exec bash ~/.config/tofi/scripts/system-laptop";
+          "${mod}+n" =
+            "exec bash -c 'obsidian \"obsidian://new?vault=notes&file=quicknotes/$(date +%Y-%m-%d-%H%M).md\" && swaymsg [title=\"Obsidian\"] focus'";
           # Screenshot
           "${mod}+Shift+s" =
             "exec sh -c 'grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'";
