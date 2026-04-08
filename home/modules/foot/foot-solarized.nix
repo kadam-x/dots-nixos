@@ -10,7 +10,7 @@
       };
       colors-dark = {
         alpha = "0.95";
-        background = "073642";
+        background = "052a36";
         foreground = "839496";
         selection-background = "073642";
         selection-foreground = "93a1a1";
