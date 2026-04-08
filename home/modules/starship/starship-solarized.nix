@@ -5,7 +5,7 @@
 
     settings = {
       add_newline = false;
-      palette = "dreamy";
+      palette = "solarized";
 
       format = "$directory$git_branch$git_status\n$character";
       right_format = "$python$nodejs$cpp$rust$cmd_duration$hostname$username";
@@ -79,19 +79,19 @@
         style = "bold gray";
       };
       palettes = {
-        dreamy = {
-          bg = "#0D1116";
-          fg = "#ffffff";
-          red = "#f16c75";
-          green = "#37f499";
-          yellow = "#f1fc79";
-          blue = "#04d1f9";
-          purple = "#987afb";
-          aqua = "#04d1f9";
-          gray = "#b7bfce";
-          orange = "#e58f2a";
-          pink = "#fca6ff";
-          lime = "#9ad900";
+        solarized = {
+          bg = "#002b36";
+          fg = "#839496";
+          red = "#dc322f";
+          green = "#859900";
+          yellow = "#b58900";
+          blue = "#268bd2";
+          purple = "#6c71c4";
+          aqua = "#2aa198";
+          gray = "#586e75";
+          orange = "#cb4b16";
+          pink = "#d33682";
+          lime = "#859900";
         };
       };
     };

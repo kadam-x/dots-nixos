@@ -153,7 +153,7 @@
           "${mod}+Return" = "exec foot";
           "${mod}+b" = "exec qutebrowser";
           "${mod}+e" = "exec foot --app-id yazi -e yazi";
-          "${mod}+d" = "exec tofi-drun";
+          "${mod}+a" = "exec tofi-drun | xargs swaymsg exec --";
           "${mod}+u" = "exec hyprpicker -a";
           # Scripts
           "${mod}+p" = "exec bash ~/.config/tofi/scripts/project-picker";

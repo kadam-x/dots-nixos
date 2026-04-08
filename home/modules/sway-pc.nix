@@ -10,7 +10,7 @@
       bars = [ ];
       gaps = {
         inner = 5;
-        outer = 15;
+        outer = 0;
         smartGaps = false;
         smartBorders = "on";
       };
@@ -61,7 +61,7 @@
         "DP-1" = {
           resolution = "2560x1440@240Hz";
           position = "0,0";
-          bg = "~/Pictures/Wallpapers/base16-bmg/cloud-black-metal.jpg fill";
+          bg = "~/Pictures/Wallpapers/solarized/city-japan.png fill";
         };
       };
       window.commands = [
@@ -153,7 +153,7 @@
           "${mod}+Return" = "exec foot";
           "${mod}+b" = "exec qutebrowser";
           "${mod}+e" = "exec foot --app-id yazi -e yazi";
-          "${mod}+d" = "exec tofi-drun";
+          "${mod}+a" = "exec tofi-drun | xargs swaymsg exec --";
           "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
           "${mod}+u" = "exec hyprpicker -a";
           "${mod}+n" =

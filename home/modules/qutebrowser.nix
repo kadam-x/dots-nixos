@@ -62,9 +62,9 @@
       colors.webpage.bg = "#000000";
       # tabs
       colors.tabs.bar.bg = "#111111";
-      colors.tabs.selected.odd.bg = "#ffffe4";
+      colors.tabs.selected.odd.bg = "#586e75";
       colors.tabs.selected.odd.fg = "#000000";
-      colors.tabs.selected.even.bg = "#ffffe4";
+      colors.tabs.selected.even.bg = "#586e75";
       colors.tabs.selected.even.fg = "#000000";
       colors.tabs.odd.bg = "#111111";
       colors.tabs.odd.fg = "#888888";
@@ -79,20 +79,20 @@
       colors.tabs.pinned.even.bg = "#111111";
       colors.tabs.pinned.even.fg = "#444444";
       colors.tabs.indicator.start = "#888888";
-      colors.tabs.indicator.stop = "#ffffe4";
+      colors.tabs.indicator.stop = "#586e75";
       colors.tabs.indicator.error = "#912222";
       # completion
       colors.completion.fg = "#c1c1c1";
       colors.completion.odd.bg = "#000000";
       colors.completion.even.bg = "#111111";
-      colors.completion.category.fg = "#ffffe4";
+      colors.completion.category.fg = "#586e75";
       colors.completion.category.bg = "#000000";
       colors.completion.category.border.top = "#000000";
       colors.completion.category.border.bottom = "#2a2a2a";
       colors.completion.item.selected.fg = "#000000";
-      colors.completion.item.selected.bg = "#ffffe4";
-      colors.completion.item.selected.border.top = "#ffffe4";
-      colors.completion.item.selected.border.bottom = "#ffffe4";
+      colors.completion.item.selected.bg = "#586e75";
+      colors.completion.item.selected.border.top = "#586e75";
+      colors.completion.item.selected.border.bottom = "#586e75";
       colors.completion.item.selected.match.fg = "#000000";
       colors.completion.match.fg = "#ffffff";
       colors.completion.scrollbar.fg = "#444444";
@@ -101,16 +101,16 @@
       colors.statusbar.normal.bg = "#000000";
       colors.statusbar.normal.fg = "#888888";
       colors.statusbar.insert.bg = "#000000";
-      colors.statusbar.insert.fg = "#ffffe4";
+      colors.statusbar.insert.fg = "#586e75";
       colors.statusbar.passthrough.bg = "#000000";
       colors.statusbar.passthrough.fg = "#aaaaaa";
       colors.statusbar.command.bg = "#000000";
       colors.statusbar.command.fg = "#c1c1c1";
       colors.statusbar.caret.bg = "#000000";
-      colors.statusbar.caret.fg = "#ffffe4";
+      colors.statusbar.caret.fg = "#586e75";
       colors.statusbar.caret.selection.bg = "#1a1a1a";
-      colors.statusbar.caret.selection.fg = "#ffffe4";
-      colors.statusbar.progress.bg = "#ffffe4";
+      colors.statusbar.caret.selection.fg = "#586e75";
+      colors.statusbar.progress.bg = "#586e75";
       colors.statusbar.url.fg = "#c1c1c1";
       colors.statusbar.url.success.http.fg = "#888888";
       colors.statusbar.url.success.https.fg = "#c1c1c1";
@@ -118,7 +118,7 @@
       colors.statusbar.url.warn.fg = "#888888";
       colors.statusbar.url.hover.fg = "#aaaaaa";
       # hints
-      colors.hints.bg = "#ffffe4";
+      colors.hints.bg = "#586e75";
       colors.hints.fg = "#000000";
       colors.hints.match.fg = "#333333";
       hints.border = "1px solid #000000";
@@ -129,7 +129,7 @@
       colors.downloads.bar.bg = "#000000";
       colors.downloads.start.bg = "#1a1a1a";
       colors.downloads.start.fg = "#c1c1c1";
-      colors.downloads.stop.bg = "#ffffe4";
+      colors.downloads.stop.bg = "#586e75";
       colors.downloads.stop.fg = "#000000";
       colors.downloads.error.bg = "#912222";
       colors.downloads.error.fg = "#c1c1c1";
@@ -147,12 +147,12 @@
       colors.prompts.bg = "#111111";
       colors.prompts.fg = "#c1c1c1";
       colors.prompts.border = "1px solid #2a2a2a";
-      colors.prompts.selected.bg = "#ffffe4";
+      colors.prompts.selected.bg = "#586e75";
       colors.prompts.selected.fg = "#000000";
       # context menu
       colors.contextmenu.menu.bg = "#111111";
       colors.contextmenu.menu.fg = "#c1c1c1";
-      colors.contextmenu.selected.bg = "#ffffe4";
+      colors.contextmenu.selected.bg = "#586e75";
       colors.contextmenu.selected.fg = "#000000";
       colors.contextmenu.disabled.bg = "#111111";
       colors.contextmenu.disabled.fg = "#444444";

@@ -4,12 +4,14 @@
 
   imports = [
     ./plugins/barbar.nix
-    ./plugins/base16bmg-colorscheme.nix
+    # ./plugins/base16bmg-colorscheme.nix
+    ./plugins/solarized-colorscheme.nix
     # ./plugins/dreamy-colorscheme.nix
     ./plugins/blink.nix
     ./plugins/flash.nix
     ./plugins/guess-indent.nix
-    ./plugins/lualine-base16bmg.nix
+    # ./plugins/lualine-base16bmg.nix
+    ./plugins/solarized-lualine.nix
     # ./plugins/lualine-dreamy.nix
     ./plugins/mini-icons.nix
     ./plugins/mini-pairs.nix
