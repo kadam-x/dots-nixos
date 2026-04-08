@@ -7,13 +7,13 @@
         require("lualine").setup({
           options = {
             theme = {
-              normal   = { a = { fg = "#0D1116", bg = "#987afb", gui = "bold" }, b = { fg = "#37f499", bg = "#141b22" }, c = { fg = "#b7bfce", bg = "#141b22" } },
-              insert   = { a = { fg = "#0D1116", bg = "#37f499", gui = "bold" }, b = { fg = "#37f499", bg = "#141b22" }, c = { fg = "#b7bfce", bg = "#141b22" } },
-              visual   = { a = { fg = "#0D1116", bg = "#fca6ff", gui = "bold" }, b = { fg = "#37f499", bg = "#141b22" }, c = { fg = "#b7bfce", bg = "#141b22" } },
-              replace  = { a = { fg = "#0D1116", bg = "#04d1f9", gui = "bold" }, b = { fg = "#37f499", bg = "#141b22" }, c = { fg = "#b7bfce", bg = "#141b22" } },
-              command  = { a = { fg = "#0D1116", bg = "#e58f2a", gui = "bold" }, b = { fg = "#37f499", bg = "#141b22" }, c = { fg = "#b7bfce", bg = "#141b22" } },
-              terminal = { a = { fg = "#0D1116", bg = "#9ad900", gui = "bold" }, b = { fg = "#37f499", bg = "#141b22" }, c = { fg = "#b7bfce", bg = "#141b22" } },
-              inactive = { a = { fg = "#232e3b", bg = "#141b22" }, b = { fg = "#232e3b", bg = "#141b22" }, c = { fg = "#232e3b", bg = "#141b22" } },
+              normal   = { a = { fg = "#011627", bg = "#987afb", gui = "bold" }, b = { fg = "#37f499", bg = "#051a2b" }, c = { fg = "#b7bfce", bg = "#051a2b" } },
+              insert   = { a = { fg = "#011627", bg = "#37f499", gui = "bold" }, b = { fg = "#37f499", bg = "#051a2b" }, c = { fg = "#b7bfce", bg = "#051a2b" } },
+              visual   = { a = { fg = "#011627", bg = "#fca6ff", gui = "bold" }, b = { fg = "#37f499", bg = "#051a2b" }, c = { fg = "#b7bfce", bg = "#051a2b" } },
+              replace  = { a = { fg = "#011627", bg = "#04d1f9", gui = "bold" }, b = { fg = "#37f499", bg = "#051a2b" }, c = { fg = "#b7bfce", bg = "#051a2b" } },
+              command  = { a = { fg = "#011627", bg = "#e58f2a", gui = "bold" }, b = { fg = "#37f499", bg = "#051a2b" }, c = { fg = "#b7bfce", bg = "#051a2b" } },
+              terminal = { a = { fg = "#011627", bg = "#9ad900", gui = "bold" }, b = { fg = "#37f499", bg = "#051a2b" }, c = { fg = "#b7bfce", bg = "#051a2b" } },
+              inactive = { a = { fg = "#232e3b", bg = "#051a2b" }, b = { fg = "#232e3b", bg = "#051a2b" }, c = { fg = "#232e3b", bg = "#051a2b" } },
             },
             component_separators = { left = "", right = "" },
             section_separators   = { left = "", right = "" },
