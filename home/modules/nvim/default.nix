@@ -4,13 +4,11 @@
 
   imports = [
     ./plugins/barbar.nix
-    # ./plugins/base16bmg-colorscheme.nix
-    ./plugins/dreamy-colorscheme.nix
+    ./plugins/moonfly-colorscheme.nix
+    ./plugins/lualine.nix
     ./plugins/blink.nix
     ./plugins/flash.nix
     ./plugins/guess-indent.nix
-    # ./plugins/lualine-base16bmg.nix
-    ./plugins/lualine-dreamy.nix
     ./plugins/mini-icons.nix
     ./plugins/mini-pairs.nix
     ./plugins/mini-surround.nix
@@ -22,6 +20,7 @@
     ./plugins/tmux-navigator.nix
     ./plugins/which-key.nix
     ./plugins/yazi.nix
+    ./plugins/render-markdown.nix
   ];
 
   programs.nvf = {

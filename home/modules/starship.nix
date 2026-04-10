@@ -2,97 +2,71 @@
 {
   programs.starship = {
     enable = true;
-
     settings = {
       add_newline = false;
-      palette = "dreamy";
-
-      format = "$directory$git_branch$git_status\n$character";
+      format = "$directory$git_branch$git_status$character";
       right_format = "$python$nodejs$cpp$rust$cmd_duration$hostname$username";
-
       character = {
-        vicmd_symbol = "[N](bold fg) >>>";
-        success_symbol = "[»](bold fg)";
+        vicmd_symbol = "[N](bold) >>>";
+        success_symbol = "[»](bold)";
         error_symbol = "[»](bold red)";
       };
-
       directory = {
-        style = "bold fg";
+        style = "bold blue";
         read_only = " 󰌾";
         truncation_length = 3;
         truncate_to_repo = true;
         format = "[$path]($style)[$read_only]($read_only_style) ";
       };
-
       python = {
-        symbol = "";
+        symbol = "";
         format = "[$symbol$version]($style) ";
-        style = "bold gray";
+        style = "bold";
       };
       nodejs = {
         symbol = "󰎙";
         format = "[$symbol$version]($style) ";
-        style = "bold gray";
+        style = "bold";
       };
       cpp = {
-        symbol = "";
+        symbol = "";
         format = "[$symbol$version]($style) ";
-        style = "bold gray";
+        style = "bold";
       };
       rust = {
         symbol = "󱘗 ";
         format = "[$symbol$version]($style) ";
-        style = "bold fg";
+        style = "bold";
       };
       golang = {
-        symbol = "";
+        symbol = "";
         format = "[$symbol$version]($style) ";
-        style = "bold fg";
+        style = "bold";
       };
-
       git_branch = {
-        format = "[$symbol$branch]($style) ";
-        style = "bold fg";
+        format = "[$branch]($style) ";
+        style = "bold cyan";
       };
-
       git_status = {
-        style = "bold fg";
+        style = "bold";
         untracked = "";
         modified = "[!$count](bold yellow)";
         staged = "[+$count](bold green)";
-        renamed = "[󰄾$count](bold gray)";
-        deleted = "[$count](bold red)";
-        ahead = "[󰄿$count](bold fg)";
-        behind = "[󰄼$count](bold fg)";
-        diverged = "[󱓊$ahead_count󱓋$behind_count](bold fg)";
+        renamed = "[󰄾$count](bold)";
+        deleted = "[-$count](bold red)";
+        ahead = "[󰄿$count](bold)";
+        behind = "[󰄼$count](bold)";
+        diverged = "[󱓊$ahead_count󱓋$behind_count](bold)";
       };
-
       hostname = {
         ssh_only = true;
         format = "󰖟[$hostname]($style) ";
-        style = "bold fg";
+        style = "bold";
       };
-
       cmd_duration = {
         min_time = 2000;
         format = "[$duration]($style) ";
-        style = "bold gray";
-      };
-      palettes = {
-        dreamy = {
-          bg = "#0D1116";
-          fg = "#ffffff";
-          red = "#f16c75";
-          green = "#37f499";
-          yellow = "#f1fc79";
-          blue = "#04d1f9";
-          purple = "#987afb";
-          aqua = "#04d1f9";
-          gray = "#b7bfce";
-          orange = "#e58f2a";
-          pink = "#fca6ff";
-          lime = "#9ad900";
-        };
+        style = "bold";
       };
     };
   };
