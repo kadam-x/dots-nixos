@@ -101,12 +101,6 @@ in
         }
         {
           criteria = {
-            app_id = "notes";
-          };
-          command = "floating enable, resize set 1000 800, move position center";
-        }
-        {
-          criteria = {
             app_id = "impala";
           };
           command = "floating enable, resize set 800 500, move position center";
