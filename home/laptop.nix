@@ -56,5 +56,6 @@
     impala
     lazygit
     wifitui
+    libnotify
   ];
 }

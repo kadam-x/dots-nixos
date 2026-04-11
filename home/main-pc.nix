@@ -55,5 +55,6 @@
     wiremix
     qbittorrent
     obs-studio
+    libnotify
   ];
 }
