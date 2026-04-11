@@ -19,7 +19,7 @@
         format = "[$path]($style)[$read_only]($read_only_style) ";
       };
       python = {
-        symbol = "";
+        symbol = "";
         format = "[$symbol$version]($style) ";
         style = "bold";
       };
@@ -29,7 +29,7 @@
         style = "bold";
       };
       cpp = {
-        symbol = "";
+        symbol = "";
         format = "[$symbol$version]($style) ";
         style = "bold";
       };
@@ -39,7 +39,7 @@
         style = "bold";
       };
       golang = {
-        symbol = "";
+        symbol = "";
         format = "[$symbol$version]($style) ";
         style = "bold";
       };
