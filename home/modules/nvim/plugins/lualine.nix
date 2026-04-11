@@ -13,14 +13,14 @@
           sections = {
             lualine_a = { "mode" },
             lualine_b = { { "branch" }, { "diff", symbols = { added = "+", modified = "~", removed = "-" } } },
-            lualine_c = { { "filename", path = 1, symbols = { modified = " [+]", readonly = " [RO]" } } },
-            lualine_x = { "filetype" },
-            lualine_y = { { function() return "Bufs:" .. #vim.fn.getbufinfo({ buflisted = 1 }) end } },
+            lualine_c = { },
+            lualine_x = { },
+            lualine_y = { },
             lualine_z = { "location" },
           },
           inactive_sections = {
-            lualine_c = { "filename" },
-            lualine_x = { "location" },
+            lualine_c = { },
+            lualine_x = { },
           },
         })
       '';

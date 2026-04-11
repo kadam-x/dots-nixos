@@ -53,7 +53,7 @@ in
         "DP-1" = {
           resolution = "2560x1440@240Hz";
           position = "0,0";
-          bg = "~/Pictures/Wallpapers/solarized/city-japan.png fill";
+          bg = "~/Pictures/wallpapers/calm/tunnel-japan.png fill";
         };
       };
       window.commands = [
@@ -189,8 +189,8 @@ in
     };
     extraConfig = ''
       floating_modifier Mod4 normal
-      default_border pixel 4
-      default_floating_border pixel 4
+      default_border pixel 5
+      default_floating_border pixel 5
     '';
   };
 }

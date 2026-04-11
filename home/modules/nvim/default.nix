@@ -142,6 +142,11 @@
         vim.keymap.set({ "n", "v" }, "C", '"_C', { desc = "Change to EOL without yanking" })
         vim.keymap.set("n", "D", "dd", { desc = "Cut line" })
         vim.keymap.set("v", "p", '"_dP', { desc = "Paste without yanking selection" })
+        vim.keymap.set("n", "P", function()
+          local lines = vim.split(vim.fn.getreg("+"), "\n", { plain = true })
+          local row = vim.api.nvim_win_get_cursor(0)[1]
+          vim.api.nvim_buf_set_lines(0, row , row , false, lines)
+        end, { desc = "Paste as new line above without affecting current" })
 
         -- selection
         vim.keymap.set("n", "V", "ggVG", { desc = "Select all" })
