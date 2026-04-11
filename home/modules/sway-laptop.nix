@@ -179,8 +179,8 @@ in
           "${mod}+v" = "floating toggle";
           "${mod}+j" = "focus left";
           "${mod}+k" = "focus right";
-          "${mod}+h" = "exec swaymsg resize shrink right 50px || swaymsg resize grow left 50px";
-          "${mod}+l" = "exec swaymsg resize grow right 50px || swaymsg resize shrink left 50px";
+          "${mod}+h" = "exec swaymsg resize shrink right 100px || swaymsg resize grow left 100px";
+          "${mod}+l" = "exec swaymsg resize grow right 100px || swaymsg resize shrink left 100px";
           "${mod}+Ctrl+j" = "move left";
           "${mod}+Ctrl+k" = "move right";
           "${mod}+1" = "workspace number 1";
