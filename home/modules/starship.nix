@@ -4,12 +4,12 @@
     enable = true;
     settings = {
       add_newline = false;
-      format = "$character$directory$git_branch$git_status";
+      format = "$directory$git_branch$git_status$character";
       right_format = "$python$nodejs$cpp$rust$cmd_duration$hostname$username";
       character = {
         vicmd_symbol = "[N](bold) >>>";
-        success_symbol = "[󰁔](bold)";
-        error_symbol = "[󰁔](bold red)";
+        success_symbol = "[󰄾](bold)";
+        error_symbol = "[󰄾](bold red)";
       };
       directory = {
         style = "bold blue";

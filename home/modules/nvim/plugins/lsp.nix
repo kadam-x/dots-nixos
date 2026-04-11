@@ -3,18 +3,43 @@
   programs.nvf.settings.vim = {
     languages = {
       enableTreesitter = true;
-      python = { enable = true; lsp.enable = true; };
-      nix    = { enable = true; lsp.enable = true; };
-      lua    = { enable = true; lsp.enable = true; };
-      rust   = { enable = true; lsp.enable = true; };
-      clang  = { enable = true; lsp.enable = true; };
-      ts     = { enable = true; lsp.enable = true; };
-      html   = { enable = true; };
-      css    = { enable = true; };
+      python = {
+        enable = true;
+        lsp.enable = true;
+      };
+      nix = {
+        enable = true;
+        lsp.enable = true;
+      };
+      lua = {
+        enable = true;
+        lsp.enable = true;
+      };
+      rust = {
+        enable = true;
+        lsp.enable = true;
+      };
+      clang = {
+        enable = true;
+        lsp.enable = true;
+      };
+      ts = {
+        enable = true;
+        lsp.enable = true;
+      };
+      html = {
+        enable = true;
+      };
+      css = {
+        enable = true;
+      };
+      astro = {
+        enable = true;
+      };
     };
 
     lsp = {
-      enable = true;
+      enable = false;
       formatOnSave = true;
     };
 
@@ -23,6 +48,10 @@
         package = pkgs.vimPlugins.conform-nvim;
         setup = ''
           require("conform").setup({
+            format_on_save = {
+              timeout_ms = 500,
+              lsp_fallback = false,
+            },
             formatters_by_ft = {
               javascript = { "prettier" },
               typescript = { "prettier" },
@@ -30,7 +59,6 @@
               html       = { "prettier" },
               json       = { "prettier" },
               yaml       = { "prettier" },
-              markdown   = { "prettier" },
             },
           })
         '';

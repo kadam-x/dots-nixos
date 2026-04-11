@@ -20,7 +20,7 @@
     ./plugins/tmux-navigator.nix
     ./plugins/which-key.nix
     ./plugins/yazi.nix
-    ./plugins/render-markdown.nix
+    # ./plugins/render-markdown.nix
   ];
 
   programs.nvf = {

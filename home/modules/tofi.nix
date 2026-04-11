@@ -33,7 +33,6 @@
           tmux send-keys -t "$session_name:editor" "nvim" Enter
           tmux split-window -v -t "$session_name:editor" -c "$project_path" -p 25
           tmux split-window -h -t "$session_name:editor.2" -c "$project_path"
-          tmux send-keys -t "$session_name:editor.2" "opencode" Enter
           tmux select-pane -t "$session_name:editor.1"
           tmux new-window -t "$session_name" -n "lazygit" -c "$project_path"
           tmux send-keys -t "$session_name:lazygit" "lazygit" Enter
