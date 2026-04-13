@@ -1,17 +1,4 @@
 { pkgs, ... }:
-let
-  statusScript = pkgs.writeShellScript "sway-status" ''
-    while true; do
-      CPU=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t} else printf "%d", (u-u1)/(t-t1)*100}' \
-        <(grep 'cpu ' /proc/stat) <(sleep 0.5; grep 'cpu ' /proc/stat))
-      RAM=$(free | awk '/Mem:/ {printf "%d", $3/$2*100}')
-      DISK=$(df / | awk 'NR==2 {gsub(/%/,""); printf "%d", $5}')
-      DATE=$(date +'%a %d %b %H:%M')
-      echo "cpu ''${CPU}%  ram ''${RAM}%  disk ''${DISK}%  ''${DATE}"
-      sleep 1
-    done
-  '';
-in
 {
   wayland.windowManager.sway = {
     enable = true;
@@ -20,16 +7,7 @@ in
       modifier = "Mod4";
       terminal = "foot";
       defaultWorkspace = "workspace number 1";
-      bars = [
-        {
-          position = "top";
-          statusCommand = "${statusScript}";
-          fonts = {
-            names = [ "Iosevka Nerd Font" ];
-            size = 13.0;
-          };
-        }
-      ];
+      bars = [ ];
       gaps = {
         inner = 5;
         outer = 0;
@@ -185,6 +163,7 @@ in
         { command = "wl-paste --type text --watch cliphist store"; }
         { command = "wl-paste --type image --watch cliphist store"; }
         { command = "qbittorrent --no-splash"; }
+        { command = "waybar"; }
       ];
     };
     extraConfig = ''

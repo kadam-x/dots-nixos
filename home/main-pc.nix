@@ -11,6 +11,7 @@
     ./modules/yazi.nix
     ./modules/foot.nix
     ./modules/dunst.nix
+    ./modules/waybar-pc.nix
   ];
   home.username = "kadam-x";
   home.homeDirectory = "/home/kadam-x";
