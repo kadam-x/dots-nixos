@@ -31,7 +31,6 @@
         "DP-1" = {
           resolution = "2560x1440@240Hz";
           position = "0,0";
-          bg = "~/Pictures/wallpapers/calm/tunnel-japan.png fill";
         };
       };
       window.commands = [
@@ -122,6 +121,7 @@
             "exec bash -c 'obsidian \"obsidian://new?vault=notes&file=quicknotes/$(date +%Y-%m-%d-%H%M).md\" && swaymsg [title=\"Obsidian\"] focus'";
           "${mod}+p" = "exec bash ~/.config/tofi/scripts/project-picker";
           "${mod}+m" = "exec bash ~/.config/tofi/scripts/system-pc";
+          "${mod}+w" = "exec bash ~/.config/tofi/scripts/wallpaper-picker";
           "${mod}+Shift+s" =
             "exec sh -c 'grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'";
           "${mod}+q" = "kill";
@@ -164,6 +164,7 @@
         { command = "wl-paste --type image --watch cliphist store"; }
         { command = "qbittorrent --no-splash"; }
         { command = "waybar"; }
+        { command = "swww-daemon"; }
       ];
     };
     extraConfig = ''

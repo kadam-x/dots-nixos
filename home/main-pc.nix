@@ -57,5 +57,6 @@
     qbittorrent
     obs-studio
     libnotify
+    swww
   ];
 }

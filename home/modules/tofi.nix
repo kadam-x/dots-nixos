@@ -19,6 +19,22 @@
       num-results = 15
       prompt-text = " > "
     '';
+    "tofi/scripts/wallpaper-picker" = {
+      executable = true;
+      text = ''
+        #!/usr/bin/env bash
+        WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+        
+        # Ensure swww-daemon is running
+        swww-daemon &>/dev/null &
+
+        selection=$(ls "$WALLPAPER_DIR" | tofi --prompt-text "wallpaper > ")
+        
+        [ -z "$selection" ] && exit 0
+        
+        swww img "$WALLPAPER_DIR/$selection" --transition-type simple
+      '';
+    };
     "tofi/scripts/project-picker" = {
       executable = true;
       text = ''

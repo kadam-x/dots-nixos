@@ -58,5 +58,6 @@
     lazygit
     wifitui
     libnotify
+    swww
   ];
 }

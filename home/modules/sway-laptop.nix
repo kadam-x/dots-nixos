@@ -40,7 +40,6 @@
         "eDP-1" = {
           resolution = "1920x1080@60Hz";
           position = "0,0";
-          bg = "~/Pictures/Wallpapers/dreamy-planet.jpg fill";
         };
       };
       window.commands = [
@@ -128,6 +127,7 @@
           "${mod}+u" = "exec hyprpicker -a";
           "${mod}+p" = "exec bash ~/.config/tofi/scripts/project-picker";
           "${mod}+m" = "exec bash ~/.config/tofi/scripts/system-laptop";
+          "${mod}+w" = "exec bash ~/.config/tofi/scripts/wallpaper-picker";
           "${mod}+n" =
             "exec bash -c 'obsidian \"obsidian://new?vault=notes&file=quicknotes/$(date +%Y-%m-%d-%H%M).md\" && swaymsg [title=\"Obsidian\"] focus'";
           "${mod}+Shift+s" =
@@ -171,7 +171,7 @@
         { command = "wl-paste --type text --watch cliphist store"; }
         { command = "wl-paste --type image --watch cliphist store"; }
         { command = "qbittorrent --no-splash"; }
-        { command = "waybar"; }
+        { command = "swww-daemon"; }
       ];
     };
     extraConfig = ''
