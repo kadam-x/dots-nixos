@@ -1,25 +1,4 @@
-{ pkgs, ... }:
-let
-  statusScript = pkgs.writeShellScript "sway-status" ''
-    while true; do
-      CPU=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t} else printf "%d", (u-u1)/(t-t1)*100}' \
-        <(grep 'cpu ' /proc/stat) <(sleep 0.5; grep 'cpu ' /proc/stat))
-      RAM=$(free | awk '/Mem:/ {printf "%d", $3/$2*100}')
-      DISK=$(df / | awk 'NR==2 {gsub(/%/,""); printf "%d", $5}')
-      BAT=$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null || echo "?")
-      BAT_STATUS=$(cat /sys/class/power_supply/BAT0/status 2>/dev/null || echo "")
-      if [ "$BAT_STATUS" = "Charging" ]; then
-        BAT_STR="bat ${BAT}%+"
-      else
-        BAT_STR="bat ${BAT}%"
-      fi
-      WIFI=$(iwgetid -r 2>/dev/null || echo "disconnected")
-      DATE=$(date +'%a %d %b %H:%M')
-      echo "cpu ''${CPU}%  ram ''${RAM}%  disk ''${DISK}%  ''${BAT_STR}  ''${WIFI}  ''${DATE}"
-      sleep 1
-    done
-  '';
-in
+{  ... }:
 {
   wayland.windowManager.sway = {
     enable = true;
@@ -28,33 +7,11 @@ in
       modifier = "Mod4";
       terminal = "foot";
       defaultWorkspace = "workspace number 1";
-      bars = [
-        {
-          position = "top";
-          trayOutput = "*";
-          trayPadding = 4;
-          statusCommand = "${statusScript}";
-          extraConfig = ''
-            icon_theme Papirus
-          '';
-          colors = {
-            statusline = "#bdbdbd";
-            focusedWorkspace = {
-              border = "#bdbdbd";
-              background = "#bdbdbd";
-              text = "#080808";
-            };
-          };
-          fonts = {
-            names = [ "Iosevka Nerd Font" ];
-            size = 13.0;
-          };
-        }
-      ];
+      bars = [ ];
       gaps = {
         inner = 5;
         outer = 15;
-        smartGaps = false;
+        smartGaps = true;
         smartBorders = "on";
       };
       colors = {
@@ -83,7 +40,7 @@ in
         "eDP-1" = {
           resolution = "1920x1080@60Hz";
           position = "0,0";
-          bg = "~/Pictures/Wallpapers/base16-bmg/monochrome-wave.jpg fill";
+          bg = "~/Pictures/Wallpapers/dreamy-landscape.jpg fill";
         };
       };
       window.commands = [
