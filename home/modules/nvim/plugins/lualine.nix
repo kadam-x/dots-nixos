@@ -14,7 +14,7 @@
             lualine_a = { "mode" },
             lualine_b = { { "branch" }, { "diff", symbols = { added = "+", modified = "~", removed = "-" } } },
             lualine_c = { },
-            lualine_x = { },
+            lualine_x = { "filetype" },
             lualine_y = { },
             lualine_z = { "location" },
           },
