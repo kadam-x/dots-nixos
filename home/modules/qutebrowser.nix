@@ -117,8 +117,8 @@
       colors.statusbar.url.warn.fg = "#888888";
       colors.statusbar.url.hover.fg = "#aaaaaa";
       # hints
-      colors.hints.bg = "#3b3b3f";
-      colors.hints.fg = "#1f1f23";
+      colors.hints.bg = "#ffffe4";
+      colors.hints.fg = "#3b3b3f";
       colors.hints.match.fg = "#333333";
       hints.border = "1px solid #1f1f23";
       hints.radius = 2;

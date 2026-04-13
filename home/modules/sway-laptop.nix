@@ -10,8 +10,8 @@
       bars = [ ];
       gaps = {
         inner = 5;
-        outer = 15;
-        smartGaps = true;
+        outer = 10;
+        smartGaps = false;
         smartBorders = "on";
       };
       colors = {
