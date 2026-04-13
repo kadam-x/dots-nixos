@@ -40,7 +40,7 @@
         "eDP-1" = {
           resolution = "1920x1080@60Hz";
           position = "0,0";
-          bg = "~/Pictures/Wallpapers/dreamy-landscape.jpg fill";
+          bg = "~/Pictures/Wallpapers/dreamy-planet.jpg fill";
         };
       };
       window.commands = [

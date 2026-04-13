@@ -100,7 +100,7 @@
         padding: 0;
       }
       window#waybar {
-        background-color: rgba(40, 85, 119, 0.2);
+        background-color: rgba(40, 85, 119, 0.4);
       }
       tooltip {
         background-color: #073642;
