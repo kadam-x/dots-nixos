@@ -82,26 +82,25 @@
       }
       window#waybar {
         background-color: #222222;
-        opacity: 0.7;
       }
       tooltip {
         background-color: #073642;
-        border: 1px solid #586e75;
+        border: 1px solid #285577;
         color: #93a1a1;
       }
       #clock, #tray, #cpu, #memory, #disk, #pulseaudio {
-        color: #586e75;
+        color: #285577;
         margin: 2px 2px 0px 0px;
         padding: 2px 6px;
         opacity: 1;
       }
       #custom-separator {
-        color: #586e75;
+        color: #285577;
         opacity: 0.7;
       }
-      #workspaces button         { color: #586e75; background-color: transparent; margin: 0 2px; padding: 0 2px; }
-      #workspaces button.focused { background-color: #586e75; color: rgba(0, 0, 0, 0.7); margin: 0 2px; padding: 0 2px; }
-      #workspaces button.urgent  { background-color: #dc322f; color: #586e75; margin: 0 2px; padding: 0 2px; }
+      #workspaces button         { color: #285577; background-color: transparent; margin: 0 2px; padding: 0 2px; }
+      #workspaces button.focused { background-color: #285577; color: rgba(0, 0, 0, 0.7); margin: 0 2px; padding: 0 2px; }
+      #workspaces button.urgent  { background-color: #dc322f; color: #285577; margin: 0 2px; padding: 0 2px; }
     '';
   };
 }
