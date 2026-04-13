@@ -27,7 +27,6 @@
         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/filters.txt"
         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/privacy.txt"
         "https://raw.githubusercontent.com/uBlockOrigin/uAssets/master/filters/annoyances.txt"
-        "https://secure.fanboy.com.au/fanboy-annoyance.txt"
       ];
       content.blocking.hosts.lists = [
         "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
@@ -66,9 +65,9 @@
       colors.tabs.selected.odd.fg = "#000000";
       colors.tabs.selected.even.bg = "#285577";
       colors.tabs.selected.even.fg = "#000000";
-      colors.tabs.odd.bg = "#111111";
+      colors.tabs.odd.bg = "#000000";
       colors.tabs.odd.fg = "#888888";
-      colors.tabs.even.bg = "#111111";
+      colors.tabs.even.bg = "#000000";
       colors.tabs.even.fg = "#888888";
       colors.tabs.pinned.selected.odd.bg = "#aaaaaa";
       colors.tabs.pinned.selected.odd.fg = "#000000";
