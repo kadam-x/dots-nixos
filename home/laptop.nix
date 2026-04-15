@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./modules/sway/sway-laptop.nix
+    ./modules/sway.nix
     ./modules/waybar.nix
     ./modules/nvim/default.nix
     ./modules/zsh.nix

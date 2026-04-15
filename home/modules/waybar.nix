@@ -17,6 +17,7 @@
           "tray"
           "disk"
           "group/sysinfo"
+          "network"
           "battery"
           "pulseaudio"
         ];
@@ -38,7 +39,7 @@
           tooltip = false;
         };
         cpu = {
-          format = "cpu{usage}%";
+          format = "󰍛 {usage}%";
           interval = 2;
           tooltip = false;
           states = {
@@ -46,7 +47,7 @@
           };
         };
         memory = {
-          format = "ram{percentage}%";
+          format = "󰘚 {percentage}%";
           interval = 2;
           tooltip = false;
           states = {
@@ -55,13 +56,16 @@
         };
         disk = {
           interval = 30;
-          format = "disk{percentage_used}%";
+          format = "󰋊 {percentage_used}%";
           path = "/";
           tooltip = false;
         };
         pulseaudio = {
-          format = "vol{volume}%";
+          format = "{icon} {volume}%";
           format-muted = "󰝟";
+          format-icons = {
+            default = [ "󰕿" "󰖀" "󰕾" ];
+          };
           scroll-step = 1;
           tooltip = false;
         };
@@ -77,9 +81,10 @@
           };
         };
         network = {
-          format-wifi = "󰖩";
+          format-wifi = "{icon} {essid}";
+          format-ethernet = "󰈀 eth";
           format-disconnected = "󰖪";
-          format-ethernet = "eth";
+          format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
           tooltip = false;
         };
         clock = {
