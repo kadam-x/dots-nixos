@@ -12,13 +12,13 @@
           tooltip = false;
         };
         "modules-left" = [ "sway/workspaces" ];
-        "modules-center" = [ ];
+        "modules-center" = [ "clock" ];
         "modules-right" = [
           "tray"
           "disk"
           "group/sysinfo"
+          "battery"
           "pulseaudio"
-          "clock"
         ];
         "group/sysinfo" = {
           orientation = "horizontal";
@@ -65,6 +65,23 @@
           scroll-step = 1;
           tooltip = false;
         };
+        battery = {
+          interval = 30;
+          format = "bat{capacity}%";
+          format-charging = "bat {capacity}%";
+          format-full = "bat full";
+          tooltip = false;
+          states = {
+            warning = 30;
+            critical = 15;
+          };
+        };
+        network = {
+          format-wifi = "󰖩";
+          format-disconnected = "󰖪";
+          format-ethernet = "eth";
+          tooltip = false;
+        };
         clock = {
           format = "{:%a %d %b %H:%M:%S}";
           interval = 1;
@@ -81,23 +98,25 @@
         padding: 0;
       }
       window#waybar {
-        background-color: rgba(40, 85, 119, 0.55);
+        background-color: rgba(40, 85, 119, 0.7);
       }
       tooltip {
         background-color: #073642;
         border: 1px solid #ffffe4;
         color: #93a1a1;
       }
-      #clock, #tray, #cpu, #memory, #disk, #pulseaudio {
+      #clock, #tray, #cpu, #memory, #battery,
+      #network, #disk, #pulseaudio {
         color: #ffffe4;
         margin: 2px 2px 0px 0px;
         padding: 2px 6px;
         opacity: 1;
       }
-      #custom-separator {
-        color: #ffffe4;
-        opacity: 0.7;
-      }
+      #battery.warning  { color: #c0a36e; }
+      #battery.critical { color: #c34043; }
+      #battery.charging { color: #76946a; }
+      #network.disconnected { color: #c34043; }
+      #custom-separator { color: #ffffe4; opacity: 0.7; }
       #workspaces button         { color: #ffffe4; background-color: transparent; margin: 0 2px; padding: 0 2px; }
       #workspaces button.focused { background-color: #ffffe4; color: rgba(0, 0, 0, 0.7); margin: 0 2px; padding: 0 2px; }
       #workspaces button.urgent  { background-color: #dc322f; color: #ffffe4; margin: 0 2px; padding: 0 2px; }

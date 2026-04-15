@@ -14,6 +14,15 @@
         smartGaps = true;
         smartBorders = "on";
       };
+      colors = {
+        focused = {
+          border = "#ffffe4";
+          background = "#080808";
+          text = "#ffffe4";
+          indicator = "#ffffe4";
+          childBorder = "#ffffe4";
+        };
+      };
       input = {
         "type:keyboard" = {
           xkb_layout = "us,hu";
@@ -27,12 +36,7 @@
           tap = "enabled";
         };
       };
-      output = {
-        "DP-1" = {
-          resolution = "2560x1440@240Hz";
-          position = "0,0";
-        };
-      };
+      output = { };
       window.commands = [
         {
           criteria = {
@@ -128,8 +132,8 @@
           "${mod}+v" = "floating toggle";
           "${mod}+j" = "focus left";
           "${mod}+k" = "focus right";
-          "${mod}+h" = "exec swaymsg resize shrink right 100px || swaymsg resize grow left 100px";
-          "${mod}+l" = "exec swaymsg resize grow right 100px || swaymsg resize shrink left 100px";
+          "${mod}+h" = "exec swaymsg resize shrink right 5ppt || swaymsg resize grow left 5ppt";
+          "${mod}+l" = "exec swaymsg resize grow right 5ppt || swaymsg resize shrink left 5ppt";
           "${mod}+Ctrl+j" = "move left";
           "${mod}+Ctrl+k" = "move right";
           "${mod}+1" = "workspace number 1";
@@ -169,8 +173,11 @@
     };
     extraConfig = ''
       floating_modifier Mod4 normal
-      default_border pixel 5
-      default_floating_border pixel 5
+      default_border pixel 2
+      default_floating_border pixel 2
+
+      output DP-1 resolution 2560x1440@240Hz position 0,0
+      output eDP-1 resolution 1920x1080@60Hz position 0,0
     '';
   };
 }

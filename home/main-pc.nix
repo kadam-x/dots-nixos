@@ -1,17 +1,17 @@
 { pkgs, ... }:
 {
   imports = [
+    ./modules/sway.nix
+    ./modules/waybar.nix
+    ./modules/nvim/default.nix
     ./modules/zsh.nix
     ./modules/starship.nix
-    ./modules/nvim/default.nix
     ./modules/tmux.nix
-    ./modules/sway-pc.nix
     ./modules/tofi.nix
     ./modules/qutebrowser.nix
     ./modules/yazi.nix
     ./modules/foot.nix
     ./modules/dunst.nix
-    ./modules/waybar-pc.nix
   ];
   home.username = "kadam-x";
   home.homeDirectory = "/home/kadam-x";
