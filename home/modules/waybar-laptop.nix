@@ -18,7 +18,6 @@
           "disk"
           "group/sysinfo"
           "battery"
-          "network"
           "pulseaudio"
           "clock"
         ];

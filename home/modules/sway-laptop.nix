@@ -172,6 +172,8 @@
         { command = "wl-paste --type image --watch cliphist store"; }
         { command = "qbittorrent --no-splash"; }
         { command = "swww-daemon"; }
+        { command = "waybar"; }
+        { command = "nm-applet --indicator"; }
       ];
     };
     extraConfig = ''

@@ -59,5 +59,6 @@
     wifitui
     libnotify
     swww
+    networkmanagerapplet
   ];
 }
