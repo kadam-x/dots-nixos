@@ -54,7 +54,7 @@
           tmux send-keys -t "$session_name:lazygit" "lazygit" Enter
           tmux select-window -t "$session_name:editor"
         }
-        active_sessions=$(tmux list-sessions -F "#S ●" 2>/dev/null)
+        active_sessions=$(tmux list-sessions -F "#S (active)" 2>/dev/null)
         all_projects=$(find "$PROJECTS_DIR" -maxdepth 1 -mindepth 1 -type d ! -name "archive" -printf "%f\n")
         combined_list=$(echo -e "''${active_sessions}\n''${all_projects}")
         selected_raw=$(echo "$combined_list" | tofi --prompt-text "project > ")
