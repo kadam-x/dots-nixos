@@ -174,6 +174,7 @@
         { command = "swww-daemon"; }
         { command = "waybar"; }
         { command = "nm-applet --indicator"; }
+        { command = "gnome-keyring-daemon --start --components=secrets"; }
       ];
     };
     extraConfig = ''

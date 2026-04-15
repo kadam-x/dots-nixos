@@ -17,6 +17,8 @@
   networking.enableIPv6 = false;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.ly.enableGnomeKeyring = true;
   nix.gc = {
     automatic = true;
     dates = "weekly";
@@ -67,7 +69,7 @@
   programs.sway.enable = true;
   programs.dconf.enable = true;
   programs.zsh.enable = true;
-  programs.ssh.startAgent = true;
+  # programs.ssh.startAgent = true;
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
     WLR_NO_HARDWARE_CURSORS = "1";
