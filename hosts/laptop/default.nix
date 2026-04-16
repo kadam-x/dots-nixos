@@ -84,7 +84,6 @@
   environment.systemPackages = with pkgs; [
     wl-clipboard
     cliphist
-    networkmanagerapplet  
   ];
   system.stateVersion = "25.11";
 }
