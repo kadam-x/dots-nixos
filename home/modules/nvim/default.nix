@@ -5,7 +5,7 @@
   imports = [
     ./plugins/barbar.nix
     # ./plugins/colorscheme.nix
-    ./plugins/colorscheme-moonfly.nix
+    ./plugins/colorscheme.nix
     ./plugins/lualine.nix
     ./plugins/blink.nix
     ./plugins/flash.nix
