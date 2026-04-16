@@ -71,9 +71,10 @@
         };
         battery = {
           interval = 30;
-          format = "bat{capacity}%";
-          format-charging = "bat {capacity}%";
-          format-full = "bat full";
+          format = "{icon} {capacity}%";
+          format-charging = "󱐋 {capacity}%";
+          format-full = "󰁹 full";
+          format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹" ];
           tooltip = false;
           states = {
             warning = 30;
