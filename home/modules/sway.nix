@@ -19,11 +19,11 @@ let
         BAT_STR=""
       fi
 
-      WIFI=$(iwgetid -r 2>/dev/null)
+      WIFI=$(nmcli -t -f active,ssid dev wifi 2>/dev/null | awk -F: '/^yes/ {print $2}')
       if [ -n "$WIFI" ]; then
         NET_STR="  ''${WIFI}"
       else
-        ETH_UP=$(ip -o link show | awk '/ether/ && /UP/ {print $2; exit}' | tr -d ':')
+        ETH_UP=$(ip -o link show | awk '/ether/ && /UP/ && !/lo/ {print $2; exit}' | tr -d ':')
         if [ -n "$ETH_UP" ]; then
           NET_STR="  eth"
         else
