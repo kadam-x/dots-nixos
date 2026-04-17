@@ -73,31 +73,25 @@
         fi
       '';
     };
-    "tofi/scripts/system-laptop" = {
+    "tofi/scripts/system" = {
       executable = true;
       text = ''
         #!/usr/bin/env bash
-        choice=$(printf "btop\nncdu\npulsemixer\nwifi\nbluetooth" | tofi --prompt-text "system > ")
+        if [ -d /sys/class/power_supply/BAT0 ]; then
+          options="pulsemixer\nbtop\nncdu\nwifi\nbluetooth"
+        else
+          options="pulsemixer\nbtop\nncdu"
+        fi
+
+        choice=$(printf "$options" | tofi --prompt-text "system > ")
         case "$choice" in
+          "pulsemixer") foot --app-id wiremix -e pulsemixer & ;;
           "btop")       foot --app-id btop -e btop & ;;
           "ncdu")       foot --app-id ncdu -e ncdu / & ;;
-          "pulsemixer") foot --app-id wiremix -e pulsemixer & ;;
-          "wifi")       foot --app-id impala -e impala & ;;
+          "wifi")       foot --app-id wifitui -e wifitui & ;;
           "bluetooth")  foot --app-id bluetui -e bluetui & ;;
         esac
-      '';
-    };
-    "tofi/scripts/system-pc" = {
-      executable = true;
-      text = ''
-        #!/usr/bin/env bash
-        choice=$(printf "btop\nncdu\npulsemixer" | tofi --prompt-text "system > ")
-        case "$choice" in
-          "btop")       foot --app-id btop -e btop & ;;
-          "ncdu")       foot --app-id ncdu -e ncdu / & ;;
-          "pulsemixer") foot --app-id wiremix -e pulsemixer & ;;
-        esac
-      '';
+    '';
     };
   };
 }

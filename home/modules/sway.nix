@@ -149,7 +149,7 @@ in
           "${mod}+n" =
             "exec bash -c 'obsidian \"obsidian://new?vault=notes&file=quicknotes/$(date +%Y-%m-%d-%H%M).md\" && swaymsg [title=\"Obsidian\"] focus'";
           "${mod}+p" = "exec bash ~/.config/tofi/scripts/project-picker";
-          "${mod}+m" = "exec bash ~/.config/tofi/scripts/system-pc";
+          "${mod}+m" = "exec bash ~/.config/tofi/scripts/system";
           "${mod}+w" = "exec bash ~/.config/tofi/scripts/wallpaper-picker";
           "${mod}+Shift+s" =
             "exec sh -c 'grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'";
