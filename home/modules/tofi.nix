@@ -59,7 +59,7 @@
         combined_list=$(echo -e "''${active_sessions}\n''${all_projects}")
         selected_raw=$(echo "$combined_list" | tofi --prompt-text "project > ")
         [ -z "$selected_raw" ] && exit 0
-        selected=$(echo "$selected_raw" | sed 's/ ●//')
+        selected=$(echo "$selected_raw" | sed 's/ (active)//' | sed 's/ ●//' | xargs)
         session_name=$(sanitize "$selected")
         project_path="$PROJECTS_DIR/$selected"
         if ! tmux has-session -t "$session_name" 2>/dev/null; then
