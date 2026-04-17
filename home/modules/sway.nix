@@ -1,4 +1,37 @@
-{ ... }:
+{ pkgs, ... }:
+let
+  statusScript = pkgs.writeShellScript "sway-status" ''
+    while true; do
+      CPU=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t} else printf "%d", (u-u1)/(t-t1)*100}' \
+        <(grep 'cpu ' /proc/stat) <(sleep 0.5; grep 'cpu ' /proc/stat))
+      RAM=$(free | awk '/Mem:/ {printf "%d", $3/$2*100}')
+      DISK=$(df / | awk 'NR==2 {gsub(/%/,""); printf "%d", $5}')
+
+      BAT_CAP=$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null)
+      if [ -n "$BAT_CAP" ]; then
+        BAT_STATUS=$(cat /sys/class/power_supply/BAT0/status 2>/dev/null || echo "")
+        if [ "$BAT_STATUS" = "Charging" ]; then
+          BAT_STR="  bat ''${BAT_CAP}%+"
+        else
+          BAT_STR="  bat ''${BAT_CAP}%"
+        fi
+      else
+        BAT_STR=""
+      fi
+
+      WIFI=$(iwgetid -r 2>/dev/null)
+      if [ -n "$WIFI" ]; then
+        WIFI_STR="  ''${WIFI}"
+      else
+        WIFI_STR=""
+      fi
+
+      DATE=$(date +'%a %d %b %H:%M')
+      echo "cpu ''${CPU}%  ram ''${RAM}%  disk ''${DISK}%''${BAT_STR}''${WIFI_STR}  ''${DATE}"
+      sleep 1
+    done
+  '';
+in
 {
   wayland.windowManager.sway = {
     enable = true;
@@ -7,7 +40,24 @@
       modifier = "Mod4";
       terminal = "foot";
       defaultWorkspace = "workspace number 1";
-      bars = [ ];
+      bars = [
+        {
+          position = "top";
+          trayOutput = "*";
+          trayPadding = 4;
+          statusCommand = "${statusScript}";
+          extraConfig = ''
+            icon_theme Papirus
+          '';
+          colors = {
+            background = "#222222";
+          };
+          fonts = {
+            names = [ "Iosevka Nerd Font" ];
+            size = 13.0;
+          };
+        }
+      ];
       gaps = {
         inner = 0;
         outer = 0;
@@ -39,69 +89,47 @@
       output = { };
       window.commands = [
         {
-          criteria = {
-            app_id = "wiremix";
-          };
+          criteria = { app_id = "wiremix"; };
           command = "floating enable, resize set 800 600, move position center";
         }
         {
-          criteria = {
-            app_id = "yazi";
-          };
+          criteria = { app_id = "yazi"; };
           command = "floating enable, resize set 1200 1000, move position center";
         }
         {
-          criteria = {
-            app_id = "org.qbittorrent.qBittorrent";
-          };
+          criteria = { app_id = "org.qbittorrent.qBittorrent"; };
           command = "floating enable, resize set 800 600, move position center";
         }
         {
-          criteria = {
-            app_id = "ncdu";
-          };
+          criteria = { app_id = "ncdu"; };
           command = "floating enable, resize set 1000 800, move position center";
         }
         {
-          criteria = {
-            app_id = "btop";
-          };
+          criteria = { app_id = "btop"; };
           command = "floating enable, resize set 1000 800, move position center";
         }
         {
-          criteria = {
-            app_id = "swayimg";
-          };
+          criteria = { app_id = "swayimg"; };
           command = "floating enable";
         }
         {
-          criteria = {
-            app_id = "nmtui";
-          };
+          criteria = { app_id = "nmtui"; };
           command = "floating enable, resize set 600 400, move position center";
         }
         {
-          criteria = {
-            app_id = "impala";
-          };
+          criteria = { app_id = "impala"; };
           command = "floating enable, resize set 800 500, move position center";
         }
         {
-          criteria = {
-            app_id = "bluetui";
-          };
+          criteria = { app_id = "bluetui"; };
           command = "floating enable, resize set 800 500, move position center";
         }
         {
-          criteria = {
-            app_id = "vlc";
-          };
+          criteria = { app_id = "vlc"; };
           command = "focus";
         }
         {
-          criteria = {
-            app_id = "qtws";
-          };
+          criteria = { app_id = "qtws"; };
           command = "focus";
         }
       ];
@@ -167,7 +195,6 @@
         { command = "wl-paste --type text --watch cliphist store"; }
         { command = "wl-paste --type image --watch cliphist store"; }
         { command = "qbittorrent --no-splash"; }
-        { command = "waybar"; }
         { command = "swww-daemon"; }
       ];
     };

@@ -2,7 +2,7 @@
 {
   imports = [
     ./modules/sway.nix
-    ./modules/waybar.nix
+    # ./modules/waybar.nix
     ./modules/nvim/default.nix
     ./modules/zsh.nix
     ./modules/starship.nix
