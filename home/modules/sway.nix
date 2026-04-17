@@ -21,13 +21,18 @@ let
 
       WIFI=$(iwgetid -r 2>/dev/null)
       if [ -n "$WIFI" ]; then
-        WIFI_STR="  ''${WIFI}"
+        NET_STR="  ''${WIFI}"
       else
-        WIFI_STR=""
+        ETH_UP=$(ip -o link show | awk '/ether/ && /UP/ {print $2; exit}' | tr -d ':')
+        if [ -n "$ETH_UP" ]; then
+          NET_STR="  eth"
+        else
+          NET_STR=""
+        fi
       fi
 
       DATE=$(date +'%a %d %b %H:%M')
-      echo "cpu ''${CPU}%  ram ''${RAM}%  disk ''${DISK}%''${BAT_STR}''${WIFI_STR}  ''${DATE}"
+      echo "cpu ''${CPU}%  ram ''${RAM}%  disk ''${DISK}%''${BAT_STR}''${NET_STR}  ''${DATE}"
       sleep 1
     done
   '';
@@ -64,15 +69,7 @@ in
         smartGaps = true;
         smartBorders = "on";
       };
-      colors = {
-        focused = {
-          border = "#ffffe4";
-          background = "#080808";
-          text = "#ffffe4";
-          indicator = "#ffffe4";
-          childBorder = "#ffffe4";
-        };
-      };
+      colors = {};
       input = {
         "type:keyboard" = {
           xkb_layout = "us,hu";
