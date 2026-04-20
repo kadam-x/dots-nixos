@@ -59,6 +59,5 @@
     wifitui
     libnotify
     swww
-    prismlauncher
   ];
 }

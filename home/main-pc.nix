@@ -58,6 +58,5 @@
     obs-studio
     libnotify
     swww
-    prismlauncher
   ];
 }
