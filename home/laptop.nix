@@ -2,6 +2,7 @@
 {
   imports = [
     ./modules/sway.nix
+    ./modules/waybar.nix
     ./modules/nvim/default.nix
     ./modules/zsh.nix
     ./modules/starship.nix
@@ -58,5 +59,6 @@
     wifitui
     libnotify
     swww
+    prismlauncher
   ];
 }

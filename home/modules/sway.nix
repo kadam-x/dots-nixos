@@ -1,42 +1,4 @@
-{ pkgs, ... }:
-let
-  statusScript = pkgs.writeShellScript "sway-status" ''
-    while true; do
-      CPU=$(awk '{u=$2+$4; t=$2+$4+$5; if (NR==1){u1=u; t1=t} else printf "%d", (u-u1)/(t-t1)*100}' \
-        <(grep 'cpu ' /proc/stat) <(sleep 0.5; grep 'cpu ' /proc/stat))
-      RAM=$(free | awk '/Mem:/ {printf "%d", $3/$2*100}')
-      DISK=$(df / | awk 'NR==2 {gsub(/%/,""); printf "%d", $5}')
-
-      BAT_CAP=$(cat /sys/class/power_supply/BAT0/capacity 2>/dev/null)
-      if [ -n "$BAT_CAP" ]; then
-        BAT_STATUS=$(cat /sys/class/power_supply/BAT0/status 2>/dev/null || echo "")
-        if [ "$BAT_STATUS" = "Charging" ]; then
-          BAT_STR="  bat ''${BAT_CAP}%+"
-        else
-          BAT_STR="  bat ''${BAT_CAP}%"
-        fi
-      else
-        BAT_STR=""
-      fi
-
-      WIFI=$(nmcli -t -f active,ssid dev wifi 2>/dev/null | awk -F: '/^yes/ {print $2}')
-      if [ -n "$WIFI" ]; then
-        NET_STR="  ''${WIFI}"
-      else
-        ETH_UP=$(ip -o link show | awk '/ether/ && /UP/ && !/lo/ {print $2; exit}' | tr -d ':')
-        if [ -n "$ETH_UP" ]; then
-          NET_STR="  eth"
-        else
-          NET_STR=""
-        fi
-      fi
-
-      DATE=$(date +'%a %d %b %H:%M')
-      echo "cpu ''${CPU}%  ram ''${RAM}%  disk ''${DISK}%''${BAT_STR}''${NET_STR}  ''${DATE}"
-      sleep 1
-    done
-  '';
-in
+{ ... }:
 {
   wayland.windowManager.sway = {
     enable = true;
@@ -45,24 +7,7 @@ in
       modifier = "Mod4";
       terminal = "foot";
       defaultWorkspace = "workspace number 1";
-      bars = [
-        {
-          position = "top";
-          trayOutput = "*";
-          trayPadding = 4;
-          statusCommand = "${statusScript}";
-          extraConfig = ''
-            icon_theme Papirus
-          '';
-          colors = {
-            background = "#222222";
-          };
-          fonts = {
-            names = [ "Iosevka Nerd Font" ];
-            size = 13.0;
-          };
-        }
-      ];
+      bars = [];
       gaps = {
         inner = 0;
         outer = 0;
@@ -193,6 +138,7 @@ in
         { command = "wl-paste --type image --watch cliphist store"; }
         { command = "qbittorrent --no-splash"; }
         { command = "swww-daemon"; }
+        { command = "waybar"; }
       ];
     };
     extraConfig = ''
