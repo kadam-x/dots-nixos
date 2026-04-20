@@ -12,7 +12,7 @@
           tooltip = false;
         };
         "modules-left" = [ "sway/workspaces" ];
-        "modules-center" = [ "clock" ];
+        "modules-center" = [];
         "modules-right" = [
           "tray"
           "disk"
@@ -20,6 +20,7 @@
           "network"
           "battery"
           "pulseaudio"
+          "clock"
         ];
         "group/sysinfo" = {
           orientation = "horizontal";
@@ -39,7 +40,7 @@
           tooltip = false;
         };
         cpu = {
-          format = "󰍛 {usage}%";
+          format = "cpu {usage}%";
           interval = 2;
           tooltip = false;
           states = {
@@ -47,7 +48,7 @@
           };
         };
         memory = {
-          format = "  {percentage}%";
+          format = "ram {percentage}%";
           interval = 2;
           tooltip = false;
           states = {
@@ -56,16 +57,12 @@
         };
         disk = {
           interval = 30;
-          format = "󰋊 {percentage_used}%";
+          format = "disk {percentage_used}%";
           path = "/";
           tooltip = false;
         };
         pulseaudio = {
-          format = "{icon} {volume}%";
-          format-muted = "󰝟";
-          format-icons = {
-            default = [ "󰕿" "󰖀" "󰕾" ];
-          };
+          format = "vol {volume}%";
           scroll-step = 1;
           tooltip = false;
         };
@@ -83,7 +80,7 @@
         };
         network = {
           format-wifi = "{icon} {essid}";
-          format-ethernet = "󰈀 eth";
+          format-ethernet = "󰈀";
           format-disconnected = "󰖪";
           format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
           tooltip = false;
