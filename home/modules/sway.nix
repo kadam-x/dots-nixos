@@ -1,8 +1,9 @@
-{ ... }:
+{ pkgs, ... }:
 {
   wayland.windowManager.sway = {
     enable = true;
     checkConfig = false;
+    package = pkgs.swayfx;
     config = {
       modifier = "Mod4";
       terminal = "foot";
@@ -148,6 +149,12 @@
 
       output DP-1 resolution 2560x1440@240Hz position 0,0
       output eDP-1 resolution 1920x1080@60Hz position 0,0
+
+      blur enable
+      blur_passes 2
+      blur_radius 5
+
+      for_window [app_id="foot"] blur enable
     '';
   };
 }

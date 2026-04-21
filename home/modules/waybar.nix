@@ -6,16 +6,17 @@
       {
         reload_style_on_change = true;
         layer = "top";
-        "modules-left" = [ "sway/workspaces" ];
-        "modules-center" = [];
-        "modules-right" = [
+        "modules-left" = [ 
+          "sway/workspaces"
           "tray"
+        ];
+        "modules-center" = ["clock"];
+        "modules-right" = [
+          "pulseaudio"
           "disk"
           "group/sysinfo"
           "network"
           "battery"
-          "pulseaudio"
-          "clock"
         ];
         "group/sysinfo" = {
           orientation = "horizontal";
@@ -92,61 +93,49 @@
         border-radius: 0;
         min-height: 0;
         font-family: "Iosevka Nerd Font";
-        font-size: 14px;
+        font-size: 18px;
         padding: 0;
         margin: 0;
       }
 
       window#waybar {
-        background-color: rgba(40, 85, 119, 0.7);
+        background-color: rgba(40, 40, 40, 0.7);
         padding: 1px 8px;
       }
 
-      #clock, #tray, #cpu, #memory, #battery,
-      #network, #disk, #pulseaudio {
-        color: #ffffe4;
-        padding: 0 10px;
-        margin: 0;
-      }
-
-      #clock {
-        font-weight: 500;
-        padding-right: 6px;
-      }
-
-      #tray {
+      #clock, #tray, #cpu, #memory, #disk,
+      #network, #pulseaudio, #battery {
+        background: transparent;
+        color: #a89984;
+        margin: 2px 4px;
         padding: 0 6px;
       }
 
-      #battery.warning  { color: #c0a36e; }
-      #battery.critical { color: #c34043; }
-      #battery.charging { color: #76946a; }
-      #network.disconnected { color: #c34043; }
+      #clock {
+        padding: 0 10px;
+      }
+
+      #battery.warning  { color: #fe8019; }
+      #battery.critical { color: #fb4934; }
+      #battery.charging { color: #b8bb26; }
+      #network.disconnected { color: #fb4934; }
 
       #workspaces {
         background: transparent;
       }
-      #workspaces button {
-        color: rgba(255, 255, 228, 0.45);
-        background: transparent;
-        padding: 0 6px;
-        font-size: 15px;
-      }
-      #workspaces button.focused {
-        color: #ffffe4;
-      }
-      #workspaces button.urgent {
-        background-color: #dc322f;
-        color: #ffffe4;
-      }
+
+      #workspaces button         { color: #a89984; background-color: transparent; margin: 0 2px; padding: 0 2px; }
+      #workspaces button.focused { background-color: #a89984; color: rgba(0, 0, 0, 0.7); margin: 0 2px; padding: 0 2px; }
+      #workspaces button.urgent  { background-color: #dc322f; color: #a89984; margin: 0 2px; padding: 0 2px; }
+
       #workspaces button:hover {
-        background: rgba(255, 255, 228, 0.08);
+        background: rgba(255, 255, 255, 0.08);
       }
 
       tooltip {
-        background-color: #073642;
-        border: 1px solid #ffffe4;
-        color: #93a1a1;
+        background-color: #1d2021;
+        border: 1px solid #504945;
+        color: #ebdbb2;
       }
     '';
   };
