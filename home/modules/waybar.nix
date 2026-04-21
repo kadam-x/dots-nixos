@@ -6,11 +6,6 @@
       {
         reload_style_on_change = true;
         layer = "top";
-        "custom/separator" = {
-          format = "::";
-          interval = "once";
-          tooltip = false;
-        };
         "modules-left" = [ "sway/workspaces" ];
         "modules-center" = [];
         "modules-right" = [
@@ -80,13 +75,13 @@
         };
         network = {
           format-wifi = "{icon} {essid}";
-          format-ethernet = "󰈀";
+          format-ethernet = "󰈀 eth";
           format-disconnected = "󰖪";
           format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
           tooltip = false;
         };
         clock = {
-          format = "{:%a %d %b %H:%M:%S}";
+          format = "{:%a %d %b  %H:%M:%S}";
           interval = 1;
         };
       }
@@ -97,32 +92,62 @@
         border-radius: 0;
         min-height: 0;
         font-family: "Iosevka Nerd Font";
-        font-size: 18px;
+        font-size: 14px;
         padding: 0;
+        margin: 0;
       }
+
       window#waybar {
         background-color: rgba(40, 85, 119, 0.7);
+        padding: 1px 8px;
       }
+
+      #clock, #tray, #cpu, #memory, #battery,
+      #network, #disk, #pulseaudio {
+        color: #ffffe4;
+        padding: 0 10px;
+        margin: 0;
+      }
+
+      #clock {
+        font-weight: 500;
+        padding-right: 6px;
+      }
+
+      #tray {
+        padding: 0 6px;
+      }
+
+      #battery.warning  { color: #c0a36e; }
+      #battery.critical { color: #c34043; }
+      #battery.charging { color: #76946a; }
+      #network.disconnected { color: #c34043; }
+
+      #workspaces {
+        background: transparent;
+      }
+      #workspaces button {
+        color: rgba(255, 255, 228, 0.45);
+        background: transparent;
+        padding: 0 6px;
+        font-size: 15px;
+      }
+      #workspaces button.focused {
+        color: #ffffe4;
+      }
+      #workspaces button.urgent {
+        background-color: #dc322f;
+        color: #ffffe4;
+      }
+      #workspaces button:hover {
+        background: rgba(255, 255, 228, 0.08);
+      }
+
       tooltip {
         background-color: #073642;
         border: 1px solid #ffffe4;
         color: #93a1a1;
       }
-      #clock, #tray, #cpu, #memory, #battery,
-      #network, #disk, #pulseaudio {
-        color: #ffffe4;
-        margin: 2px 2px 0px 0px;
-        padding: 2px 6px;
-        opacity: 1;
-      }
-      #battery.warning  { color: #c0a36e; }
-      #battery.critical { color: #c34043; }
-      #battery.charging { color: #76946a; }
-      #network.disconnected { color: #c34043; }
-      #custom-separator { color: #ffffe4; opacity: 0.7; }
-      #workspaces button         { color: #ffffe4; background-color: transparent; margin: 0 2px; padding: 0 2px; }
-      #workspaces button.focused { background-color: #ffffe4; color: rgba(0, 0, 0, 0.7); margin: 0 2px; padding: 0 2px; }
-      #workspaces button.urgent  { background-color: #dc322f; color: #ffffe4; margin: 0 2px; padding: 0 2px; }
     '';
   };
 }
