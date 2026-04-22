@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 {
   programs.waybar = {
     enable = true;
@@ -79,65 +79,53 @@
         border: none;
         border-radius: 0;
         min-height: 0;
-        font-family: "Iosevka Nerd Font";
+        font-family: "Monospace";
         font-size: 16px;
-        letter-spacing: 0.5px;
         padding: 0;
         margin: 0;
       }
 
       window#waybar {
-        background-color: rgba(13, 17, 22, 0.9);
+        background-color: rgba(8, 8, 8, 0.85);
         padding: 1px 8px;
       }
 
       #clock, #tray, #cpu, #memory, #disk,
       #network, #pulseaudio, #battery {
         background: transparent;
-        margin: 2px 6px;
-        padding: 0 4px;
+        color: #ffffe4;
+        margin: 2px 4px;
+        padding: 0 6px;
       }
 
-      #clock { color: #d5c4a1; padding: 0 10px; }
-      #pulseaudio { color: #a89984; }
-      #disk { color: #b16286; }
-      #cpu { color: #83a598; }
-      #memory { color: #d79921; }
-      #network { color: #689d6a; }
-      #battery { color: #98971a; }
+      #clock {
+        padding: 0 10px;
+        color: #ffffe4;
+      }
 
-      #battery.warning  { color: #d65d0e; }
-      #battery.critical { color: #fb4934; }
-      #battery.charging { color: #b8bb26; }
-      #network.disconnected { color: #fb4934; }
+      #battery.warning  { color: #ffffe4; }
+      #battery.critical { color: #ff5454; }
+      #battery.charging { color: #8cc85f; }
+      #network.disconnected { color: #ff5454; }
 
       #workspaces {
         background: transparent;
+        margin-left: 0;
+        padding-left: 0;
       }
 
-      #workspaces button {
-        color: #928374;
-        background-color: transparent;
-        padding: 0 2px;
-        margin: 0 2px;
-      }
+      #workspaces button         { color: #ffffe4; background-color: transparent; margin: 0 2px; padding: 0 0px; }
+      #workspaces button.focused { background-color: #ffffe4; color: rgba(0, 0, 0, 0.7); margin: 0 2px; padding: 0 0px; }
+      #workspaces button.urgent  { background-color: #ff5454; color: #ffffe4; margin: 0 2px; padding: 0 0px; }
 
-      #workspaces button.focused {
-        color: #111111;
-        background-color: #a89984;
-        padding: 0 2px;
-        margin: 0 2px;
-      }
-
-      #workspaces button.urgent {
-        background-color: #fb4934;
-        color: #ebdbb2;
+      #workspaces button:hover {
+        background: rgba(178, 178, 178, 0.08);
       }
 
       tooltip {
-        background-color: #1d2021;
-        border: 1px solid #504945;
-        color: #ebdbb2;
+        background-color: #121212;
+        border: 1px solid #373c40;
+        color: #ffffe4;
       }
     '';
   };

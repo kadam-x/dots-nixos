@@ -143,8 +143,8 @@
     };
     extraConfig = ''
       floating_modifier Mod4 normal
-      default_border pixel 2
-      default_floating_border pixel 2
+      default_border pixel 1
+      default_floating_border pixel 1
 
       output DP-1 resolution 2560x1440@240Hz position 0,0
       output eDP-1 resolution 1920x1080@60Hz position 0,0

@@ -2,13 +2,11 @@
 {
   programs.nvf.settings.vim = {
     theme.enable = false;
-    extraPlugins.gruvbox-baby = {
-      package = pkgs.vimPlugins.gruvbox-baby;
+    extraPlugins.moonfly = {
+      package = pkgs.vimPlugins.vim-moonfly-colors;
       setup = ''
-        vim.cmd("colorscheme gruvbox-baby")
+        vim.cmd.colorscheme("moonfly")
       '';
     };
   };
 }
-  
-
