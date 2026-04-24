@@ -9,7 +9,7 @@
         pad = "6x6";
       };
       colors-dark = {
-        alpha = "1";
+        alpha = "0.96";
         background = "030210";
         foreground = "bdbdbd";
         regular0 = "080808";

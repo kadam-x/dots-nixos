@@ -80,13 +80,13 @@
         border-radius: 0;
         min-height: 0;
         font-family: "Monospace";
-        font-size: 15px;
+        font-size: 16px;
         padding: 0;
         margin: 0;
       }
 
       window#waybar {
-        background-color: #000000;
+        background-color: #030210;
       }
 
       #clock, #tray, #cpu, #memory, #disk,
@@ -110,12 +110,8 @@
       }
 
       #workspaces button         { color: rgba(255, 255, 255, 0.4); background-color: transparent; margin: 0 0px; padding: 0 0px; }
-      #workspaces button.focused { background-color: rgba(255, 255, 255, 0.4); color: rgba(255, 255, 255, 1); margin: 0 0px; padding: 0 0px; border-bottom: 1px solid #ffffff }
+      #workspaces button.focused { background-color: rgba(121, 218, 200, 0.4); color: rgba(255, 255, 255, 1); margin: 0 0px; padding: 0 0px; }
       #workspaces button.urgent  { background-color: #ff5454; color: #000000; margin: 0 0px; padding: 0 0px; }
-
-      #workspaces button:hover {
-        background: rgba(178, 178, 178, 0.08);
-      }
 
       tooltip {
         background-color: #121212;
