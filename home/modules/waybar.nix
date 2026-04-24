@@ -29,23 +29,23 @@
           format = "{icon}";
         };
         cpu = {
-          format = " {usage}%";
+          format = "cpu{usage}%";
           interval = 2;
           tooltip = false;
         };
         memory = {
-          format = " {percentage}%";
+          format = "ram{percentage}%";
           interval = 2;
           tooltip = false;
         };
         disk = {
           interval = 30;
-          format = "󰋊 {percentage_used}%";
+          format = "disk{percentage_used}%";
           path = "/";
           tooltip = false;
         };
         pulseaudio = {
-          format = "{icon} {volume}%";
+          format = "vol{volume}%";
           format-muted = "󰝟  {volume}%";
           format-icons = {
             default = [ "󰕿" "󰖀" "󰕾" ];
@@ -93,8 +93,8 @@
       #network, #pulseaudio, #battery, #clock {
         background: transparent;
         color: #bdbdbd;
-        padding-right: 2px;
-        padding-left: 2px;
+        padding-right: 3px;
+        padding-left: 3px;
       }
 
 

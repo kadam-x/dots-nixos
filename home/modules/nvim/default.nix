@@ -4,7 +4,6 @@
 
   imports = [
     ./plugins/barbar.nix
-    # ./plugins/colorscheme.nix
     ./plugins/colorscheme.nix
     ./plugins/lualine.nix
     ./plugins/blink.nix
@@ -34,11 +33,11 @@
         -- SETTINGS
         -- =============================================================================
 
+        vim.opt.showtabline = 2  
         vim.diagnostic.config({ signs = false })
         vim.g.loaded_netrw = 1
         vim.g.loaded_netrwPlugin = 1
         vim.opt.showmode = false
-        vim.opt.showtabline = 2
         vim.opt.laststatus = 3
         vim.g.neovide_refresh_rate = 60
         vim.opt.termguicolors = true
