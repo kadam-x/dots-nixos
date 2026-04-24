@@ -92,7 +92,7 @@
       #clock, #tray, #cpu, #memory, #disk,
       #network, #pulseaudio, #battery, #clock {
         background: transparent;
-        color: #ffffe4;
+        color: #bdbdbd;
         padding-right: 2px;
         padding-left: 2px;
       }
