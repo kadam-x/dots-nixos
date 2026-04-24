@@ -8,10 +8,10 @@
         layer = "top";
         "modules-left" = [ 
           "sway/workspaces"
-          "tray"
         ];
         "modules-center" = ["clock"];
         "modules-right" = [
+          "tray"
           "pulseaudio"
           "disk"
           "group/sysinfo"
@@ -29,23 +29,23 @@
           format = "{icon}";
         };
         cpu = {
-          format = "  {usage}%";
+          format = " {usage}%";
           interval = 2;
           tooltip = false;
         };
         memory = {
-          format = "  {percentage}%";
+          format = " {percentage}%";
           interval = 2;
           tooltip = false;
         };
         disk = {
           interval = 30;
-          format = "󰋊  {percentage_used}%";
+          format = "󰋊 {percentage_used}%";
           path = "/";
           tooltip = false;
         };
         pulseaudio = {
-          format = "{icon}  {volume}%";
+          format = "{icon} {volume}%";
           format-muted = "󰝟  {volume}%";
           format-icons = {
             default = [ "󰕿" "󰖀" "󰕾" ];
@@ -63,13 +63,13 @@
         };
         network = {
           format-wifi = "{icon}  {essid}";
-          format-ethernet = "󰈀  eth";
+          format-ethernet = "󰈀 eth";
           format-disconnected = "󰖪";
           format-icons = [ "󰤯" "󰤟" "󰤢" "󰤥" "󰤨" ];
           tooltip = false;
         };
         clock = {
-          format = "{:%A %H:%M:%S %d/%m/%Y}";
+          format = "{:%a %H:%M:%S %d/%m}";
           interval = 1;
         };
       }
@@ -80,30 +80,25 @@
         border-radius: 0;
         min-height: 0;
         font-family: "Monospace";
-        font-size: 16px;
+        font-size: 15px;
         padding: 0;
         margin: 0;
       }
 
       window#waybar {
-        background-color: rgba(8, 8, 8, 0.85);
-        padding: 1px 8px;
+        background-color: #000000;
       }
 
       #clock, #tray, #cpu, #memory, #disk,
-      #network, #pulseaudio, #battery {
+      #network, #pulseaudio, #battery, #clock {
         background: transparent;
         color: #ffffe4;
-        margin: 2px 4px;
-        padding: 0 6px;
+        padding-right: 2px;
+        padding-left: 2px;
       }
 
-      #clock {
-        padding: 0 10px;
-        color: #ffffe4;
-      }
 
-      #battery.warning  { color: #ffffe4; }
+      #battery.warning  { color: #000000; }
       #battery.critical { color: #ff5454; }
       #battery.charging { color: #8cc85f; }
       #network.disconnected { color: #ff5454; }
@@ -114,9 +109,9 @@
         padding-left: 0;
       }
 
-      #workspaces button         { color: #ffffe4; background-color: transparent; margin: 0 2px; padding: 0 0px; }
-      #workspaces button.focused { background-color: #ffffe4; color: rgba(0, 0, 0, 0.7); margin: 0 2px; padding: 0 0px; }
-      #workspaces button.urgent  { background-color: #ff5454; color: #ffffe4; margin: 0 2px; padding: 0 0px; }
+      #workspaces button         { color: rgba(255, 255, 255, 0.4); background-color: transparent; margin: 0 0px; padding: 0 0px; }
+      #workspaces button.focused { background-color: rgba(255, 255, 255, 0.4); color: rgba(255, 255, 255, 1); margin: 0 0px; padding: 0 0px; border-bottom: 1px solid #ffffff }
+      #workspaces button.urgent  { background-color: #ff5454; color: #000000; margin: 0 0px; padding: 0 0px; }
 
       #workspaces button:hover {
         background: rgba(178, 178, 178, 0.08);
@@ -125,7 +120,7 @@
       tooltip {
         background-color: #121212;
         border: 1px solid #373c40;
-        color: #ffffe4;
+        color: #000000;
       }
     '';
   };
