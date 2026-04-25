@@ -3,9 +3,9 @@
   programs.nvf.settings.vim = {
     theme.enable = false;
     extraPlugins.moonfly = {
-      package = pkgs.vimPlugins.vim-moonfly-colors;
+      package = pkgs.vimPlugins.vague-nvim;
       setup = ''
-        vim.cmd.colorscheme("moonfly")
+        vim.cmd.colorscheme("vague")
       '';
     };
   };

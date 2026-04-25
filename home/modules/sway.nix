@@ -9,9 +9,9 @@
       defaultWorkspace = "workspace number 1";
       bars = [];
       gaps = {
-        inner = 0;
-        outer = 0;
-        smartGaps = true;
+        inner = 5;
+        outer = 10;
+        smartGaps = false;
         smartBorders = "on";
       };
       colors = {};
@@ -43,36 +43,8 @@
           command = "floating enable, resize set 800 600, move position center";
         }
         {
-          criteria = { app_id = "ncdu"; };
-          command = "floating enable, resize set 1000 800, move position center";
-        }
-        {
-          criteria = { app_id = "btop"; };
-          command = "floating enable, resize set 1000 800, move position center";
-        }
-        {
           criteria = { app_id = "swayimg"; };
           command = "floating enable";
-        }
-        {
-          criteria = { app_id = "nmtui"; };
-          command = "floating enable, resize set 600 400, move position center";
-        }
-        {
-          criteria = { app_id = "impala"; };
-          command = "floating enable, resize set 800 500, move position center";
-        }
-        {
-          criteria = { app_id = "bluetui"; };
-          command = "floating enable, resize set 800 500, move position center";
-        }
-        {
-          criteria = { app_id = "vlc"; };
-          command = "focus";
-        }
-        {
-          criteria = { app_id = "qtws"; };
-          command = "focus";
         }
       ];
       keybindings =
