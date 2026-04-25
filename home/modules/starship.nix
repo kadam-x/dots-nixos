@@ -57,7 +57,7 @@
         deleted = "[-$count](bold red)";
         ahead = "[󰄿$count](bold)";
         behind = "[󰄼$count](bold)";
-        diverged = "[󱓊$ahead_count󱓋$behind_count](bold)";
+        diverged = "[󰄿$ahead_count󰄼$behind_count](bold)";
       };
       hostname = {
         ssh_only = true;
