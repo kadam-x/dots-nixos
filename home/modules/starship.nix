@@ -12,11 +12,11 @@
         error_symbol = "[>](bold red)";
       };
       directory = {
-        style = "bold blue";
+        style = "bold white";
         read_only = " 󰌾";
         truncation_length = 3;
         truncate_to_repo = true;
-        format = "[$path]($style)[$read_only]($read_only_style) ";
+        format = "[$path]($style) ";
       };
       python = {
         symbol = "";
@@ -44,11 +44,12 @@
         style = "bold";
       };
       git_branch = {
-        format = "[$branch]($style) ";
-        style = "bold cyan";
+        symbol = "git:";
+        style = "bold #444444";
+        format = "[$symbol$branch]($style)";
       };
       git_status = {
-        style = "bold";
+        style = "bold #444444";
         untracked = "";
         modified = "[!$count](bold yellow)";
         staged = "[+$count](bold green)";
