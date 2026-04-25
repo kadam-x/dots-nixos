@@ -9,9 +9,9 @@
       defaultWorkspace = "workspace number 1";
       bars = [];
       gaps = {
-        inner = 5;
-        outer = 10;
-        smartGaps = false;
+        inner = 0;
+        outer = 0;
+        smartGaps = true;
         smartBorders = "on";
       };
       colors = {};

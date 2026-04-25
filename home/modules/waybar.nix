@@ -74,13 +74,13 @@
         border: none;
         border-radius: 0;
         min-height: 0;
-        font-family: "Symbols Nerd Font", "Monospace";
+        font-family: "Monospace";
         font-size: 16px;
         padding: 0;
         margin: 0;
       }
       window#waybar {
-        background-color: rgba(0, 0, 0, 0.85);
+        background-color: rgba(13, 17, 22, 0.85);
       }
       #workspaces {
         background: transparent;
