@@ -8,7 +8,6 @@
     ./modules/starship.nix
     ./modules/tmux.nix
     ./modules/tofi.nix
-    ./modules/qutebrowser.nix
     ./modules/yazi.nix
     ./modules/foot.nix
     ./modules/dunst.nix
