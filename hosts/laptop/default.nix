@@ -17,8 +17,6 @@
   networking.enableIPv6 = false;
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.ly.enableGnomeKeyring = true;
   nix.gc = {
     automatic = true;
     dates = "weekly";
