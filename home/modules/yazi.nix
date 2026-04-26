@@ -35,7 +35,7 @@
         { run = 'swayimg "$@"', orphan = true, for = "unix" },
       ]
       play = [
-        { run = 'vlc "$@"', orphan = true, for = "unix" },
+        { run = 'mpv "$@"', orphan = true, for = "unix" },
       ]
       pdf = [
         { run = 'sioyek "$@"', orphan = true, for = "unix" },

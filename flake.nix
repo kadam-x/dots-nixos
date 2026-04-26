@@ -9,6 +9,10 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -16,6 +20,7 @@
       nixpkgs,
       home-manager,
       nvf,
+      noctalia,
       ...
     }:
     let
@@ -30,15 +35,20 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "bak";
+              home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.kadam-x = {
                 imports = [
                   nvf.homeManagerModules.default
+                  noctalia.homeModules.default
                   ./home/${host}.nix
                 ];
               };
             }
           ];
         };
+      inputs = {
+        inherit nixpkgs home-manager nvf noctalia;
+      };
     in
     {
       nixosConfigurations = {

@@ -105,12 +105,10 @@
           always = true;
         }
         { command = "/usr/lib/polkit-kde-authentication-agent-1"; }
-        { command = "dunst"; }
         { command = "wl-paste --type text --watch cliphist store"; }
         { command = "wl-paste --type image --watch cliphist store"; }
         { command = "qbittorrent --no-splash"; }
-        { command = "swww-daemon"; }
-        { command = "waybar"; }
+        { command = "noctalia-shell"; }
       ];
     };
     extraConfig = ''
@@ -122,4 +120,15 @@
       output eDP-1 resolution 1920x1080@60Hz position 0,0
     '';
   };
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = 60;
+        command = ''swaymsg "output * dpms off"'';
+        resumeCommand = ''swaymsg "output * dpms on"'';
+      }
+    ];
+  };
 }
+

@@ -9,6 +9,11 @@
     useOSProber = true;
     default = "2";
   };
+  # noctalia shell
+  nix.settings = {
+  extra-substituters = [ "https://noctalia.cachix.org" ];
+  extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+  };
   services.displayManager.ly.enable = true;
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
