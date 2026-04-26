@@ -76,7 +76,8 @@
         min-height: 0;
         font-family: "Monospace";
         font-size: 16px;
-        padding: 0;
+        padding-bottom: 1px;
+        padding-top: 1px;
         margin: 0;
       }
       window#waybar {

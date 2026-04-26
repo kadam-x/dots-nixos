@@ -11,7 +11,7 @@
           base06 = "#e9b3fd", base07 = "#ffffff", base08 = "#f16c75",
           base09 = "#e58f2a", base0A = "#f1fc79", base0B = "#37f499",
           base0C = "#04d1f9", base0D = "#987afb", base0E = "#fca6ff",
-          base0F = "#9ad900",
+          base0F = "#c4ff33",
         })
         -- UI Base
         vim.api.nvim_set_hl(0, "Normal",      { fg = "#ffffff", bg = "#0D1116" })
@@ -31,7 +31,7 @@
         vim.api.nvim_set_hl(0, "Function",   { fg = "#04d1f9" })
         vim.api.nvim_set_hl(0, "String",     { fg = "#37f499" })
         vim.api.nvim_set_hl(0, "Constant",   { fg = "#fca6ff" })
-        vim.api.nvim_set_hl(0, "Type",       { fg = "#9ad900" })
+        vim.api.nvim_set_hl(0, "Type",       { fg = "#c4ff33" })
         vim.api.nvim_set_hl(0, "Number",     { fg = "#e58f2a" })
         vim.api.nvim_set_hl(0, "Operator",   { fg = "#04d1f9" })
         vim.api.nvim_set_hl(0, "Identifier", { fg = "#ffffff" })
