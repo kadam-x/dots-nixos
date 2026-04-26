@@ -221,8 +221,8 @@
     "smoothScrollEnabled": true
   },
   "ui": {
-    "fontDefault": "IosevkaTerm NF",
-    "fontFixed": "IosevkaTerm NFM",
+    "fontDefault": "Iosevka Nerd Font Mono",
+    "fontFixed": "Iosevka Nerd Font Mono",
     "fontDefaultScale": 1,
     "fontFixedScale": 1,
     "tooltipsEnabled": true,
