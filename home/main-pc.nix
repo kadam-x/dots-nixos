@@ -26,7 +26,6 @@
     wget
     git
     tofi
-    qutebrowser
     slurp
     grim
     yazi

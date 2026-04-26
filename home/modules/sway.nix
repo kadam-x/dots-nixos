@@ -58,7 +58,7 @@
           "${mod}+equal" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
           "${mod}+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
           "${mod}+Return" = "exec foot";
-          "${mod}+b" = "exec qutebrowser";
+          "${mod}+b" = "exec brave";
           "${mod}+e" = "exec foot --app-id yazi -e yazi";
           "${mod}+a" = "exec tofi-drun | xargs swaymsg exec --";
           "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";

@@ -18,7 +18,7 @@
         vim.api.nvim_set_hl(0, "NormalNC",    { fg = "#b7bfce", bg = "#141b22" })
         vim.api.nvim_set_hl(0, "NormalFloat", { fg = "#ffffff", bg = "#141b22" })
         vim.api.nvim_set_hl(0, "CursorLine",  { bg = "#232e3b" })
-        vim.api.nvim_set_hl(0, "Visual",      { bg = "#3d2a5e" })
+        vim.api.nvim_set_hl(0, "Visual",      { bg = "#29124f" })
         vim.api.nvim_set_hl(0, "Search",      { bg = "#3d2a5e", fg = "#ffffff" })
         vim.api.nvim_set_hl(0, "Comment",     { fg = "#b7bfce", italic = true })
         vim.api.nvim_set_hl(0, "LineNr",      { fg = "#232e3b" })
