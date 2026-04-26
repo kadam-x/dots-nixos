@@ -19,6 +19,7 @@
       show_hidden    = true
       show_symlink   = true
       scrolloff      = 5
+      confirm_on_quit = false
       title_format   = "Yazi: {cwd}"
 
       [preview]

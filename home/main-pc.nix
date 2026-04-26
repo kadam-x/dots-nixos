@@ -8,7 +8,7 @@
     ./modules/tmux.nix
     ./modules/tofi.nix
     ./modules/yazi.nix
-    ./modules/foot.nix
+    ./modules/ghostty.nix
   ];
 
   home.username = "kadam-x";
@@ -81,5 +81,6 @@
     wiremix
     qbittorrent
     obs-studio
+    ghostty
   ];
 }

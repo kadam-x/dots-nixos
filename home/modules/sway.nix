@@ -5,7 +5,7 @@
     checkConfig = false;
     config = {
       modifier = "Mod4";
-      terminal = "foot";
+      terminal = "ghostty";
       defaultWorkspace = "workspace number 1";
       bars = [];
       gaps = {
@@ -35,10 +35,6 @@
           command = "floating enable, resize set 800 600, move position center";
         }
         {
-          criteria = { app_id = "yazi"; };
-          command = "floating enable, resize set 1200 1000, move position center";
-        }
-        {
           criteria = { app_id = "org.qbittorrent.qBittorrent"; };
           command = "floating enable, resize set 800 600, move position center";
         }
@@ -57,11 +53,10 @@
           "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           "${mod}+equal" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
           "${mod}+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-          "${mod}+Return" = "exec foot";
+          "${mod}+Return" = "exec ghostty";
           "${mod}+b" = "exec brave";
-          "${mod}+e" = "exec foot --app-id yazi -e yazi";
-          "${mod}+a" = "exec tofi-drun | xargs swaymsg exec --";
-          "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
+          "${mod}+e" = "exec ghostty --class=ghostty-yazi -e yazi";
+          "${mod}+a" = "exec noctalia-shell ipc call launcher toggle";
           "${mod}+u" = "exec hyprpicker -a";
           "${mod}+n" =
             "exec bash -c 'obsidian \"obsidian://new?vault=notes&file=quicknotes/$(date +%Y-%m-%d-%H%M).md\" && swaymsg [title=\"Obsidian\"] focus'";
@@ -113,8 +108,8 @@
     };
     extraConfig = ''
       floating_modifier Mod4 normal
-      default_border pixel 1
-      default_floating_border pixel 1
+      default_border pixel 0
+      default_floating_border pixel 0
 
       output DP-1 resolution 2560x1440@240Hz position 0,0
       output eDP-1 resolution 1920x1080@60Hz position 0,0
@@ -131,4 +126,3 @@
     ];
   };
 }
-

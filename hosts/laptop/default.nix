@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
   boot.loader.efi.canTouchEfiVariables = true;
@@ -9,6 +9,8 @@
     useOSProber = true;
     default = "2";
   };
+  programs.sway.extraPackages = lib.mkForce [];
+  programs.foot.enable = false;
   # noctalia shell
   nix.settings = {
   extra-substituters = [ "https://noctalia.cachix.org" ];
