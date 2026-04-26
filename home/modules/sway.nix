@@ -60,7 +60,8 @@
           "${mod}+Return" = "exec foot";
           "${mod}+b" = "exec brave";
           "${mod}+e" = "exec foot --app-id yazi -e yazi";
-          "${mod}+a" = "exec noctalia-shell ipc call launcher toggle";
+          "${mod}+a" = "exec tofi-drun | xargs swaymsg exec --";
+          "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
           "${mod}+u" = "exec hyprpicker -a";
           "${mod}+n" =
             "exec bash -c 'obsidian \"obsidian://new?vault=notes&file=quicknotes/$(date +%Y-%m-%d-%H%M).md\" && swaymsg [title=\"Obsidian\"] focus'";
@@ -104,10 +105,12 @@
           always = true;
         }
         { command = "/usr/lib/polkit-kde-authentication-agent-1"; }
+        { command = "dunst"; }
         { command = "wl-paste --type text --watch cliphist store"; }
         { command = "wl-paste --type image --watch cliphist store"; }
         { command = "qbittorrent --no-splash"; }
-        { command = "noctalia-shell"; }
+        { command = "swww-daemon"; }
+        { command = "waybar"; }
       ];
     };
     extraConfig = ''
@@ -118,15 +121,5 @@
       output DP-1 resolution 2560x1440@240Hz position 0,0
       output eDP-1 resolution 1920x1080@60Hz position 0,0
     '';
-  };
-  services.swayidle = {
-    enable = true;
-    timeouts = [
-      {
-        timeout = 60;
-        command = ''swaymsg "output * dpms off"'';
-        resumeCommand = ''swaymsg "output * dpms on"'';
-      }
-    ];
   };
 }

@@ -51,7 +51,7 @@
                 vim.keymap.set("n", "<leader>fk", function() Snacks.picker.keymaps({ confirm = "edit" }) end, { desc = "Keymaps" })
                 vim.keymap.set("n", "<leader>fd", function() Snacks.picker.diagnostics() end,        { desc = "Diagnostics" })
                 vim.keymap.set("n", "<leader>fc", function() Snacks.picker.files({ cwd = "/etc/nixos/home/modules/nvim" }) end, { desc = "Neovim Config Files" })
-                vim.keymap.set("n", "<leader>t", function() Snacks.picker.grep({ search = "TODO|PERF|HACK|NOTE|FIX|FIXME", live = false }) end, { desc = "TODO list" })
+                vim.keymap.set("n", "<leader>t", function() Snacks.picker.grep({ search = "TODO|NOTE|FIX|FIXME", live = false }) end, { desc = "TODO list" })
                 vim.keymap.set("n", "X", function() Snacks.bufdelete() end, { desc = "Delete Buffer" })
       '';
     };

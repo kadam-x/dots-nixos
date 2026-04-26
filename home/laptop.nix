@@ -9,6 +9,7 @@
     ./modules/tofi.nix
     ./modules/yazi.nix
     ./modules/foot.nix
+    ./modules/waybar.nix
   ];
 
   home.username = "kadam-x";
@@ -44,12 +45,7 @@
     style.name = "adwaita-dark";
   };
 
-  programs.noctalia-shell = {
-    enable = true;
-  };
-
   home.packages = with pkgs; [
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     wget
     git
     tofi
@@ -64,6 +60,7 @@
     brave
     cmake
     dbeaver-bin
+    vlc
     gimp
     telegram-desktop
     obsidian
@@ -77,6 +74,10 @@
     uv
     eza
     bluetui
+    impala
     lazygit
+    wifitui
+    libnotify
+    swww
   ];
 }
