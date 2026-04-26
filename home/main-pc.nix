@@ -8,7 +8,7 @@
     ./modules/tmux.nix
     ./modules/tofi.nix
     ./modules/yazi.nix
-    ./modules/ghostty.nix
+    ./modules/foot.nix
   ];
 
   home.username = "kadam-x";

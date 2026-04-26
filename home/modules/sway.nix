@@ -5,7 +5,7 @@
     checkConfig = false;
     config = {
       modifier = "Mod4";
-      terminal = "ghostty";
+      terminal = "foot";
       defaultWorkspace = "workspace number 1";
       bars = [];
       gaps = {
@@ -35,6 +35,10 @@
           command = "floating enable, resize set 800 600, move position center";
         }
         {
+          criteria = { app_id = "yazi"; };
+          command = "floating enable, resize set 1200 1000, move position center";
+        }
+        {
           criteria = { app_id = "org.qbittorrent.qBittorrent"; };
           command = "floating enable, resize set 800 600, move position center";
         }
@@ -53,9 +57,9 @@
           "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
           "${mod}+equal" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
           "${mod}+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-          "${mod}+Return" = "exec ghostty";
+          "${mod}+Return" = "exec foot";
           "${mod}+b" = "exec brave";
-          "${mod}+e" = "exec ghostty --class=ghostty-yazi -e yazi";
+          "${mod}+e" = "exec foot --app-id yazi -e yazi";
           "${mod}+a" = "exec noctalia-shell ipc call launcher toggle";
           "${mod}+u" = "exec hyprpicker -a";
           "${mod}+n" =
