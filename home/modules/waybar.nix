@@ -81,7 +81,7 @@
         margin: 0;
       }
       window#waybar {
-        background-color: rgba(13, 17, 22, 0.85);
+        background-color: rgba(0, 0, 0, 0.85);
       }
       #workspaces {
         background: transparent;

@@ -10,6 +10,7 @@
     ./modules/yazi.nix
     ./modules/foot.nix
     ./modules/waybar.nix
+    ./modules/dunst.nix
   ];
 
   home.username = "kadam-x";

@@ -64,7 +64,7 @@
           "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
           "${mod}+u" = "exec hyprpicker -a";
           "${mod}+n" =
-            "exec bash -c 'obsidian \"obsidian://new?vault=notes&file=quicknotes/$(date +%Y-%m-%d-%H%M).md\" && swaymsg [title=\"Obsidian\"] focus'";
+            "exec bash -c 'obsidian \"obsidian://new?vault=notes&file=/$(date +%Y-%m-%d-%H%M).md\" && swaymsg [title=\"Obsidian\"] focus'";
           "${mod}+p" = "exec bash ~/.config/tofi/scripts/project-picker";
           "${mod}+m" = "exec bash ~/.config/tofi/scripts/system";
           "${mod}+w" = "exec bash ~/.config/tofi/scripts/wallpaper-picker";

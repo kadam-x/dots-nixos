@@ -9,6 +9,7 @@
     ./modules/tofi.nix
     ./modules/yazi.nix
     ./modules/foot.nix
+    ./modules/dunst.nix
     ./modules/waybar.nix
   ];
 
