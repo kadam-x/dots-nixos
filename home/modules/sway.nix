@@ -58,12 +58,12 @@
           "${mod}+equal" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
           "${mod}+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
           "${mod}+Return" = "exec foot";
-          "${mod}+b" = "exec brave";
-          "${mod}+e" = "exec foot --app-id yazi -e yazi";
+          "${mod}+Shift+b" = "exec brave";
+          "${mod}+Shift+f" = "exec foot --app-id yazi -e yazi";
           "${mod}+a" = "exec tofi-drun | xargs swaymsg exec --";
           "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
           "${mod}+u" = "exec hyprpicker -a";
-          "${mod}+n" =
+          "${mod}+Shift+n" =
             "exec bash -c 'obsidian \"obsidian://new?vault=notes&file=/$(date +%Y-%m-%d-%H%M).md\" && swaymsg [title=\"Obsidian\"] focus'";
           "${mod}+p" = "exec bash ~/.config/tofi/scripts/project-picker";
           "${mod}+m" = "exec bash ~/.config/tofi/scripts/system";
