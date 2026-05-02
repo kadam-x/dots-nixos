@@ -2,6 +2,7 @@
 {
   wayland.windowManager.sway = {
     enable = true;
+    package = null;
     checkConfig = false;
     config = {
       modifier = "Mod4";

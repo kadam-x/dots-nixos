@@ -9,10 +9,6 @@
       url = "github:notashelf/nvf";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs =
     {
@@ -20,7 +16,6 @@
       nixpkgs,
       home-manager,
       nvf,
-      noctalia,
       ...
     }:
     let
@@ -39,7 +34,6 @@
               home-manager.users.kadam-x = {
                 imports = [
                   nvf.homeManagerModules.default
-                  noctalia.homeModules.default
                   ./home/${host}.nix
                 ];
               };
@@ -47,7 +41,7 @@
           ];
         };
       inputs = {
-        inherit nixpkgs home-manager nvf noctalia;
+        inherit nixpkgs home-manager nvf;
       };
     in
     {
@@ -56,5 +50,15 @@
         laptop = mkSystem "laptop";
         server = mkSystem "server";
       };
+	homeConfigurations = {
+        "kadamx" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = { inherit inputs; };
+          modules = [
+           nvf.homeManagerModules.default
+           ./home/main-pc.nix
+          ];
+       };
     };
+  };
 }

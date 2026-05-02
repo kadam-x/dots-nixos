@@ -12,11 +12,16 @@
     ./modules/waybar.nix
     ./modules/dunst.nix
   ];
-
-  home.username = "kadam-x";
-  home.homeDirectory = "/home/kadam-x";
+  home.username = "kadamx";
+  home.homeDirectory = "/home/kadamx";
   home.stateVersion = "25.11";
-
+  nixpkgs.config.allowUnfree = true;
+  fonts.fontconfig.enable = true;
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    WLR_NO_HARDWARE_CURSORS = "1";
+    LIBVA_DRIVER_NAME = "radeonsi";
+  };
   home.pointerCursor = {
     name = "Adwaita";
     package = pkgs.adwaita-icon-theme;
@@ -24,13 +29,11 @@
     gtk.enable = true;
     x11.enable = true;
   };
-
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
     };
   };
-
   gtk = {
     enable = true;
     gtk4.theme = null;
@@ -39,13 +42,11 @@
       package = pkgs.gnome-themes-extra;
     };
   };
-
   qt = {
     enable = true;
     platformTheme.name = "gtk";
     style.name = "adwaita-dark";
   };
-
   home.packages = with pkgs; [
     wget
     git
@@ -57,18 +58,12 @@
     ripgrep
     ncdu
     pulsemixer
-    brave
     cmake
     dbeaver-bin
-    vlc
-    gimp
-    telegram-desktop
-    obsidian
     lutgen
     nodejs_24
     bun
     mpv
-    opencode
     swayimg
     uv
     eza
@@ -76,10 +71,9 @@
     lazygit
     hyprpicker
     wiremix
-    qbittorrent
-    obs-studio
     libnotify
     swww
-    prismlauncher
+    noto-fonts
+    noto-fonts-color-emoji
   ];
 }

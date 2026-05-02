@@ -59,8 +59,6 @@
       }
       zle -N _z_tab
       bindkey '\t' _z_tab
-
-      eval "$(direnv hook zsh)"
     '';
   };
 
