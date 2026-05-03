@@ -10,12 +10,20 @@
       defaultWorkspace = "workspace number 1";
       bars = [];
       gaps = {
-        inner = 0;
-        outer = 0;
-        smartGaps = true;
-        smartBorders = "on";
+        inner = 5;
+        outer = 5;
+        smartGaps = false;
+        smartBorders = "off";
       };
-      colors = {};
+      colors = {
+        focused = {
+          border = "#d1d1d1";
+          background = "#d1d1d1";
+          text = "#000000";
+          indicator = "#d1d1d1";
+          childBorder = "#d1d1d1";
+        };
+      };
       input = {
         "type:keyboard" = {
           xkb_layout = "us,hu";
@@ -59,24 +67,24 @@
           "${mod}+equal" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
           "${mod}+minus" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
           "${mod}+Return" = "exec foot";
-          "${mod}+Shift+b" = "exec brave";
+          "${mod}+Shift+b" = "exec helium-browser";
           "${mod}+Shift+f" = "exec foot --app-id yazi -e yazi";
           "${mod}+a" = "exec tofi-drun | xargs swaymsg exec --";
-          "${mod}+period" = "exec jome -dCLRkw16 -d | wl-copy";
           "${mod}+u" = "exec hyprpicker -a";
           "${mod}+Shift+n" =
-            "exec bash -c 'obsidian \"obsidian://new?vault=notes&file=/$(date +%Y-%m-%d-%H%M).md\" && swaymsg [title=\"Obsidian\"] focus'";
+            "exec bash -c 'exec obsidian'";
           "${mod}+p" = "exec bash ~/.config/tofi/scripts/project-picker";
-          "${mod}+m" = "exec bash ~/.config/tofi/scripts/system";
           "${mod}+w" = "exec bash ~/.config/tofi/scripts/wallpaper-picker";
           "${mod}+Shift+s" =
             "exec sh -c 'grim -g \"$(slurp)\" - | tee ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png | wl-copy'";
           "${mod}+q" = "kill";
-          "${mod}+v" = "floating toggle";
+          "${mod}+f" = "floating toggle";
+          "${mod}+v" = "exec foot --app-id wiremix -e pulsemixer"; 
+          "${mod}+m" = "exec foot --app-id btop -e btop";
           "${mod}+j" = "focus left";
           "${mod}+k" = "focus right";
-          "${mod}+h" = "exec swaymsg resize shrink right 5ppt || swaymsg resize grow left 5ppt";
-          "${mod}+l" = "exec swaymsg resize grow right 5ppt || swaymsg resize shrink left 5ppt";
+          "${mod}+h" = "exec swaymsg resize shrink right 10ppt || swaymsg resize grow left 10ppt";
+          "${mod}+l" = "exec swaymsg resize grow right 10ppt || swaymsg resize shrink left 10ppt";
           "${mod}+Ctrl+j" = "move left";
           "${mod}+Ctrl+k" = "move right";
           "${mod}+1" = "workspace number 1";
@@ -116,8 +124,8 @@
     };
     extraConfig = ''
       floating_modifier Mod4 normal
-      default_border pixel 0
-      default_floating_border pixel 0
+      default_border pixel 1
+      default_floating_border pixel 1
 
       output DP-1 resolution 2560x1440@240Hz position 0,0
       output eDP-1 resolution 1920x1080@60Hz position 0,0

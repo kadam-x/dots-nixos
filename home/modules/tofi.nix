@@ -73,25 +73,5 @@
         fi
       '';
     };
-    "tofi/scripts/system" = {
-      executable = true;
-      text = ''
-        #!/usr/bin/env bash
-        if [ -d /sys/class/power_supply/BAT0 ]; then
-          options="pulsemixer\nbtop\nncdu\nwifi\nbluetooth"
-        else
-          options="pulsemixer\nbtop\nncdu"
-        fi
-
-        choice=$(printf "$options" | tofi --prompt-text "system > ")
-        case "$choice" in
-          "pulsemixer") foot --app-id wiremix -e pulsemixer & ;;
-          "btop")       foot --app-id btop -e btop & ;;
-          "ncdu")       foot --app-id ncdu -e ncdu / & ;;
-          "wifi")       foot --app-id wifitui -e wifitui & ;;
-          "bluetooth")  foot --app-id bluetui -e bluetui & ;;
-        esac
-    '';
-    };
   };
 }

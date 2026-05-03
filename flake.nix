@@ -5,17 +5,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvf = {
-      url = "github:notashelf/nvf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
   outputs =
     {
       self,
       nixpkgs,
       home-manager,
-      nvf,
       ...
     }:
     let
@@ -33,7 +28,6 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.users.kadam-x = {
                 imports = [
-                  nvf.homeManagerModules.default
                   ./home/${host}.nix
                 ];
               };
@@ -41,7 +35,6 @@
           ];
         };
       inputs = {
-        inherit nixpkgs home-manager nvf;
       };
     in
     {
@@ -55,7 +48,6 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           extraSpecialArgs = { inherit inputs; };
           modules = [
-           nvf.homeManagerModules.default
            ./home/main-pc.nix
           ];
        };
